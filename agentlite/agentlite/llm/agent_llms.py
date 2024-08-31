@@ -3,6 +3,9 @@ from langchain.prompts import PromptTemplate
 from openai import OpenAI
 
 from agentlite.llm.LLMConfig import LLMConfig
+from langchain_community.llms import Ollama
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_ollama.llms import OllamaLLM
 
 OPENAI_CHAT_MODELS = [
     "gpt-3.5-turbo",
@@ -16,6 +19,11 @@ OPENAI_CHAT_MODELS = [
     "gpt-4-1106-preview",
 ]
 OPENAI_LLM_MODELS = ["text-davinci-003", "text-ada-001"]
+
+OLLAMA_MODELS = [
+    "llama2",
+    "gemma2:2b"
+]
 
 
 class BaseLLM:
@@ -91,24 +99,22 @@ class LangchainChatModel(BaseLLM):
         return self.llm_chain.run(prompt)
 
 
-# class LangchainOllamaLLM(BaseLLM):
-#     def __init__(self, llm_config: LLMConfig):
-#         from langchain_community.llms import Ollama
+class LangchainOllamaLLM(BaseLLM):
+    def __init__(self, llm_config: LLMConfig):
+        # super().__init__(llm_config)
+        llm = OllamaLLM(
+            model=self.llm_name,
+            temperature=self.temperature,
+            num_predict=self.max_tokens,
+            base_url=llm_config.base_url
+            # api_key=llm_config.api_key,
+        )
+        human_template = "{prompt}"
+        prompt = PromptTemplate(template=human_template, input_variables=["prompt"])
+        self.llm_chain = LLMChain(prompt=prompt, llm=llm)
 
-#         super().__init__(llm_config)
-#         llm = Ollama(
-#             model=self.llm_name,
-#             temperature=self.temperature,
-#             num_predict=self.max_tokens,
-#             base_url=llm_config.base_url
-#             # api_key=llm_config.api_key,
-#         )
-#         human_template = "{prompt}"
-#         prompt = PromptTemplate(template=human_template, input_variables=["prompt"])
-#         self.llm_chain = LLMChain(prompt=prompt, llm=llm)
-
-#     def run(self, prompt: str):
-#         return self.llm_chain.run(prompt)
+    def run(self, prompt: str):
+        return self.llm_chain.run(prompt)
 
 def get_llm_backend(llm_config: LLMConfig):
     llm_name = llm_config.llm_name
@@ -117,6 +123,8 @@ def get_llm_backend(llm_config: LLMConfig):
         return LangchainChatModel(llm_config)
     elif llm_name in OPENAI_LLM_MODELS:
         return LangchainLLM(llm_config)
+    elif llm_name in OLLAMA_MODELS:
+        return LangchainOllamaLLM(llm_config)
     else:
         return LangchainLLM(llm_config)
     # TODO: add more llm providers and inference APIs but for now we are using langchainLLM as the default

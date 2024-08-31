@@ -16,4 +16,6 @@ requests_cache==1.2.0
 retry_requests==2.0.0
 
 ## UI dependencies
-# streamlit
+streamlit
+langchain-ollama
+chainlit
