@@ -1,0 +1,18 @@
+streamlit==1.38.0
+pandas==2.2.2
+scikit-learn==1.5.1
+matplotlib==3.8.0
+seaborn==0.12.2
+openai==1.0.0  # Make sure you are using the version with the updated API.
+numpy==1.26.4
+requests==2.32.0
+PyYAML==6.0.2
+plotly==5.24.0  # Useful if you want to extend visualizations with Plotly.
+gitpython==3.1.43  # If you're using Git integration in your code.
+pytest==7.1.2  # For testing framework.
+python-dateutil==2.9.0  # For handling datetime in pandas.
+tqdm==4.66.1  # Optional, for progress bars in workflows.
+altair==5.4.1  # If you plan to use it for visualizations in Streamlit.
+
+# If you need the ability to manipulate zip files:
+zipfile36==0.1.3
