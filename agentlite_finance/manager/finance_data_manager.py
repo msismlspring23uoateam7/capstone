@@ -1,7 +1,7 @@
 import streamlit as st
-from prompts.finance_prompt import FinancePrompt
-from ...agentlite.agentlite.agents import ManagerAgent
-from ...agentlite.agentlite.logging.streamlit_logger import UILogger
+# from prompts.finance_prompt import FinancePrompt
+from agentlite.agents import ManagerAgent
+from agentlite.logging.streamlit_logger import UILogger
 
 class FinanceDataManagerAgent(ManagerAgent):
 
@@ -13,4 +13,4 @@ class FinanceDataManagerAgent(ManagerAgent):
             TeamAgents=team,
             logger=logger
         )
-        self.prompt_gen = FinancePrompt()
+        # self.prompt_gen = FinancePrompt()

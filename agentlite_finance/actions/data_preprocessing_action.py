@@ -1,24 +1,30 @@
 from sklearn.preprocessing import StandardScaler
-from ...agentlite.agentlite.actions.BaseAction import BaseAction
-from ...agentlite.agentlite.logging.streamlit_logger import UILogger
+from agentlite.actions.BaseAction import BaseAction
+from agentlite.logging.streamlit_logger import UILogger
+from agentlite_finance.memory.memory_keys import DATA_FRAME
 
-class DataPreProcessingAction(BaseAction):
+class PreProcessingAction(BaseAction):
 
     def __init__(
         self,
+        shared_mem
     ):
-        action_name = "DataPreProcessing"
+        action_name = "PreProcessing"
         action_desc = f"""This is a {action_name} action. 
                             It will preprocess and transform the given data"""
-        params_doc = {}
+        params_doc = {"query": "Let the data be pre-processed by this action."}
         super().__init__(
             action_name=action_name,
             action_desc=action_desc,
             params_doc=params_doc
         )
+        self.shared_mem = shared_mem
 
-    def __call__(self, data):
-        return self.process_data(data)
+    def __call__(self, query):
+        data = self.shared_mem.get(DATA_FRAME)
+        updated_data = self.process_data(data)
+        self.shared_mem.update(DATA_FRAME, updated_data)
+        return {"response": "Pre-Processing is done. Now, continue with next action."}
     
     def process_data(self, data):
         # Clean the data

@@ -1,5 +1,5 @@
 import pandas as pd
-from ...agentlite.agentlite.agent_prompts.prompt_utils import (
+from agentlite.agent_prompts.prompt_utils import (
     DEFAULT_PROMPT,
     PROMPT_TOKENS,
     action_chain_format,
@@ -7,7 +7,7 @@ from ...agentlite.agentlite.agent_prompts.prompt_utils import (
     format_agent_call_example,
     task_chain_format,
 )
-from ...agentlite.agentlite.agent_prompts.BasePrompt import ManagerPromptGen
+from agentlite.agent_prompts.BasePrompt import ManagerPromptGen
 
 class FinancePrompt(ManagerPromptGen):
 

@@ -2,32 +2,37 @@ import os
 import zipfile
 import pandas as pd
 from datetime import datetime
-from ...agentlite.agentlite.actions import BaseAction
+from agentlite.actions import BaseAction
+from agentlite_finance.memory.memory_keys import FILE
+from agentlite_finance.memory.memory_keys import DATA_FRAME
 
 class FileHandlerAction(BaseAction):
     def __init__(
         self,
-        file,
-        upload_dir="uploaded_files"
+        shared_mem,
+        upload_dir="uploaded_files",
     ):
         action_name = "FileHandler"
         action_desc = f"""This is a {action_name} action. 
                         It will take a csv as input and load it directly or
                         take a zip file as input, extract the csv file from it
                         and then load the csv file"""
-        params_doc = {}
+        params_doc = {"query": "Let the data be loaded from the file."}
         super().__init__(
             action_name=action_name,
             action_desc=action_desc,
             params_doc=params_doc
         )
-        self.file = file
+        self.shared_mem = shared_mem
         self.upload_dir = upload_dir
         if not os.path.exists(upload_dir):
             os.makedirs(upload_dir)
 
-    def __call__(self):
-        raise self.handle_uploaded_file(self.file)
+    def __call__(self, query):
+        self.file = self.shared_mem.get(FILE)
+        dataframe = self.handle_uploaded_file(self.file)
+        self.shared_mem.add(DATA_FRAME, dataframe)
+        return {"response": "File successfully processed and saved as data frame."}
 
     def handle_uploaded_file(self, uploaded_file):
         # Generate a unique file name with timestamp to avoid overwriting

@@ -1,25 +1,30 @@
 import seaborn as sns
 import streamlit as st
 import matplotlib.pyplot as plt
-from ...agentlite.agentlite.actions import BaseAction
+from agentlite.actions import BaseAction
+from agentlite_finance.memory.memory_keys import DATA_FRAME
 
 class VisualizationAction(BaseAction):
 
     def __init__(
         self,
+        shared_mem
     ):
         action_name = "Visualization"
         action_desc = f"""This is a {action_name} action. 
                         It will take the finance data and display relevant visualizations."""
-        params_doc = {}
+        params_doc = {"query": "Let the data be visualised by this action."}
         super().__init__(
             action_name=action_name,
             action_desc=action_desc,
             params_doc=params_doc
         )
+        self.shared_mem = shared_mem
 
-    def __call__(self, data):
-        raise self.visualize_data(data)
+    def __call__(self, query):
+        data = self.shared_mem.get(DATA_FRAME)
+        self.visualize_data(data)
+        return "OK"
 
     def visualize_data(self, data):
         # Check for numeric columns in the data
