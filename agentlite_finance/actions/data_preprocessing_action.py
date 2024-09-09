@@ -1,3 +1,4 @@
+import streamlit as st
 from sklearn.preprocessing import StandardScaler
 from agentlite.actions.BaseAction import BaseAction
 from agentlite.logging.streamlit_logger import UILogger
@@ -23,6 +24,8 @@ class PreProcessingAction(BaseAction):
     def __call__(self, query):
         data = self.shared_mem.get(DATA_FRAME)
         updated_data = self.process_data(data)
+        st.write("Processed Data:")
+        st.dataframe(updated_data)
         self.shared_mem.update(DATA_FRAME, updated_data)
         return {"response": "Pre-Processing is done. Now, continue with next action."}
     

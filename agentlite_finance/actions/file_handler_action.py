@@ -1,6 +1,7 @@
 import os
 import zipfile
 import pandas as pd
+import streamlit as st
 from datetime import datetime
 from agentlite.actions import BaseAction
 from agentlite_finance.memory.memory_keys import FILE
@@ -31,6 +32,8 @@ class FileHandlerAction(BaseAction):
     def __call__(self, query):
         self.file = self.shared_mem.get(FILE)
         dataframe = self.handle_uploaded_file(self.file)
+        st.write("Uploaded Data:")
+        st.dataframe(dataframe)
         self.shared_mem.add(DATA_FRAME, dataframe)
         return {"response": "File successfully processed and saved as data frame."}
 

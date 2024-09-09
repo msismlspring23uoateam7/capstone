@@ -14,15 +14,6 @@ from agentlite_finance.memory.memory_keys import DATA_FRAME
 
 
 # def execute_workflow(self):
-#     data = self.file_handler.handle_uploaded_file()
-#     st.write("Uploaded Data:")
-#     st.dataframe(data)
-
-#     # Process the data
-#     processed_data = self.data_processing_agent.process_data(data)
-#     st.write("Processed Data:")
-#     st.dataframe(processed_data)
-
 #     # Generate LLM insights
 #     insights = self.llm_processor.generate_insights(processed_data, task="general_analysis")
 #     st.write("LLM Insights:")
