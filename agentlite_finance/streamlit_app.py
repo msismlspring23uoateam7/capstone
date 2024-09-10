@@ -57,10 +57,23 @@ def main():
             logger=logger
         )
 
-        task_pack = TaskPackage(instruction="Start a finance data analysis pipeline")
-        response = summarization_agent(task_pack)
-        # response = finance_data_manager(task_pack)
-        st.write(response)
+        if "messages" not in st.session_state:
+            st.session_state.messages = []
+
+        if prompt := st.chat_input("Ask any question related to the shared data."):
+            # task_pack = TaskPackage(instruction="Start a finance data analysis pipeline")
+            task_pack = TaskPackage(instruction=prompt)
+            st.session_state.messages.append({"role": "user", "content": prompt})
+            with st.chat_message("user"):
+                st.markdown(prompt)
+            # response = summarization_agent(task_pack)
+            response = finance_data_manager(task_pack)
+            st.write(response)
+            # with st.chat_message("assistant"):
+            #     st.markdown(response)
+
+            st.session_state.messages.append({"role": "assistant", "content": response})
+
 
 if __name__ == "__main__":
     main()

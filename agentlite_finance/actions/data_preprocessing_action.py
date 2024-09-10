@@ -22,6 +22,8 @@ class PreProcessingAction(BaseAction):
         self.shared_mem = shared_mem
 
     def __call__(self, query):
+        if self.shared_mem.get(DATA_FRAME) is None:
+            return {"response": "Could not find dataframe. Load dataframe using FileHandler action first."}
         data = self.shared_mem.get(DATA_FRAME)
         updated_data = self.process_data(data)
         st.write("Processed Data:")
