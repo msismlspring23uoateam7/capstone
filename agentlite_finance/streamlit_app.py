@@ -29,7 +29,7 @@ def main():
                             "llm_name": "gpt-3.5-turbo",
                             "temperature": 0.7,
                             "max_tokens": 2000,
-                            "api_key": "DUMMY_KEY"
+                            "api_key": "sk-Vo7jCT5lrwMyJ1YeqpzmYvDaS9sYF4Xt_BPLSaiOywT3BlbkFJVP2JXFoP36HSMWqWluMD88AkB7t0KHJ8j-FM0BUngA"
                             }
         llm_config = LLMConfig(llm_config_dict)
         llm = get_llm_backend(llm_config)
@@ -41,15 +41,7 @@ def main():
         file_handler_action = FileHandlerAction(shared_mem)
         preprocessing_action = PreProcessingAction(shared_mem)
         visualization_action = VisualizationAction(shared_mem)
-        from agentlite_finance.agents.data_summarization_agent import DataSummarizationAgent
-        summarization_agent = DataSummarizationAgent(
-            api_key="DUMMY_KEY",
-            llm=llm,
-            actions=[file_handler_action, preprocessing_action, visualization_action, ],
-            shared_mem=shared_mem
-            )
         example_task, act_chain = InsightsExample().build_insights_example()
-        summarization_agent.add_example(task=example_task, action_chain=act_chain)
 
         from agentlite_finance.agents.insights_agent import DataInsightsAgent
         insights_agent = DataInsightsAgent(

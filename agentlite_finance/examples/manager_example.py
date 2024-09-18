@@ -6,6 +6,7 @@ from agentlite.actions import FinishAct
 from agentlite_finance.actions.file_handler_action import FileHandlerAction
 import pandas as pd
 
+#TODO needed later
 class ManagerExample:
     def build_manager_example(self):
         """

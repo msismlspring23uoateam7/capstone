@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from agentlite.actions import BaseAction
 from agentlite_finance.memory.memory_keys import DATA_FRAME
 
+#TODO update this file for stockcdata
 class VisualizationAction(BaseAction):
 
     def __init__(
