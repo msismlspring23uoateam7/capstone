@@ -10,14 +10,14 @@ from agentlite_finance.memory.memory_keys import DATA_FRAME
 class FileHandlerAction(BaseAction):
     def __init__(
         self,
-        shared_mem,
+        shared_mem: dict = None,
         upload_dir="uploaded_files",
     ):
         action_name = "FileHandler"
         action_desc = f"""This is a {action_name} action. 
                         It will take a csv as input and load it directly or
                         take a zip file as input, extract the csv file from it
-                        and then load the csv file"""
+                        and then load the csv file into dataframe"""
         params_doc = {"query": "Let the data be loaded from the file."}
         super().__init__(
             action_name=action_name,
@@ -35,7 +35,10 @@ class FileHandlerAction(BaseAction):
         st.write("Uploaded Data:")
         st.dataframe(dataframe)
         self.shared_mem.add(DATA_FRAME, dataframe)
-        return {"response": "File successfully processed and saved as data frame."}
+        truncated_dataframe = dataframe.iloc[:10, :25]
+        dataframe_string = truncated_dataframe.to_string(index=False)
+        prompt = f"""{dataframe_string}"""
+        return prompt
 
     def handle_uploaded_file(self, uploaded_file):
         # Generate a unique file name with timestamp to avoid overwriting

@@ -11,6 +11,7 @@ from agentlite.llm.LLMConfig import LLMConfig
 from agentlite_finance.memory.shared_memory import SharedMemory
 from agentlite_finance.memory.memory_keys import FILE
 from agentlite_finance.memory.memory_keys import DATA_FRAME
+from agentlite_finance.examples.insights_example import InsightsExample
 
 
 # def execute_workflow(self):
@@ -27,7 +28,8 @@ def main():
         llm_config_dict = {
                             "llm_name": "gpt-3.5-turbo",
                             "temperature": 0.7,
-                            "api_key": "DUMMY_KEY"
+                            "max_tokens": 2000,
+                            "api_key": "sk-Vo7jCT5lrwMyJ1YeqpzmYvDaS9sYF4Xt_BPLSaiOywT3BlbkFJVP2JXFoP36HSMWqWluMD88AkB7t0KHJ8j-FM0BUngA"
                             }
         llm_config = LLMConfig(llm_config_dict)
         llm = get_llm_backend(llm_config)
@@ -46,16 +48,29 @@ def main():
             actions=[file_handler_action, preprocessing_action, visualization_action, ],
             shared_mem=shared_mem
             )
+        example_task, act_chain = InsightsExample().build_insights_example()
+        summarization_agent.add_example(task=example_task, action_chain=act_chain)
+
+        from agentlite_finance.agents.insights_agent import DataInsightsAgent
+        insights_agent = DataInsightsAgent(
+            api_key="DUMMY_KEY",
+            llm=llm,
+            actions=[file_handler_action, preprocessing_action, visualization_action, ],
+            shared_mem=shared_mem
+            )
+        insights_agent.add_example(task=example_task, action_chain=act_chain)
 
         # Manager agent
         from agentlite_finance.manager.finance_data_manager import FinanceDataManagerAgent
         finance_data_manager = FinanceDataManagerAgent(
             llm=llm,
             team=[
-                    summarization_agent
+                    # summarization_agent,
+                    insights_agent
                 ],
             logger=logger
         )
+        # finance_data_manager.add_example(task=example_task, action_chain=act_chain)
 
         if "messages" not in st.session_state:
             st.session_state.messages = []

@@ -5,12 +5,12 @@ from agentlite.agents.BaseAgent import BaseAgent
 
 client = OpenAI(api_key="DUMMY_KEY")
 
-class DataSummarizationAgent(BaseAgent):
+class DataInsightsAgent(BaseAgent):
     def __init__(self, api_key, llm, actions, shared_mem, custom_templates=None):
-        agent_name="DataSummarization"
-        agent_role="""You are a data summarization agent who is familiar
-                        with books, thoughts and techniques. Use your
-                        knowledge to summarize the given data.
+        agent_name="DataInsights"
+        agent_role="""You are an expert data Insights agent. Use your
+                        knowledge to generate elabulated insights of the data available in tabular form
+                        in the observation section.
                     """
         super().__init__(
             name=agent_name,

@@ -4,13 +4,13 @@ from agentlite.actions.BaseAction import BaseAction
 from agentlite.logging.streamlit_logger import UILogger
 from agentlite_finance.memory.memory_keys import DATA_FRAME
 
-class PreProcessingAction(BaseAction):
+class InsightsAction(BaseAction):
 
     def __init__(
         self,
         shared_mem
     ):
-        action_name = "PreProcessing"
+        action_name = "Insights"
         action_desc = f"""This is a {action_name} action. 
                             It will preprocess and transform the given data"""
         params_doc = {"query": "Let the data be pre-processed by this action."}

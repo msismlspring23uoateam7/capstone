@@ -12,7 +12,7 @@ class VisualizationAction(BaseAction):
     ):
         action_name = "Visualization"
         action_desc = f"""This is a {action_name} action. 
-                        It will take the finance data and display relevant visualizations."""
+                        It will take the data and display relevant visualizations."""
         params_doc = {"query": "Let the data be visualised by this action."}
         super().__init__(
             action_name=action_name,
@@ -24,7 +24,7 @@ class VisualizationAction(BaseAction):
     def __call__(self, query):
         data = self.shared_mem.get(DATA_FRAME)
         self.visualize_data(data)
-        return "OK"
+        return {"response": "Visualisations are created. Now, continue with next action based on the task."}
 
     def visualize_data(self, data):
         # Check for numeric columns in the data

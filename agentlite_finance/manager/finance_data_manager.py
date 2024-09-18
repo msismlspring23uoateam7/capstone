@@ -7,8 +7,8 @@ class FinanceDataManagerAgent(ManagerAgent):
 
     def __init__(self, llm, team, logger):
         super().__init__(
-            name="FinanceDataManager",
-            role="Manage the data pre-processing, LLM insights, and visualization for finance data",
+            name="DataManager",
+            role="Manage and Execute the pre-processing, insights, and visualization of data based on given task",
             llm=llm,
             TeamAgents=team,
             logger=logger
