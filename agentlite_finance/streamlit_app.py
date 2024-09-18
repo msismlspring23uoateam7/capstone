@@ -29,7 +29,7 @@ def main():
                             "llm_name": "gpt-3.5-turbo",
                             "temperature": 0.7,
                             "max_tokens": 2000,
-                            "api_key": "sk-Vo7jCT5lrwMyJ1YeqpzmYvDaS9sYF4Xt_BPLSaiOywT3BlbkFJVP2JXFoP36HSMWqWluMD88AkB7t0KHJ8j-FM0BUngA"
+                            "api_key": "DUMMY_KEY"
                             }
         llm_config = LLMConfig(llm_config_dict)
         llm = get_llm_backend(llm_config)
