@@ -2,6 +2,16 @@
 __pycache__/
 *.py[cod]
 *.pyo
+.chainlit/
+.files/
+bin/
+etc/
+include/
+lib/
+share/
+pyvenv.cfg
+uploaded_files/
+e2eFlow.txt
 
 # Virtual environment
 env/
