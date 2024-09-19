@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 
 from agentlite.llm.agent_llms import get_llm_backend
@@ -7,6 +8,7 @@ from agentlite.logging.streamlit_logger import UILogger
 from agentlite_finance.actions.file_handler_action import FileHandlerAction
 from agentlite_finance.actions.data_preprocessing_action import PreProcessingAction
 from agentlite_finance.actions.visualization_action import VisualizationAction
+from agentlite_finance.actions.python_action import PythonAction
 from agentlite.llm.LLMConfig import LLMConfig
 from agentlite_finance.memory.shared_memory import SharedMemory
 from agentlite_finance.memory.memory_keys import FILE
@@ -29,7 +31,7 @@ def main():
                             "llm_name": "gpt-3.5-turbo",
                             "temperature": 0.7,
                             "max_tokens": 2000,
-                            "api_key": "sk-Vo7jCT5lrwMyJ1YeqpzmYvDaS9sYF4Xt_BPLSaiOywT3BlbkFJVP2JXFoP36HSMWqWluMD88AkB7t0KHJ8j-FM0BUngA"
+                            "api_key": os.getenv("OPENAI_API_KEY")
                             }
         llm_config = LLMConfig(llm_config_dict)
         llm = get_llm_backend(llm_config)
@@ -41,16 +43,19 @@ def main():
         file_handler_action = FileHandlerAction(shared_mem)
         preprocessing_action = PreProcessingAction(shared_mem)
         visualization_action = VisualizationAction(shared_mem)
+        python_action = PythonAction(shared_mem)
         example_task, act_chain = InsightsExample().build_insights_example()
+        example_visual_task, visual_act_chain = InsightsExample().build_visualisation_example()
 
         from agentlite_finance.agents.insights_agent import DataInsightsAgent
         insights_agent = DataInsightsAgent(
-            api_key="DUMMY_KEY",
             llm=llm,
-            actions=[file_handler_action, preprocessing_action, visualization_action, ],
+            actions=[file_handler_action, preprocessing_action, visualization_action, python_action],
             shared_mem=shared_mem
             )
         insights_agent.add_example(task=example_task, action_chain=act_chain)
+        insights_agent.add_example(task=example_visual_task, action_chain=visual_act_chain)
+
 
         # Manager agent
         from agentlite_finance.manager.finance_data_manager import FinanceDataManagerAgent

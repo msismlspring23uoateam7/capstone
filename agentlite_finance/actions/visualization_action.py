@@ -1,15 +1,17 @@
 import seaborn as sns
 import streamlit as st
+import pandas as pd
 import matplotlib.pyplot as plt
 from agentlite.actions import BaseAction
 from agentlite_finance.memory.memory_keys import DATA_FRAME
+from agentlite_finance.memory.memory_keys import CODE
 
 #TODO update this file for stockcdata
 class VisualizationAction(BaseAction):
 
     def __init__(
         self,
-        shared_mem
+        shared_mem: dict = None,
     ):
         action_name = "Visualization"
         action_desc = f"""This is a {action_name} action. 
@@ -24,7 +26,9 @@ class VisualizationAction(BaseAction):
 
     def __call__(self, query):
         data = self.shared_mem.get(DATA_FRAME)
-        self.visualize_data(data)
+        self.plot_stock_data(data)
+        exec(self.shared_mem.get(CODE))
+        exec("plot_line_chart_for_stock_data(self.shared_mem.get(DATA_FRAME))")
         return {"response": "Visualisations are created. Now, continue with next action based on the task."}
 
     def visualize_data(self, data):
@@ -63,3 +67,31 @@ class VisualizationAction(BaseAction):
             plt.close()
         except Exception as e:
             st.error(f"Error in correlation matrix visualization: {str(e)}")
+
+    import matplotlib.pyplot as plt
+
+    def plot_stock_data(self, df):
+        # Ensure the 'Date' column is in datetime format
+        df['Date'] = pd.to_datetime(df['date'])
+
+        # Set 'Date' as the index
+        df.set_index('Date', inplace=True)
+
+        # Plot the stock data
+        plt.figure(figsize=(10,6))
+        plt.plot(df['open'], label='open', color='blue')
+        plt.plot(df['high'], label='high', color='green')
+        plt.plot(df['low'], label='low', color='red')
+        plt.plot(df['close'], label='close', color='purple')
+
+        # Labels and title
+        plt.title(f"Stock Prices for {df['Name'][0]}")
+        plt.xlabel("Date")
+        plt.ylabel("Price")
+        plt.legend()
+
+        # Show the plot
+        plt.show()
+        st.pyplot(plt)
+        # st.pyplot(plt.gcf())
+        plt.close()
