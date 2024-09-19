@@ -1,13 +1,44 @@
 import os
 import zipfile
 import pandas as pd
+import streamlit as st
 from datetime import datetime
+from agentlite.actions import BaseAction
+from agentlite_finance.memory.memory_keys import FILE
+from agentlite_finance.memory.memory_keys import DATA_FRAME
 
-class FileHandler:
-    def __init__(self, upload_dir="uploaded_files"):
+class FileHandlerAction(BaseAction):
+    def __init__(
+        self,
+        shared_mem: dict = None,
+        upload_dir="uploaded_files",
+    ):
+        action_name = "FileHandler"
+        action_desc = f"""This is a {action_name} action. 
+                        It will take a csv as input and load it directly or
+                        take a zip file as input, extract the csv file from it
+                        and then load the csv file into dataframe"""
+        params_doc = {"query": "Let the data be loaded from the file."}
+        super().__init__(
+            action_name=action_name,
+            action_desc=action_desc,
+            params_doc=params_doc
+        )
+        self.shared_mem = shared_mem
         self.upload_dir = upload_dir
         if not os.path.exists(upload_dir):
             os.makedirs(upload_dir)
+
+    def __call__(self, query):
+        self.file = self.shared_mem.get(FILE)
+        dataframe = self.handle_uploaded_file(self.file)
+        st.write("Uploaded Data:")
+        st.dataframe(dataframe)
+        self.shared_mem.add(DATA_FRAME, dataframe)
+        truncated_dataframe = dataframe.iloc[:10, :25]
+        dataframe_string = truncated_dataframe.to_string(index=False)
+        prompt = f"""{dataframe_string}"""
+        return prompt
 
     def handle_uploaded_file(self, uploaded_file):
         # Generate a unique file name with timestamp to avoid overwriting

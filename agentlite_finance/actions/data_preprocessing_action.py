@@ -1,7 +1,38 @@
-import pandas as pd
+import streamlit as st
 from sklearn.preprocessing import StandardScaler
+from agentlite.actions.BaseAction import BaseAction
+from agentlite.logging.streamlit_logger import UILogger
+from agentlite_finance.memory.memory_keys import DATA_FRAME
 
-class DataProcessingAgent:
+#TODO update this file for stockcdata
+class PreProcessingAction(BaseAction):
+
+    def __init__(
+        self,
+        shared_mem
+    ):
+        action_name = "PreProcessing"
+        action_desc = f"""This is a {action_name} action. 
+                            It will preprocess and transform the given data"""
+        params_doc = {"query": "Let the data be pre-processed by this action."}
+        super().__init__(
+            action_name=action_name,
+            action_desc=action_desc,
+            params_doc=params_doc
+        )
+        self.shared_mem = shared_mem
+
+    def __call__(self, query):
+        print()
+        if self.shared_mem.get(DATA_FRAME) is None:
+            return {"response": "Could not find dataframe. Load dataframe using FileHandler action first."}
+        data = self.shared_mem.get(DATA_FRAME)
+        updated_data = self.process_data(data)
+        st.write("Processed Data:")
+        st.dataframe(updated_data)
+        self.shared_mem.update(DATA_FRAME, updated_data)
+        return {"response": "Pre-Processing is done. Now, continue with next action based on the task."}
+    
     def process_data(self, data):
         # Clean the data
         data = self.clean_data(data)
