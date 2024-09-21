@@ -57,14 +57,7 @@ def execute_code(response):
         #st.write("OpenAI Response:")
         st.write(response)
 
-       # Replace placeholder dataframe references and ensure code uses session state
-        #response = response.replace("df", "st.session_state['dataframe']")
-        #response = response.replace("dataframe", "st.session_state['dataframe']")
-        #response = response.replace("data", "st.session_state['dataframe']")
-        #response = response.replace("data_df", "st.session_state['dataframe']")
-
-
-        # Replace placeholder dataframe references and ensure code uses session state
+              # Replace placeholder dataframe references and ensure code uses session state
         response = re.sub(r'\b(df|data|dataframe|data_df)\b', "st.session_state['dataframe']", response)
 
         # Dynamically replace incorrect code in candlestick charts (if detected)

@@ -24,7 +24,7 @@ class LLMHandlerV1:
 
         # Interact with OpenAI's Chat API
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
+            model="gpt-3.git remote add origin https://github.com/msismlspring23uoateam7/capstone.git-turbo",
             messages=[
                 {"role": "system", "content": "You are a data analysis assistant."},
                 {"role": "user", "content": llm_prompt}
