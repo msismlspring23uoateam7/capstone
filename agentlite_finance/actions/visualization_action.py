@@ -26,7 +26,7 @@ class VisualizationAction(BaseAction):
 
     def __call__(self, query):
         data = self.shared_mem.get(DATA_FRAME)
-        self.plot_stock_data(data)
+     #   self.plot_stock_data(data)
         exec(self.shared_mem.get(CODE))
         exec("plot_line_chart_for_stock_data(self.shared_mem.get(DATA_FRAME))")
         return {"response": "Visualisations are created. Now, continue with next action based on the task."}

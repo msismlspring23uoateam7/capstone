@@ -8,9 +8,9 @@ from agentlite.actions import BaseAction
 from agentlite_finance.memory.memory_keys import DATA_FRAME
 from agentlite_finance.memory.memory_keys import CODE
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI(api_key="sk-Vo7jCT5lrwMyJ1YeqpzmYvDaS9sYF4Xt_BPLSaiOywT3BlbkFJVP2JXFoP36HSMWqWluMD88AkB7t0KHJ8j-FM0BUngA")
 
-class PythonAction(BaseAction):
+class CodegenerationAction(BaseAction):
 
     def __init__(
         self,
@@ -32,7 +32,7 @@ class PythonAction(BaseAction):
         code = self.get_implementation()
         print(code)
         st.write(code)
-        clean_code = self.fetch_python_code(code)
+        clean_code = self.fetch_python_code(code) #TODO check where it is needed or not
         self.shared_mem.add(CODE,  clean_code)
         print(clean_code)
         return {"response": "Python code is fetched. Now, continue with next action based on the task."}
@@ -46,12 +46,13 @@ class PythonAction(BaseAction):
         response = client.chat.completions.create(
             model="gpt-3.5-turbo",  # Use the GPT-4 model
             messages=[
-                {"role": "system", "content": "You are an expert in Python Programmer."},
-                {"role": "user", "content": """Give me a method named plot_line_chart_for_stock_data which 
-                                                takes self and data frame as input to plot line chart of the 
-                                                stock data having date, open, high, low, close, volume, name 
-                                                as attributes in python. keep all the attribute names in small case.
-                                                Do not include it in class. And this method should print the plot
+                {"role": "system", "content": "You are an expert in Python Programmer and a data visualization expert."},
+                {"role": "user", "content": """Give me a python method with name plot_line_chart_for_stock_data. The method 
+                                                takes self and data frame as input to plot line chart.
+                                                Use 'date' on the x-axis and 'close' price on the y-axis.
+                                                Only include this visualization for attribute named 'name' with value 'AAL'
+                                                Do not include the method in any class. 
+                                                And this method should print the plot
                                                 in streamlit UI. Do not call the method, It will be invoked by
                                                 other entity."""}
             ],

@@ -1,0 +1,98 @@
+User file upload 
+SharedMemory
+User prompt : show me a line chart 
+Manager > Manager calls DataAgent to perform data handling on the dataframe based on the prompt 
+DataAgent> Data Agent shared the data summary with LLM
+LLM: 
+INPUT:
+     Role of the Agent 
+     Action Doc: FileHandler, Data handling
+     Examples
+OUPUT:
+    Name of the action to be taken : File Handler
+
+File Handler is called
+
+File handler loads the data to dataframe
+
+LLM: 
+INPUT:
+     Role of the Agent 
+     Action Doc: FileHandler, Data handling
+     Examples:
+     Action chain: Action :Filehandler , Obs:File successfully loaded
+     
+OUPUT:
+    Name of the action to be taken : Data handling
+    
+DataHandling task is called:
+
+Preprocessing is done 
+
+Manager calls the VizAgent: 
+
+LLM:
+
+INPUT:
+     Role of the Agent 
+     Action Doc: CodeGenerationAction, PlottingAction
+     Examples
+OUPUT:
+    Name of the action to be taken : Code Generation Action
+    
+CodeGenerationAction is called :    
+
+	LLM: Input: SystemInput , UserPrompt
+		Store the response in the SharedMemory 
+		
+CodeGenerationAction is complete
+
+LLM:
+
+INPUT:
+     Role of the Agent 
+     Action Doc: CodeGenerationAction, PlottingAction
+     Examples
+     ActonChain: ActionName: CodeGenerationAction, Obs: Code is loaded to memory
+     
+     
+OUPUT:
+    Name of the action to be taken : PlottingAction
+    
+PlottingAction is called
+
+PlottingAction is executed
+
+DataGenAgent
+
+LLM:
+
+INPUT:
+     Role of the Agent 
+     Action Doc: DataInsights
+     Examples
+     
+     
+     
+OUPUT:
+    Name of the action to be taken : DataInsights
+    
+    
+DataInsights is called
+
+	LLM: Input: UserPrompt
+		 output: Return the LLM response 
+		 
+DataInsights is executed
+
+		 
+Streamlit output: A graph is shown in the Streamlit UI		 	    
+    
+
+		
+    
+
+
+
+    
+        
