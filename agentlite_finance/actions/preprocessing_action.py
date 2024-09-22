@@ -9,7 +9,8 @@ class PreprocessingAction(BaseAction):
 
     def __init__(
         self,
-        shared_mem
+        shared_mem: dict = None
+
     ):
         action_name = "PreProcessing"
         action_desc = f"""This is a {action_name} action. 

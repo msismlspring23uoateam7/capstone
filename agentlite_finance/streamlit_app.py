@@ -11,12 +11,11 @@ from agentlite_finance.actions.file_handler_action import FileHandlerAction
 from agentlite_finance.actions.generic_insights_action import GenericInsightsAction
 from agentlite_finance.actions.plotting_action import PlottingAction
 from agentlite_finance.actions.preprocessing_action import PreprocessingAction
-from agentlite_finance.actions.visualization_action import VisualizationAction
 from agentlite.llm.LLMConfig import LLMConfig
+from agentlite_finance.examples.agents_example import AgentsExample
+from agentlite_finance.examples.manager_example import ManagerExample
 from agentlite_finance.memory.shared_memory import SharedMemory
 from agentlite_finance.memory.memory_keys import FILE
-from agentlite_finance.memory.memory_keys import DATA_FRAME
-#from agentlite_finance.examples.insights_example import InsightsExample
 logging.basicConfig(level=logging.DEBUG)
 
 
@@ -65,23 +64,23 @@ def main():
             actions=[generic_insights_action],
             shared_mem=shared_mem
             ) 
-   #TODO provide examples
-   #     example_task, act_chain = InsightsExample().build_insights_example()
-   #     example_visual_task, visual_act_chain = InsightsExample().build_visualisation_example()
-   #     insights_agent.add_example(task=example_task, action_chain=act_chain)
-   #     insights_agent.add_example(task=example_visual_task, action_chain=visual_act_chain)
 
+        example_task1, act_chain1 = AgentsExample().build_dataagent_example()
+        data_agent.add_example(task=example_task1, action_chain=act_chain1)
+        example_task2, act_chain2 = AgentsExample().build_visualisation_example()
+        visualization_agent.add_example(task=example_task2, action_chain=act_chain2)
 
         # Manager agent
         from agentlite_finance.manager.finance_data_manager import FinanceDataManagerAgent
         finance_data_manager = FinanceDataManagerAgent(
             llm=llm,
             team=[
-                    data_agent,visualization_agent,generic_agent                    
+                    data_agent ,visualization_agent #,generic_agent                    
                 ],
             logger=logger
         )
-        # finance_data_manager.add_example(task=example_task, action_chain=act_chain)
+        example_task, act_chain = ManagerExample().build_manager_example()
+        finance_data_manager.add_example(task=example_task, action_chain=act_chain)
 
         if "messages" not in st.session_state:
             st.session_state.messages = []

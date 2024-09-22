@@ -16,7 +16,7 @@ class CodegenerationAction(BaseAction):
         self,
         shared_mem: dict = None,
     ):
-        action_name = "Python"
+        action_name = "Codegeneration"
         action_desc = f"""This is a {action_name} action. 
                         It will fetch the python code to dynamically visualise the plots"""
         params_doc = {"query": "Let the code to dynamically visualise the plots be fetched by this action."}

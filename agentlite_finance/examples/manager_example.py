@@ -1,9 +1,9 @@
 from agentlite.actions.InnerActions import INNER_ACT_KEY
+from agentlite.agents.agent_utils import AGENT_CALL_ARG_KEY
 from agentlite.commons import AgentAct
 from agentlite.commons import TaskPackage
 from agentlite.actions import ThinkAct
 from agentlite.actions import FinishAct
-from agentlite_finance.actions.file_handler_action import FileHandlerAction
 import pandas as pd
 
 #TODO needed later
@@ -19,32 +19,30 @@ class ManagerExample:
         task = "Generate a bar chart showing the total trading volume over the last five years for AAL stock."
 
         # 1. think action and obs
-        thought = "I should first use FileHandler to load the data. Do not use FileHandler again if already used before"
+        thought = "I should first use DataAgent and then use VisualizationAgent. Do not use DataAgent again if already used before."
         act_1 = AgentAct(name=ThinkAct.action_name, params={INNER_ACT_KEY: thought})
-        obs_1 = ""
+        obs_1 = "OK"
 
-        # 2. FileHandler action and obs
-        act_params = {"query": "loading the data"}
-        act_2 = AgentAct(name=FileHandlerAction().action_name, params=act_params)
-        import os
-        cur_dir = os.getcwd()
-        examples_dir = "/agentlite_finance/examples/"
-        df_string = pd.read_csv(
-                                    cur_dir
-                                    + examples_dir
-                                    + "data/stock_data.csv"
-                                ).to_string(index=False)
-        obs_2 = df_string
-        # print(obs_2)
-        # 3. think action and obs
-        insights_text = open(
-                                cur_dir
-                                + examples_dir
-                                + "data/stock_data_insights.txt"
-                            ).read()
-        thought = insights_text
+        act_2 = AgentAct(
+            name='DataAgent',
+            params={AGENT_CALL_ARG_KEY: "Use FileHandler to load the data and then Preprocess it." }
+        )
+        obs_2 = "I have loaded the data and pre-processed it."
 
-        # 4. finish action
-        act_3 = AgentAct(name=FinishAct.action_name, params={INNER_ACT_KEY: thought})
-        obs_3 = "Task Completed."
-        return TaskPackage(instruction=task),[(act_1, obs_1), (act_2, obs_2), (act_3, obs_3)]
+        act_3 = AgentAct(
+            name=ThinkAct.action_name,
+            params={
+                INNER_ACT_KEY: f"""I have loaded the data and pre-processed the data. I now should ask VisualizationAgent to generate plotly code and draw the chart."""
+            },
+        )
+        obs_3 = "OK"
+        act_4 = AgentAct(
+            name='VisualizationAgent',
+            params={AGENT_CALL_ARG_KEY: task}
+        )
+        obs_4 = """Done!"""      
+
+        act_5 = AgentAct(name=FinishAct.action_name, params={INNER_ACT_KEY: "I have successfully completed the task."})
+        obs_5 = "Task Completed."
+        return TaskPackage(instruction=task),[(act_1, obs_1), (act_2, obs_2), (act_3, obs_3), (act_4, obs_4), (act_5, obs_5)]
+    

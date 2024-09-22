@@ -3,17 +3,18 @@ from sklearn.preprocessing import StandardScaler
 from agentlite.actions.BaseAction import BaseAction
 from agentlite.logging.streamlit_logger import UILogger
 from agentlite_finance.memory.memory_keys import CODE
+from agentlite_finance.memory.memory_keys import DATA_FRAME
 
 #TODO update this file for stockcdata
 class PlottingAction(BaseAction):
 
     def __init__(
         self,
-        shared_mem
+        shared_mem : dict = None
     ):
-        action_name = "PreProcessing"
+        action_name = "PlottingAction"
         action_desc = f"""This is a {action_name} action. 
-                            It will preprocess and transform the given data"""
+                            This will plot the chart using response generated from codegenerator"""
         params_doc = {"query": "Let the data be pre-processed by this action."}
         super().__init__(
             action_name=action_name,
@@ -27,15 +28,20 @@ class PlottingAction(BaseAction):
         if self.shared_mem.get(CODE) is None:
             return {"response": "Could not find dataframe. Load dataframe using FileHandler action first."}
         code_response = self.shared_mem.get(CODE)
-        updated_data = self.execute_code(code_response)
+        updated_data = self.execute_code1(code_response)
         return {"response": "Pre-Processing is done. Now, continue with next action based on the task."}
     
     def process_data(self, data):
-
-        
+    
         return data
 
- # Modify execute_code function to handle the correlation matrix heatmap
+    def execute_code1(self, response):
+        data = self.shared_mem.get(DATA_FRAME)
+        exec(response)
+        exec("plot_line_chart_for_stock_data(self.shared_mem.get(DATA_FRAME))")
+        return {"response": "Visualisations are created. Now, continue with next action based on the task."}
+    
+# Modify execute_code function to handle the correlation matrix heatmap
 def execute_code(response):
     try:
         # Ensure necessary modules are loaded
