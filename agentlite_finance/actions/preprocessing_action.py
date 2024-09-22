@@ -1,8 +1,9 @@
+import pandas as pd
 import streamlit as st
 from sklearn.preprocessing import StandardScaler
 from agentlite.actions.BaseAction import BaseAction
 from agentlite.logging.streamlit_logger import UILogger
-from agentlite_finance.memory.memory_keys import DATA_FRAME
+from agentlite_finance.memory.memory_keys import DATA_FRAME, DATA_SUMMARY
 
 #TODO update this file for stockcdata
 class PreprocessingAction(BaseAction):
@@ -28,6 +29,7 @@ class PreprocessingAction(BaseAction):
         if self.shared_mem.get(DATA_FRAME) is None:
             return {"response": "Could not find dataframe. Load dataframe using FileHandler action first."}
         data = self.shared_mem.get(DATA_FRAME)
+        self.shared_mem.update(DATA_SUMMARY, self.summarize_data(data))
         updated_data = self.process_data(data)
         st.write("Processed Data:")
         st.dataframe(updated_data)
@@ -41,7 +43,7 @@ class PreprocessingAction(BaseAction):
         # Check if data is empty after cleaning
         if data.empty:
             raise ValueError("Data is empty after cleaning. Please upload valid data.")
-        
+        data = self.preprocess_dataframe(data)
         # Perform feature engineering
         data = self.feature_engineering(data)
         
@@ -65,17 +67,12 @@ class PreprocessingAction(BaseAction):
         return data
     
     def preprocess_dataframe(self, dataframe):
-        # Example preprocessing: Convert 'date' column to datetime, handle missing values
-        if 'date' in dataframe.columns:
-            dataframe['date'] = pd.to_datetime(dataframe['date'], errors='coerce')
-
-        # Optionally, handle missing data in a more nuanced way (e.g., fill or flag)
-        # For example, forward-fill missing values for numeric columns
-        #dataframe = dataframe.fillna(method='ffill')
-        dataframe = dataframe.ffill()
-
-
-        # Drop any rows with missing dates or other critical fields
-        dataframe = dataframe.dropna(subset=['date'])
-
         return dataframe
+    
+    def summarize_data(self, dataframe):
+        # Simple summary of the dataframe for LLM context
+        try:
+            summary = dataframe.describe(include='all').to_string()
+            return summary
+        except Exception as e:
+            return f"Error summarizing data: {e}"

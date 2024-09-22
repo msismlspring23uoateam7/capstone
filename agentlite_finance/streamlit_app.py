@@ -2,6 +2,7 @@ import os
 import streamlit as st
 import logging
 
+from agentlite.agentlite.logging.terminal_logger import AgentLogger
 from agentlite.llm.agent_llms import get_llm_backend
 from agentlite.commons import TaskPackage
 from agentlite.logging.streamlit_logger import UILogger
@@ -33,6 +34,8 @@ def main():
         llm_config = LLMConfig(llm_config_dict)
         llm = get_llm_backend(llm_config)
         logger = UILogger()
+        # define the logger. You can set the PROMPT_DEBUG_FLAG=True to show the actual prompt and generation for LLM
+        agent_logger = AgentLogger(PROMPT_DEBUG_FLAG=True) 
 
         # Initialize agents
         shared_mem = SharedMemory()
@@ -45,7 +48,8 @@ def main():
         data_agent = DataAgent(
             llm=llm,
             actions=[file_handler_action, preprocessing_action],
-            shared_mem=shared_mem
+            shared_mem=shared_mem,
+            logger=agent_logger
             )
         
         codegeneration_action = CodegenerationAction(shared_mem)
@@ -54,7 +58,8 @@ def main():
         visualization_agent = VisualizationAgent(
             llm=llm,
             actions=[codegeneration_action, plotting_action],
-            shared_mem=shared_mem
+            shared_mem=shared_mem,
+            logger=agent_logger
             )
         
         generic_insights_action = GenericInsightsAction(shared_mem)
@@ -62,7 +67,8 @@ def main():
         generic_agent = GenericAgent(
             llm=llm,
             actions=[generic_insights_action],
-            shared_mem=shared_mem
+            shared_mem=shared_mem,
+            logger=agent_logger
             ) 
 
         example_task1, act_chain1 = AgentsExample().build_dataagent_example()

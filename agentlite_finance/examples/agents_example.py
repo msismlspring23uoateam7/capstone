@@ -24,7 +24,7 @@ class AgentsExample:
         # 1. think action and obs
         thought = "I should first use FileHandler to load the data. Then use Preprocessing to process the data."
         act_1 = AgentAct(name=ThinkAct.action_name, params={INNER_ACT_KEY: thought})
-        obs_1 = "Data loading is completed."
+        obs_1 = "OK"
 
         # 2. FileHandler action and obs
         act_params = {"query": "loading the data"}

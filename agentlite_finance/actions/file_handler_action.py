@@ -18,7 +18,7 @@ class FileHandlerAction(BaseAction):
                         It will take a csv as input and load it directly or
                         take a zip file as input, extract the csv file from it
                         and then load the csv file into dataframe"""
-        params_doc = {"query": "Let the data be loaded from the file."}
+        params_doc = {"query": "Data be loaded from the file."}
         super().__init__(
             action_name=action_name,
             action_desc=action_desc,

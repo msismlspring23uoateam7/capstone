@@ -1,7 +1,7 @@
 from agentlite.agents.BaseAgent import BaseAgent
 
 class GenericAgent(BaseAgent):
-    def __init__(self, llm, actions, shared_mem, custom_templates=None):
+    def __init__(self, llm, actions, shared_mem,logger, custom_templates=None):
         agent_name="GenericAgent"
         agent_role="""You are an expert in handling questions related to data analysis.
                     """
@@ -9,6 +9,7 @@ class GenericAgent(BaseAgent):
             name=agent_name,
             role=agent_role,
             llm=llm,
-            actions=actions
+            actions=actions,
+            logger=logger
         )
         self.shared_mem = shared_mem

@@ -5,7 +5,7 @@ import pandas as pd
 from openai import OpenAI
 import matplotlib.pyplot as plt
 from agentlite.actions import BaseAction
-from agentlite_finance.memory.memory_keys import DATA_FRAME
+from agentlite_finance.memory.memory_keys import DATA_FRAME, DATA_SUMMARY
 from agentlite_finance.memory.memory_keys import CODE
 
 client = OpenAI(api_key="sk-Vo7jCT5lrwMyJ1YeqpzmYvDaS9sYF4Xt_BPLSaiOywT3BlbkFJVP2JXFoP36HSMWqWluMD88AkB7t0KHJ8j-FM0BUngA")
@@ -29,37 +29,45 @@ class CodegenerationAction(BaseAction):
 
     def __call__(self, query):
         data = self.shared_mem.get(DATA_FRAME)
-        code = self.get_implementation()
+        code = self.get_implementation(query)
         print(code)
         st.write(code)
-        clean_code = self.fetch_python_code(code) #TODO check where it is needed or not
-        self.shared_mem.add(CODE,  clean_code)
-        print(clean_code)
+       # clean_code = self.fetch_python_code(code) #TODO check where it is needed or not
+        self.shared_mem.add(CODE,  code)
+        print(code)
         return {"response": "Python code is fetched. Now, continue with next action based on the task."}
 
 
-    def get_implementation(self):
+    def get_implementation(self,query):        # Combine the prompt with data summary for better context
         # Generate the prompt using the prompt generator
         # prompt = self.prompt_generator.generate_prompt(data, task=task)
         # prompt = data
         # Use the newer OpenAI ChatCompletion API
-        response = client.chat.completions.create(
-            model="gpt-3.5-turbo",  # Use the GPT-4 model
-            messages=[
-                {"role": "system", "content": "You are an expert in Python Programmer and a data visualization expert."},
-                {"role": "user", "content": """Give me a python method with name plot_line_chart_for_stock_data.Use your
-                                                knowledge to generate accurate python code of the charts using plotly.
+
+        role_desc = """Give me a python method with name plot_line_chart_for_stock_data.Use your
+                                                knowledge to generate accurate python code of the charts using plotly for the user prompt given below.
                                                 Do not include the method in any class. 
                                                 And this method should print the plot
                                                 in streamlit UI. Do not call the method, It will be invoked by
-                                                other entity."""}
+                                                other entity."""
+        
+        data_summary = self.shared_mem.get(DATA_SUMMARY)
+        #llm_prompt = f"Instructions:\n{role_desc}\nData Summary:\n{data_summary}\nUser Prompt: {query}"
+        llm_prompt = f"Generate Python code to visualize Data Summary:\n{data_summary}\nUser Prompt: {query} using the dataframe."
+        print("***** CODEGEN LLM PROMPT" + llm_prompt)
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",  # Use the GPT-4 model
+            messages=[
+                {"role": "system", "content": "You are an expert data analysis assistant.Do not initialize dataframe"},
+                {"role": "user", "content": llm_prompt}
             ],
             max_tokens=1000,  # Set appropriate max tokens
-            temperature=0.7  # Set the temperature as needed
+            temperature=0.5  # Set the temperature as needed
         )
 
         # Return the content of the response
         return response.choices[0].message.content
+
     
     
 
