@@ -84,6 +84,10 @@ def main():
 
         if "messages" not in st.session_state:
             st.session_state.messages = []
+        
+        for message in st.session_state.messages:
+            with st.chat_message(message["role"]):
+                st.markdown(message["content"])
 
         if prompt := st.chat_input("Ask for specific analysis, EDA, insights, or request a specific chart (e.g., 'Show me a 50-day and 200-day moving average for AAL')"):
             task_pack = TaskPackage(instruction=prompt)
