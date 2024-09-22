@@ -47,10 +47,8 @@ class CodegenerationAction(BaseAction):
             model="gpt-3.5-turbo",  # Use the GPT-4 model
             messages=[
                 {"role": "system", "content": "You are an expert in Python Programmer and a data visualization expert."},
-                {"role": "user", "content": """Give me a python method with name plot_line_chart_for_stock_data. The method 
-                                                takes self and data frame as input to plot line chart.
-                                                Use 'date' on the x-axis and 'close' price on the y-axis.
-                                                Only include this visualization for attribute named 'name' with value 'AAL'
+                {"role": "user", "content": """Give me a python method with name plot_line_chart_for_stock_data.Use your
+                                                knowledge to generate accurate python code of the charts using plotly.
                                                 Do not include the method in any class. 
                                                 And this method should print the plot
                                                 in streamlit UI. Do not call the method, It will be invoked by

@@ -1,7 +1,0 @@
-It looks like you're working with a dataset that appears to be related to financial transactions, possibly for fraud detection. This dataset contains features such as:
-
-Time: Time in seconds from the first transaction.
-V1 to V28: Various anonymized features (likely resulting from PCA or similar methods for dimensionality reduction).
-Amount: Transaction amount.
-Class: Label indicating whether the transaction is fraudulent (1) or not (0).
-Would you like to perform any specific analysis or task on this dataset, such as visualization, summary statistics, or model training? Let me know how you'd like to proceed!

@@ -1,5 +1,6 @@
 import os
 import streamlit as st
+import logging
 
 from agentlite.llm.agent_llms import get_llm_backend
 from agentlite.commons import TaskPackage
@@ -15,7 +16,8 @@ from agentlite.llm.LLMConfig import LLMConfig
 from agentlite_finance.memory.shared_memory import SharedMemory
 from agentlite_finance.memory.memory_keys import FILE
 from agentlite_finance.memory.memory_keys import DATA_FRAME
-from agentlite_finance.examples.insights_example import InsightsExample
+#from agentlite_finance.examples.insights_example import InsightsExample
+logging.basicConfig(level=logging.DEBUG)
 
 
 def main():
@@ -60,7 +62,7 @@ def main():
         from agentlite_finance.agents.generic_agent import GenericAgent
         generic_agent = GenericAgent(
             llm=llm,
-            actions=[codegeneration_action, plotting_action],
+            actions=[generic_insights_action],
             shared_mem=shared_mem
             ) 
    #TODO provide examples

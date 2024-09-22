@@ -13,4 +13,3 @@ class FinanceDataManagerAgent(ManagerAgent):
             TeamAgents=team,
             logger=logger
         )
-        # self.prompt_gen = FinancePrompt()

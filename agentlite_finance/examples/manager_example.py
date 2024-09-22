@@ -14,9 +14,9 @@ class ManagerExample:
         Each example is a successful action-obs chain of an agent.
         those examples should cover all those api calls
         """
-        # An example of Insights Agent 
+        # An example of Financial Data Manager Agent 
         # task
-        task = "generate insights for the shared data"
+        task = "Generate a bar chart showing the total trading volume over the last five years for AAL stock."
 
         # 1. think action and obs
         thought = "I should first use FileHandler to load the data. Do not use FileHandler again if already used before"
@@ -32,7 +32,7 @@ class ManagerExample:
         df_string = pd.read_csv(
                                     cur_dir
                                     + examples_dir
-                                    + "data/test_data.csv"
+                                    + "data/stock_data.csv"
                                 ).to_string(index=False)
         obs_2 = df_string
         # print(obs_2)
@@ -40,7 +40,7 @@ class ManagerExample:
         insights_text = open(
                                 cur_dir
                                 + examples_dir
-                                + "data/test_data_insights.txt"
+                                + "data/stock_data_insights.txt"
                             ).read()
         thought = insights_text
 

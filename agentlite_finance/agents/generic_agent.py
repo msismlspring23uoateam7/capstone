@@ -1,9 +1,9 @@
 from agentlite.agents.BaseAgent import BaseAgent
 
-class DataInsightsAgent(BaseAgent):
+class GenericAgent(BaseAgent):
     def __init__(self, llm, actions, shared_mem, custom_templates=None):
         agent_name="GenericAgent"
-        agent_role="""You are an expert in handling questions which are not related to charts
+        agent_role="""You are an expert in handling questions related to data analysis.
                     """
         super().__init__(
             name=agent_name,

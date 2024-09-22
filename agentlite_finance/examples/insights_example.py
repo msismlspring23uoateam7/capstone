@@ -5,11 +5,14 @@ from agentlite.actions import ThinkAct
 from agentlite.actions import FinishAct
 from agentlite_finance.actions.file_handler_action import FileHandlerAction
 from agentlite_finance.actions.visualization_action import VisualizationAction
-from agentlite_finance.actions.python_action import PythonAction
+from agentlite_finance.actions.codegeneration_action import CodegenerationAction
+from agentlite_finance.actions.generic_insights_action import GenericInsightsAction
+from agentlite_finance.actions.plotting_action import PlottingAction
+from agentlite_finance.actions.preprocessing_action import PreprocessingAction
 import pandas as pd
 
 class InsightsExample:
-    def build_insights_example(self):
+    def build_dataagent_example(self):
         """
         constructing the examples for agent working.
         Each example is a successful action-obs chain of an agent.
@@ -17,7 +20,7 @@ class InsightsExample:
         """
         # An example of Insights Agent 
         # task
-        task = "generate insights for the shared data"
+        task = "Generate a bar chart showing the total trading volume over the last five years for AAL stock."
 
         # 1. think action and obs
         thought = "I should first use FileHandler to load the data. Do not use FileHandler again if already used before"
@@ -33,7 +36,7 @@ class InsightsExample:
         df_string = pd.read_csv(
                                     cur_dir
                                     + examples_dir
-                                    + "data/test_data.csv"
+                                    + "data/stock_data.csv"
                                 ).to_string(index=False)
         obs_2 = df_string
         # print(obs_2)
@@ -41,7 +44,7 @@ class InsightsExample:
         insights_text = open(
                                 cur_dir
                                 + examples_dir
-                                + "data/test_data_insights.txt"
+                                + "data/stock_data_insights.txt"
                             ).read()
         thought = insights_text
 
