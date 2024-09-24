@@ -4,14 +4,14 @@ from agentlite.commons import TaskPackage
 from agentlite.actions import ThinkAct
 from agentlite.actions import FinishAct
 from agentlite_finance.actions.file_handler_action import FileHandlerAction
-from agentlite_finance.actions.codegeneration_action import CodegenerationAction
+from agentlite_finance.actions.code_generation_action import CodeGenerationAction
 from agentlite_finance.actions.generic_insights_action import GenericInsightsAction
 from agentlite_finance.actions.plotting_action import PlottingAction
 from agentlite_finance.actions.preprocessing_action import PreprocessingAction
 import pandas as pd
 
 class AgentsExample:
-    def build_dataagent_example(self):
+    def build_data_agent_example(self):
         """
         constructing the examples for agent working.
         Each example is a successful action-obs chain of an agent.
@@ -43,9 +43,9 @@ class AgentsExample:
                                 + examples_dir
                                 + "data/stock_data_insights.txt"
                             ).read()
-        thought = insights_text
+    
 
-
+        thought = "Preprocess the data."
         act_3 = AgentAct(name=PreprocessingAction().action_name, params={"query": thought})
         obs_3= 'Preprocessing Completed.'
 
@@ -71,7 +71,7 @@ class AgentsExample:
         obs_1 = "OK"
 
         act_params = {"query": task}
-        act_2 = AgentAct(name=CodegenerationAction().action_name, params=act_params)
+        act_2 = AgentAct(name=CodeGenerationAction().action_name, params=act_params)
         obs_2 = 'Code generated for the chart.'
 
         # 4. Visualisation action
@@ -82,3 +82,28 @@ class AgentsExample:
         act_4 = AgentAct(name=FinishAct.action_name, params={INNER_ACT_KEY: "Finish if Plotting is complete."})
         obs_4 = "Ok."
         return TaskPackage(instruction=task),[(act_1, obs_1), (act_2, obs_2), (act_3, obs_3), (act_4, obs_4)]
+    
+
+    def build_summary_example(self):
+        """
+        constructing the examples for agent working.
+        Each example is a successful action-obs chain of an agent.
+        those examples should cover all those api calls
+        """
+        # An example of visualisation Agent 
+        # task
+        task = "share insights for AAL stock."
+
+        # 1. think action and obs
+        thought = "I should use GenericInsights to share the insights."
+        act_1 = AgentAct(name=ThinkAct.action_name, params={INNER_ACT_KEY: thought})
+        obs_1 = "OK"
+
+        # 2. GenericInsights action
+        act_2 = AgentAct(name=GenericInsightsAction().action_name, params={"query": task})
+        obs_2 = "Insights are shared."
+
+        # 3. finish action
+        act_3 = AgentAct(name=FinishAct.action_name, params={INNER_ACT_KEY: "Insigts task is complete."})
+        obs_3 = "Ok."
+        return TaskPackage(instruction=task),[(act_1, obs_1), (act_2, obs_2), (act_3, obs_3),]

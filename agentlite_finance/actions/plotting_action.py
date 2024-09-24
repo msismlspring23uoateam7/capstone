@@ -22,7 +22,7 @@ class PlottingAction(BaseAction):
         action_name = "PlottingAction"
         action_desc = f"""This is a {action_name} action. 
                             This will plot the chart using response generated from codegenerator"""
-        params_doc = {"query": "Let the data be pre-processed by this action."}
+        params_doc = {"query": "Let the plotting be done by this action."}
         super().__init__(
             action_name=action_name,
             action_desc=action_desc,
@@ -35,17 +35,18 @@ class PlottingAction(BaseAction):
         if self.shared_mem.get(CODE) is None:
             return {"response": "Could not find dataframe. Load dataframe using FileHandler action first."}
         code_response = self.shared_mem.get(CODE)
-        updated_data = self.execute_code(code_response)
-        return {"response": "Pre-Processing is done. Now, continue with next action based on the task."}
+        # updated_data = self.execute_code(code_response)
+        updated_data = self.execute_pure_code(code_response)
+        return {"response": "Plotting is done. Now, continue with next action based on the task."}
     
     def process_data(self, data):
     
         return data
 
-    def execute_code1(self, response):
+    def execute_pure_code(self, response):
         data = self.shared_mem.get(DATA_FRAME)
         exec(response)
-        exec("plot_line_chart_for_stock_data(self.shared_mem.get(DATA_FRAME))")
+        exec("plot_chart_for_stock_data(data)")
         return {"response": "Visualisations are created. Now, continue with next action based on the task."}
     
     # Modify execute_code function to handle the correlation matrix heatmap
