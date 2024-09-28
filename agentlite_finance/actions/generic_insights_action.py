@@ -49,28 +49,29 @@ class GenericInsightsAction(BaseAction):
                 stocks_needed.append(i)
 
         if stocks_needed == []:
-            st.write('Please mention the name of the stock to be analyzed in upper case.')
+            res = 'Please mention the name of the stock to be analyzed in upper case.'
+        else:
+            #filter the data based on the stocks mentioned
+            filtered_data = data[data['Name'].isin(stocks_needed)].copy()
+            
+            #sample_data = self.shared_mem.get(DATA_FRAME).copy().iloc[:5,:10]
+            sample_data = filtered_data.copy().iloc[:5,:10]
 
-        #filter the data based on the stocks mentioned
-        filtered_data = data[data['Name'].isin(stocks_needed)].copy()
-        
-        #sample_data = self.shared_mem.get(DATA_FRAME).copy().iloc[:5,:10]
-        sample_data = filtered_data.copy().iloc[:5,:10]
-
-        complete_prompt = f"""Instructions: \n {result_instructions}
-                         Data: \n {filtered_data}
-                         Sample Data:  \n {sample_data}
-                         User Prompt:  \n {query}"""
-        print("***** CODEGEN LLM PROMPT" + complete_prompt)
-        response = client.chat.completions.create(
-            model="gpt-3.5-turbo",  # Use the GPT-4 model
-            messages=[
-                {"role": "system", "content": "You are an expert data analysis assistant."},
-                {"role": "user", "content": complete_prompt}
-            ],
-            max_tokens=1000,  # Set appropriate max tokens
-            temperature=0.5  # Set the temperature as needed
-        )
+            complete_prompt = f"""Instructions: \n {result_instructions}
+                            Data: \n {filtered_data}
+                            Sample Data:  \n {sample_data}
+                            User Prompt:  \n {query}"""
+            print("***** CODEGEN LLM PROMPT" + complete_prompt)
+            response = client.chat.completions.create(
+                model="gpt-3.5-turbo",  # Use the GPT-4 model
+                messages=[
+                    {"role": "system", "content": "You are an expert data analysis assistant."},
+                    {"role": "user", "content": complete_prompt}
+                ],
+                max_tokens=1000,  # Set appropriate max tokens
+                temperature=0.5  # Set the temperature as needed
+            )
+            res = response.choices[0].message.content
 
         # Return the content of the response
-        return response.choices[0].message.content
+        return res
