@@ -6,7 +6,7 @@ from agentlite.logging.streamlit_logger import UILogger
 from agentlite_finance.memory.memory_keys import DATA_FRAME
 from agentlite_finance.memory.memory_keys import DATA_SUMMARY
 
-client = OpenAI(api_key="sk-Vo7jCT5lrwMyJ1YeqpzmYvDaS9sYF4Xt_BPLSaiOywT3BlbkFJVP2JXFoP36HSMWqWluMD88AkB7t0KHJ8j-FM0BUngA")
+client = OpenAI(api_key="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")
 
 #TODO update this file for stockcdata
 class GenericInsightsAction(BaseAction):
@@ -34,12 +34,31 @@ class GenericInsightsAction(BaseAction):
 
     def get_result(self, query):
         result_instructions = """Use your knowledge to generate accurate results of the user prompt.
-                                                Take help of data sample and summary to generate your result."""
+                                                Take help of data and some sample to generate your result."""
         
         data_summary = self.shared_mem.get(DATA_SUMMARY)
-        sample_data = self.shared_mem.get(DATA_FRAME).copy().iloc[:5,:10]
+        data = self.shared_mem.get(DATA_FRAME)
+
+        #get distinct stocks from the data
+        unique_stocks = data['Name'].unique()        
+
+        #get required stocks from the prompt
+        stocks_needed = []
+        for i in unique_stocks:
+            if i in query.split():
+                stocks_needed.append(i)
+
+        if stocks_needed == []:
+            st.write('Please mention the name of the stock to be analyzed in upper case.')
+
+        #filter the data based on the stocks mentioned
+        filtered_data = data[data['Name'].isin(stocks_needed)].copy()
+        
+        #sample_data = self.shared_mem.get(DATA_FRAME).copy().iloc[:5,:10]
+        sample_data = filtered_data.copy().iloc[:5,:10]
+
         complete_prompt = f"""Instructions: \n {result_instructions}
-                         Data Summary: \n {data_summary}
+                         Data: \n {filtered_data}
                          Sample Data:  \n {sample_data}
                          User Prompt:  \n {query}"""
         print("***** CODEGEN LLM PROMPT" + complete_prompt)
