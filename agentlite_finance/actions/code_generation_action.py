@@ -30,9 +30,10 @@ class CodeGenerationAction(BaseAction):
     def __call__(self, query):
         code = self.get_implementation(query)
         st.write(code)
-        clean_code = self.fetch_python_code(code) #TODO check where it is needed or not
+        clean_code = self.fetch_python_code(code)
         self.shared_mem.add(CODE,  clean_code)
-        return {"response": "Python code is fetched. Now, continue with next action based on the task."}
+        # return {"response": "Python code is fetched. Now, continue with next action based on the task."}
+        return {"response": clean_code}
 
 
     def get_implementation(self, query):
@@ -46,8 +47,14 @@ class CodeGenerationAction(BaseAction):
                                                 required imports in the code. Take help of data sample and summary
                                                 to generate your code. Do not initialize dataframe on your own."""
         
-        data_summary = self.shared_mem.get(DATA_SUMMARY)
-        sample_data = self.shared_mem.get(DATA_FRAME).copy().iloc[:5,:10]
+        data_summary = "Not Available"
+        if DATA_SUMMARY in self.shared_mem.keys():
+            data_summary = self.shared_mem.get(DATA_SUMMARY)
+
+        sample_data = "Not Available"
+        if DATA_FRAME in self.shared_mem.keys():
+            sample_data = self.shared_mem.get(DATA_FRAME).copy().iloc[:5,:10]
+
         complete_prompt = f"""Instructions: \n {code_gen_instructions}
                          Data Summary: \n {data_summary}
                          Sample Data:  \n {sample_data}

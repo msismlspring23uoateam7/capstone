@@ -18,3 +18,6 @@ class SharedMemory:
 
     def remove(self, key):
         del self.memo[key]
+
+    def keys(self):
+        return self.memo.keys()
