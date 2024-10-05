@@ -32,8 +32,8 @@ class FileHandlerAction(BaseAction):
     def __call__(self, query):
         self.file = self.shared_mem.get(FILE)
         dataframe = self.handle_uploaded_file(self.file)
-        st.write("Uploaded Data:")
-        st.dataframe(dataframe)
+        # st.write("Uploaded Data:")
+        # st.dataframe(dataframe)
         self.shared_mem.add(DATA_FRAME, dataframe)
         truncated_dataframe = dataframe.iloc[:10, :25]
         dataframe_string = truncated_dataframe.to_string(index=False)

@@ -29,11 +29,9 @@ class CodeGenerationAction(BaseAction):
 
     def __call__(self, query):
         code = self.get_implementation(query)
-        st.write(code)
         clean_code = self.fetch_python_code(code)
         self.shared_mem.add(CODE,  clean_code)
-        # return {"response": "Python code is fetched. Now, continue with next action based on the task."}
-        return {"response": clean_code}
+        return code
 
 
     def get_implementation(self, query):
@@ -59,7 +57,7 @@ class CodeGenerationAction(BaseAction):
                          Data Summary: \n {data_summary}
                          Sample Data:  \n {sample_data}
                          User Prompt:  \n {query}"""
-        print("***** CODEGEN LLM PROMPT" + complete_prompt)
+
         response = client.chat.completions.create(
             model="gpt-3.5-turbo",  # Use the GPT-4 model
             messages=[

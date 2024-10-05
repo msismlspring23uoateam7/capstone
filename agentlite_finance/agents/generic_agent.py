@@ -1,7 +1,14 @@
 from agentlite.agents.BaseAgent import BaseAgent
 
 class GenericAgent(BaseAgent):
-    def __init__(self, llm, actions, shared_mem,logger, custom_templates=None):
+    def __init__(
+            self, 
+            llm=None, 
+            actions=[],
+            shared_mem=None,
+            logger=None,
+            custom_templates=None
+        ):
         agent_name="GenericAgent"
         agent_role="""You are an expert in handling questions related to data analysis.
                     """

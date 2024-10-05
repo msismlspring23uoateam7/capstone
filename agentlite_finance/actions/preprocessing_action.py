@@ -31,8 +31,8 @@ class PreprocessingAction(BaseAction):
         data = self.shared_mem.get(DATA_FRAME)
         self.shared_mem.update(DATA_SUMMARY, self.summarize_data(data))
         updated_data = self.process_data(data)
-        st.write("Processed Data:")
-        st.dataframe(updated_data)
+        # st.write("Processed Data:")
+        # st.dataframe(updated_data)
         self.shared_mem.update(DATA_FRAME, updated_data)
         return {"response": "Pre-Processing is done. Now, continue with next action based on the task."}
     

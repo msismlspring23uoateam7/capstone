@@ -1,0 +1,37 @@
+Here are some key insights of AAL (American Airlines Group Inc.) stock:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df['year'] = df['date'].dt.year
+    df_last_five_years = df[df['year'] >= df['year'].max() - 5]
+
+    fig = px.bar(df_last_five_years[df_last_five_years['Name'] == 'AAL'], x='date', y='volume', 
+                 title='Total Trading Volume Over Last Five Years for AAL Stock',
+                 labels={'date': 'Date', 'volume': 'Volume'})
+
+    st.plotly_chart(fig)
+```
+
+Overall Trading Volume Trend:
+
+The trading volume remains relatively stable, with some periodic spikes.
+Most of the volume hovers between 10M and 20M shares per month, with a few notable exceptions where the volume exceeds 40M and even hits 140M at one point.
+Significant Spikes:
+
+Two major spikes are clearly visible. One occurred around 2015, where the volume peaked above 120M shares.
+Another significant spike occurred in 2014, with volume hitting around 80M shares.
+These spikes may be associated with significant corporate events, market reactions, or major news related to the airline.
+Decline Towards 2018:
+
+Toward 2017 and 2018, the trading volume shows a noticeable decline, with fewer spikes and relatively lower monthly volumes compared to earlier periods.
+Regular Activity:
+
+Even outside the spikes, there is a relatively steady volume between 10M and 20M shares traded monthly, indicating consistent market interest in AAL stock during these years.
+Potential Analysis Areas:
+
+The spikes in 2014 and 2015 likely reflect impactful news or events like mergers, financial announcements, or broader market volatility affecting the airline industry.

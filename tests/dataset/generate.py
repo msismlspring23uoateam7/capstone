@@ -70,7 +70,7 @@ for _ in range(25):
 new_list = []
 for q, a in questions_answers:
     ques_ans = dict()
-    ques_ans["query"] = q
+    ques_ans["prompt"] = q
     ques_ans["response"] = a
     new_list.append(ques_ans)
 evaluation_questions["Stock Performance"] = new_list
@@ -87,7 +87,7 @@ for _ in range(25):
 new_list = []
 for q, a in questions_answers:
     ques_ans = dict()
-    ques_ans["query"] = q
+    ques_ans["prompt"] = q
     ques_ans["response"] = a
     new_list.append(ques_ans)
 evaluation_questions["Comparative Performance"] = new_list
@@ -105,7 +105,7 @@ for _ in range(25):
 new_list = []
 for q, a in questions_answers:
     ques_ans = dict()
-    ques_ans["query"] = q
+    ques_ans["prompt"] = q
     ques_ans["response"] = a
     new_list.append(ques_ans)
 evaluation_questions["Event-Driven"] = new_list
@@ -123,7 +123,7 @@ for _ in range(25):
 new_list = []
 for q, a in questions_answers:
     ques_ans = dict()
-    ques_ans["query"] = q
+    ques_ans["prompt"] = q
     ques_ans["response"] = a
     new_list.append(ques_ans)
 evaluation_questions["Time-Series"] = new_list

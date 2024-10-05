@@ -1,3 +1,4 @@
+import os
 from agentlite.actions.InnerActions import INNER_ACT_KEY
 from agentlite.commons import AgentAct
 from agentlite.commons import TaskPackage
@@ -17,43 +18,19 @@ class AgentsExample:
         Each example is a successful action-obs chain of an agent.
         those examples should cover all those api calls
         """
-        # An example of Data Agent 
-        # task
+        # An example of Data Agent task
         task = "Use FileHandler to load the data and then Preprocess it."
 
-        # 1. think action and obs
-        thought = "I should first use FileHandler to load the data. Then use Preprocessing to process the data."
-        act_1 = AgentAct(name=ThinkAct.action_name, params={INNER_ACT_KEY: thought})
-        obs_1 = "OK"
-
-        # 2. FileHandler action and obs
+        # 1. FileHandler action and obs
         act_params = {"query": "loading the data"}
-        act_2 = AgentAct(name=FileHandlerAction().action_name, params=act_params)
-        import os
-        cur_dir = os.getcwd()
-        examples_dir = "/agentlite_finance/examples/"
-        df_string = pd.read_csv(
-                                    cur_dir
-                                    + examples_dir
-                                    + "data/stock_data.csv"
-                                ).to_string(index=False)
-        obs_2 = df_string
-        insights_text = open(
-                                cur_dir
-                                + examples_dir
-                                + "data/stock_data_insights.txt"
-                            ).read()
+        act_1 = AgentAct(name=FileHandlerAction().action_name, params=act_params)
+        obs_1 = "Data is loaded."
     
+         # 2. Preprocessing action and obs
+        act_2 = AgentAct(name=PreprocessingAction().action_name, params={"query": "Preprocessing the data."})
+        obs_2 = 'Preprocessing Completed.'
 
-        thought = "Preprocess the data."
-        act_3 = AgentAct(name=PreprocessingAction().action_name, params={"query": thought})
-        obs_3= 'Preprocessing Completed.'
-
-        # 3. finish action
-        act_4 = AgentAct(name=FinishAct.action_name, params={INNER_ACT_KEY: thought})
-        # obs_3 = "Task Completed."
-        obs_4= thought
-        return TaskPackage(instruction=task),[(act_1, obs_1), (act_2, obs_2), (act_3, obs_3), (act_4, obs_4)]
+        return TaskPackage(instruction=task),[(act_1, obs_1), (act_2, obs_2),]
     
     def build_visualisation_example(self):
         """
@@ -61,27 +38,35 @@ class AgentsExample:
         Each example is a successful action-obs chain of an agent.
         those examples should cover all those api calls
         """
-        # An example of visualisation Agent 
-        # task
+        # An example of visualisation Agent task
         task = "Generate a bar chart showing the total trading volume over the last five years for AAL stock."
 
-        # 1. think action and obs
-        thought = "I should first use Codegenerator to generate the code and then I should use Plotting action to plot and visualise."
-        act_1 = AgentAct(name=ThinkAct.action_name, params={INNER_ACT_KEY: thought})
-        obs_1 = "OK"
-
         act_params = {"query": task}
-        act_2 = AgentAct(name=CodeGenerationAction().action_name, params=act_params)
-        obs_2 = 'Code generated for the chart.'
+        act_1 = AgentAct(name=CodeGenerationAction().action_name, params=act_params)
+        obs_1 = 'Code generated for the chart.'
+        
+        cur_dir = os.getcwd()
+        examples_dir = "/agentlite_finance/examples/"
+        code_gen_resp = open(
+                            cur_dir +
+                            examples_dir +
+                            "data/example_vis_code.txt"
+                        ).read()
+        obs_1 = code_gen_resp
 
-        # 4. Visualisation action
-        act_3 = AgentAct(name=PlottingAction().action_name, params={"query": task})
-        obs_3 = "Chart is plotted."
+        # 2. Visualisation action
+        act_2 = AgentAct(
+            name=PlottingAction().action_name,
+            params={"input": "Here is the code received from CodeGen: \n" + code_gen_resp})
+        obs_2 = {"response": "Here is the code used for visualization: \n" + code_gen_resp}
 
-        # 5. finish action
-        act_4 = AgentAct(name=FinishAct.action_name, params={INNER_ACT_KEY: "Finish if Plotting is complete."})
-        obs_4 = "Ok."
-        return TaskPackage(instruction=task),[(act_1, obs_1), (act_2, obs_2), (act_3, obs_3), (act_4, obs_4)]
+        # 3. Finish action
+        act_3 = AgentAct(
+            name=FinishAct.action_name,
+            params={INNER_ACT_KEY: "Here is the code received from CodeGen: \n" + code_gen_resp})
+        obs_3 = "Here is the code used for visualization: \n" + code_gen_resp
+
+        return TaskPackage(instruction=task),[(act_1, obs_1), (act_2, obs_2), (act_3, obs_3)]
     
 
     def build_summary_example(self):
@@ -90,20 +75,24 @@ class AgentsExample:
         Each example is a successful action-obs chain of an agent.
         those examples should cover all those api calls
         """
-        # An example of visualisation Agent 
-        # task
+        # An example of visualisation Agent task
         task = "share insights for AAL stock."
 
-        # 1. think action and obs
-        thought = "I should use GenericInsights to share the insights."
-        act_1 = AgentAct(name=ThinkAct.action_name, params={INNER_ACT_KEY: thought})
-        obs_1 = "OK"
+        # 1. GenericInsights action
+        act_1 = AgentAct(name=GenericInsightsAction().action_name, params={"query": task})
+        cur_dir = os.getcwd()
+        examples_dir = "/agentlite_finance/examples/"
+        insights_resp = open(
+                            cur_dir +
+                            examples_dir +
+                            "data/stock_data_insights.txt"
+                        ).read()
+        obs_1 = {"response" : insights_resp}
 
-        # 2. GenericInsights action
-        act_2 = AgentAct(name=GenericInsightsAction().action_name, params={"query": task})
-        obs_2 = "Insights are shared."
-
-        # 3. finish action
-        act_3 = AgentAct(name=FinishAct.action_name, params={INNER_ACT_KEY: "Insigts task is complete."})
-        obs_3 = "Ok."
-        return TaskPackage(instruction=task),[(act_1, obs_1), (act_2, obs_2), (act_3, obs_3),]
+        # 2. Finish action
+        act_2 = AgentAct(
+            name=FinishAct.action_name,
+            params={INNER_ACT_KEY: insights_resp})
+        obs_2 = insights_resp
+   
+        return TaskPackage(instruction=task),[(act_1, obs_1), (act_2, obs_2)]

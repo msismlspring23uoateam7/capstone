@@ -28,9 +28,8 @@ class GenericInsightsAction(BaseAction):
 
     def __call__(self, query):
         result = self.get_result(query)
-        st.write(result)
-        return {"response": "Text based information is provided. Now, continue with next action based on the task."}
-
+        # st.write(result)
+        return result
 
     def get_result(self, query):
         result_instructions = """Use your knowledge to generate accurate results of the user prompt.

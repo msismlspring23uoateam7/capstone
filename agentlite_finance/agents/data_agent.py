@@ -1,7 +1,14 @@
 from agentlite.agents.BaseAgent import BaseAgent
 
 class DataAgent(BaseAgent):
-    def __init__(self, llm, actions, shared_mem, logger, custom_templates=None):
+    def __init__(
+            self, 
+            llm=None, 
+            actions=[],
+            shared_mem=None,
+            logger=None,
+            custom_templates=None
+        ):
         agent_name="DataAgent"
         agent_role="""You are an expert in data preprocessing and data insights. Use your
                         knowledge to load the data using file handler and then preprocess the data and generate expert insights from it 
