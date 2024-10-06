@@ -57,14 +57,14 @@ class AgentsExample:
         # 2. Visualisation action
         act_2 = AgentAct(
             name=PlottingAction().action_name,
-            params={"input": "Here is the code received from CodeGen: \n" + code_gen_resp})
-        obs_2 = {"response": "Here is the code used for visualization: \n" + code_gen_resp}
+            params={"input": "Here is the code received from CodeGen to plot visualization: \n" + code_gen_resp})
+        obs_2 = "Plotting of the visualisation is complete."
 
         # 3. Finish action
         act_3 = AgentAct(
             name=FinishAct.action_name,
             params={INNER_ACT_KEY: "Here is the code received from CodeGen: \n" + code_gen_resp})
-        obs_3 = "Here is the code used for visualization: \n" + code_gen_resp
+        obs_3 = "Code used to plot visualisation is returned successfully."
 
         return TaskPackage(instruction=task),[(act_1, obs_1), (act_2, obs_2), (act_3, obs_3)]
     
@@ -87,12 +87,12 @@ class AgentsExample:
                             examples_dir +
                             "data/stock_data_insights.txt"
                         ).read()
-        obs_1 = {"response" : insights_resp}
+        obs_1 = "Insights received from Generic Action."
 
         # 2. Finish action
         act_2 = AgentAct(
             name=FinishAct.action_name,
             params={INNER_ACT_KEY: insights_resp})
-        obs_2 = insights_resp
+        obs_2 = "Task Complete."
    
         return TaskPackage(instruction=task),[(act_1, obs_1), (act_2, obs_2)]

@@ -12,7 +12,6 @@ import plotly.graph_objects as go
 import numpy as np
 import pandas as pd
 
-#TODO update this file for stockcdata
 class PlottingAction(BaseAction):
 
     def __init__(
@@ -34,14 +33,10 @@ class PlottingAction(BaseAction):
         if self.shared_mem.get(CODE) is None:
             return "Could not find dataframe. Load dataframe using FileHandler action first."
         code_response = self.shared_mem.get(CODE)
-        updated_data = self.execute_pure_code(code_response)
+        self.execute_pure_code(code_response)
         return input
-    
-    def process_data(self, data):
-        return data
 
     def execute_pure_code(self, response):
         data = self.shared_mem.get(DATA_FRAME)
         exec(response)
         exec("plot_chart_for_stock_data(data)")
-        return {"response": "Visualisations are created. Now, continue with next action based on the task."}

@@ -1,14 +1,16 @@
-import streamlit as st
-from openai import OpenAI
-from sklearn.preprocessing import StandardScaler
+from llama_index.core.query_pipeline import (
+    QueryPipeline as QP,
+    Link,
+    InputComponent,
+)
 from agentlite.actions.BaseAction import BaseAction
-from agentlite.logging.streamlit_logger import UILogger
+from llama_index.experimental.query_engine.pandas import (
+    PandasInstructionParser,
+)
 from agentlite_finance.memory.memory_keys import DATA_FRAME
-from agentlite_finance.memory.memory_keys import DATA_SUMMARY
+from llama_index.llms.openai import OpenAI
+from llama_index.core import PromptTemplate
 
-client = OpenAI(api_key="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")
-
-#TODO update this file for stockcdata
 class GenericInsightsAction(BaseAction):
 
     def __init__(
@@ -27,50 +29,75 @@ class GenericInsightsAction(BaseAction):
         self.shared_mem = shared_mem
 
     def __call__(self, query):
-        result = self.get_result(query)
+        result = self.dataframe_query(query)
         # st.write(result)
         return result
 
-    def get_result(self, query):
-        result_instructions = """Use your knowledge to generate accurate results of the user prompt.
-                                                Take help of data and some sample to generate your result."""
-        
-        data_summary = self.shared_mem.get(DATA_SUMMARY)
-        data = self.shared_mem.get(DATA_FRAME)
+    def dataframe_query(self, query):
+        df = self.shared_mem.get(DATA_FRAME)
+        command = (
+            "1. Convert the query to executable Python code using Pandas.\n"
+            "2. The final line of code should be a Python expression that can be called with the `eval()` function.\n"
+            "3. The code should represent a solution to the query.\n"
+            "4. PRINT ONLY THE EXPRESSION.\n"
+            "5. Do not quote the expression.\n"
+        )
 
-        #get distinct stocks from the data
-        unique_stocks = data['Name'].unique()        
+        dataframe_filter_prompt = (
+            "You are working with a pandas dataframe in Python.\n"
+            "The name of the dataframe is `df`.\n"
+            "This is the result of `print(df.head())`:\n"
+            "{stock_df_str}\n\n"
+            "Follow these instructions:\n"
+            "{command}\n"
+            "Query: {user_prompt}\n\n"
+            "Expression:"
+        )
 
-        #get required stocks from the prompt
-        stocks_needed = []
-        for i in unique_stocks:
-            if i in query.split():
-                stocks_needed.append(i)
+        synthesis_template = (
+            "Given an input question, synthesize a response from the query results.\n"
+            "Query: {user_prompt}\n\n"
+            "Pandas Instructions (optional):\n{pandas_instructions}\n\n"
+            "Pandas Output: {filtered_dataframe}\n\n"
+            "Response: "
+        )
 
-        if stocks_needed == []:
-            res = 'Please mention the name of the stock to be analyzed in upper case.'
-        else:
-            #filter the data based on the stocks mentioned
-            filtered_data = data[data['Name'].isin(stocks_needed)].copy()
-            
-            #sample_data = self.shared_mem.get(DATA_FRAME).copy().iloc[:5,:10]
-            sample_data = filtered_data.copy().iloc[:5,:10]
-
-            complete_prompt = f"""Instructions: \n {result_instructions}
-                            Data: \n {filtered_data}
-                            Sample Data:  \n {sample_data}
-                            User Prompt:  \n {query}"""
-            print("***** CODEGEN LLM PROMPT" + complete_prompt)
-            response = client.chat.completions.create(
-                model="gpt-3.5-turbo",  # Use the GPT-4 model
-                messages=[
-                    {"role": "system", "content": "You are an expert data analysis assistant."},
-                    {"role": "user", "content": complete_prompt}
-                ],
-                max_tokens=1000,  # Set appropriate max tokens
-                temperature=0.5  # Set the temperature as needed
+        pandas_prompt = PromptTemplate(dataframe_filter_prompt).partial_format(
+            command=command, stock_df_str=df.head(5)
+        )
+        pandas_output_parser = PandasInstructionParser(df)
+        response_synthesis_prompt = PromptTemplate(synthesis_template)
+        llm = OpenAI(
+                model="gpt-3.5-turbo",
+                api_key="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"
             )
-            res = response.choices[0].message.content
-
-        # Return the content of the response
-        return res
+        qp = QP(
+            modules={
+                "input": InputComponent(),
+                "pandas_prompt": pandas_prompt,
+                "llm1": llm,
+                "pandas_output_parser": pandas_output_parser,
+                "response_synthesis_prompt": response_synthesis_prompt,
+                "llm2": llm,
+            },
+            verbose=True,
+        )
+        qp.add_chain(["input", "pandas_prompt", "llm1", "pandas_output_parser"])
+        qp.add_links(
+            [
+                Link("input", "response_synthesis_prompt", dest_key="user_prompt"),
+                Link(
+                    "llm1", "response_synthesis_prompt", dest_key="pandas_instructions"
+                ),
+                Link(
+                    "pandas_output_parser",
+                    "response_synthesis_prompt",
+                    dest_key="filtered_dataframe",
+                ),
+            ]
+        )
+        qp.add_link("response_synthesis_prompt", "llm2")
+        response = qp.run(
+            user_prompt=query,
+        )
+        return response.message.content

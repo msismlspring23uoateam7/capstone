@@ -85,7 +85,7 @@ def main():
             team=[
                     data_agent ,visualization_agent, generic_agent                    
                 ],
-            logger=logger
+            logger=agent_logger
         )
         manager_task, manager_chain = ManagerExample().build_manager_example()
         finance_data_manager.add_example(task=manager_task, action_chain=manager_chain)

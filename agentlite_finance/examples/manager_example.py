@@ -36,15 +36,17 @@ class ManagerExample:
 
         act_2 = AgentAct(
             name=VisualizationAgent().name,
-            params={ AGENT_CALL_ARG_KEY: task + " And return the code used to generate the visualization."}
+            params={ AGENT_CALL_ARG_KEY: task}
         )
-        obs_2 = {"response": "Visualisation is complete. Here is the code used for visualisation: \n" + vis_code}
+        obs_2 = "Plotting of the chart is complete."
 
         act_3 = AgentAct(
             name=FinishAct.action_name,
-            params={ INNER_ACT_KEY: "Visualisation is complete. Here is the code used for visualisation: \n" + vis_code}
+            params={ INNER_ACT_KEY: """showing the bar chart for the total trading volume over 
+                                       the last five years for AAL stock. Here is the code
+                                       used for visualization: \n""" + vis_code}
         )
-        obs_3 = "Visualisation is complete. Here is the code used for visualisation: \n" + vis_code
+        obs_3 = "Task Complete."
 
         return TaskPackage(instruction=task),[ (act_1, obs_1), (act_2, obs_2), (act_3, obs_3)]
     
@@ -55,7 +57,7 @@ class ManagerExample:
         those examples should cover all those api calls
         """
         # An example of Financial Data Manager Agent task
-        task = "summarise the AAL stock."
+        task = "summarize the AAL stock."
 
         act_1 = AgentAct(
             name=DataAgent().name,
@@ -74,13 +76,13 @@ class ManagerExample:
                                 + examples_dir
                                 + "data/stock_data_insights.txt"
                             ).read()
-        obs_2 = {"response" : insights_text}
+        obs_2 = "summarization of AAL stock is complete."
 
         act_3 = AgentAct(
             name=FinishAct.action_name,
             params={ INNER_ACT_KEY: insights_text}
         )
-        obs_3 = insights_text
+        obs_3 = "Task Complete."
 
         return TaskPackage(instruction=task),[(act_1, obs_1), (act_2, obs_2), (act_3, obs_3)]    
     
