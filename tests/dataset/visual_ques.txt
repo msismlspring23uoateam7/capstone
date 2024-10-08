@@ -1,0 +1,40 @@
+"Show the closing price trend for Apple over the last five years.": "Line Chart",
+"Compare the daily trading volume of Tesla and Amazon in 2023.": "Bar Chart",
+"Plot the highest stock price of Microsoft in each year.": "Bar Chart",
+"Show the stock price movement of Google for the last month.": "Candlestick Chart",
+"What is the average closing price of all stocks in 2022?": "Histogram",
+"Display the stock performance of Facebook for the first quarter of 2021.": "Line Chart",
+"Compare the opening prices of all stocks on January 1, 2020.": "Bar Chart",
+"Show the distribution of stock prices for Netflix in 2021.": "Box Plot",
+"Plot the relationship between the stock volume and closing price for Amazon in 2020.": "Scatter Plot",
+"Show the price range (high vs low) for Tesla in the last year.": "Range Bar Chart",
+"What was the highest daily volume for each stock in the last year?": "Bar Chart",
+"Visualize the total trading volume for all companies over the past five years.": "Area Chart",
+"Plot the moving average of Apple’s closing price over 50 days.": "Line Chart",
+"Compare the opening prices for all tech companies on the same day in 2022.": "Grouped Bar Chart",
+"Show the percentage change in closing price for Amazon over 2020-2021.": "Line Chart"
+"Compare the stock price trends of the top 5 tech companies over the last five years.": "Multi-Line Chart",
+"Show the correlation between daily trading volume and stock price for Tesla, Microsoft, and Apple in 2022.": "Multi-Scatter Plot",
+"Create a heatmap showing the stock performance (open, close, high, low) of Amazon over the last 12 months.": "Heatmap",
+"Plot the moving average convergence divergence (MACD) for Apple's stock over the past three years.": "MACD Line Chart",
+"Compare the quarterly average closing prices of Tesla, Google, and Microsoft in 2020 and 2021.": "Grouped Bar Chart",
+"Show the volatility (high-low range) of Facebook’s stock price for each week over the last two years.": "Box Plot with Weekly Aggregation",
+"Visualize the cumulative returns of the S&P 500 index companies over the last five years.": "Area Chart with Cumulative Sum",
+"Display a candlestick chart of Tesla’s stock price, along with a 50-day and 200-day moving average overlay for 2023.": "Candlestick Chart with Moving Averages",
+"Compare the percentage growth of the stock prices of Amazon, Netflix, and Google over the last three years.": "Percentage Change Line Chart",
+"Show a bubble chart that compares the market capitalization (using trading volume as a proxy) of all S&P 500 companies at the end of 2022.": "Bubble Chart",
+"Generate a stacked area chart showing the total trading volume of the top 5 energy companies from 2020 to 2023.": "Stacked Area Chart",
+"Plot the Bollinger Bands for Microsoft's stock over the last six months.": "Bollinger Bands Chart",
+"Visualize the performance (open, high, low, close) of Tesla’s stock during the last month, with different colors indicating price increase or decrease.": "OHLC Chart with Color Coding",
+"Show a 3D surface plot of the stock prices of Apple over time, with volume influencing the height of the surface.": "3D Surface Plot",
+"Compare the daily price range (high-low) and trading volume for Tesla and Amazon using subplots for 2021.": "Subplots with Range Bars and Bar Chart"
+⁠“Generate a Plotly line chart for the closing price over time for all stocks.”: "This will generate a multi-line chart with the closing price of each stock over time."
+“Create a Plotly candlestick chart for stock prices using the ‘open’, ‘high’, ‘low’, and ‘close’ values for all stocks.” : "This will generate a candlestick chart for each stock, showing the open, high, low, and close prices over time."
+“Generate a Plotly bar chart showing the total trading volume over the last five years for each stock.” : "This will generate a bar chart showing the total trading volume for each of the 500 stocks over the five-year period."
+“Plot a Plotly histogram showing the distribution of closing prices for all stocks.” : "This will generate a histogram showing how the closing prices are distributed across all stocks."
+“Create a Plotly scatter plot comparing the closing price and trading volume for all stocks.” : "This will generate a scatter plot that shows the relationship between the closing price and trading volume for all 500 stocks."
+“Show a Plotly MACD and signal line chart for all stocks using the closing prices.” : "This will generate a chart showing the MACD and signal line for each stock using their respective closing prices."
+“Generate a Plotly chart showing the Bollinger Bands for all stocks using their closing prices.” : "This will generate a chart with Bollinger Bands for each stock, showing volatility over time."
+“Show a Plotly pie chart of the total volume traded for the top 10 stocks over the last five years.” : "This will generate a pie chart that highlights the top 10 stocks based on total trading volume over the five-year period."
+“Plot a Plotly heatmap showing the correlation between the closing prices of all 500 stocks in the dataset.” : "This will generate a heatmap showing how the closing prices of different stocks are correlated."
+“Generate a Plotly box plot showing the distribution of closing prices for all stocks over the last five years.” : "This will generate a box plot for each stock, displaying the distribution of closing prices over the entire five-year period."
