@@ -42,7 +42,7 @@ class CodeGenerationAction(BaseAction):
                                                 Do not include the method in any class. 
                                                 And this method should print the plot in streamlit UI using
                                                 plotly_chart API like st.plotly_chart(fig). Do not call plot_chart_for_stock_data 
-                                                method anywere in the generated code, it will be invoked by other entity. Include all the 
+                                                method anywhere in the generated code, it will be invoked by other entity. Include all the 
                                                 required imports in the code.Do not initialize dataframe on your own."""
         
         data_summary = "Not Available"
