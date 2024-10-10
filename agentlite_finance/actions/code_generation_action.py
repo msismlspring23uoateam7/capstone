@@ -38,12 +38,12 @@ class CodeGenerationAction(BaseAction):
         code_gen_instructions = """Give me a python method with the name plot_chart_for_stock_data which takes
                                                 pandas dataframe as argument. Use your knowledge to generate
                                                 accurate python code of the charts using plotly for the user
-                                                prompt given below. Do not include the method in any class. 
+                                                prompt given. Do not include any sample data.
+                                                Do not include the method in any class. 
                                                 And this method should print the plot in streamlit UI using
-                                                plotly_chart API like st.plotly_chart(fig). Do not call the 
-                                                method, It will be invoked by other entity. Include all the 
-                                                required imports in the code. Take help of data sample and summary
-                                                to generate your code. Do not initialize dataframe on your own."""
+                                                plotly_chart API like st.plotly_chart(fig). Do not call plot_chart_for_stock_data 
+                                                method anywere in the generated code, it will be invoked by other entity. Include all the 
+                                                required imports in the code.Do not initialize dataframe on your own."""
         
         data_summary = "Not Available"
         if DATA_SUMMARY in self.shared_mem.keys():
