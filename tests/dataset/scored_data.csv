@@ -1,0 +1,2323 @@
+,prompt_type,prompt,expected_response,received_response,answer_type,score,answerable
+0,Stock Performance,What was the closing price of ORCL on 2014-05-19?,$42.16,The closing price of ORCL on 2014-05-19 was $42.16.,Text,10,1
+1,Stock Performance,What was the closing price of DPS on 2014-06-24?,$58.56,The closing price of DPS on 2014-06-24 was $58.56.,Text,10,1
+2,Stock Performance,What was the closing price of ARNC on 2017-12-13?,$25.18,The closing price of ARNC on 2017-12-13 was $25.18.,Text,10,1
+3,Stock Performance,What was the closing price of NBL on 2015-11-25?,$36.94,"The closing price of NBL on November 25, 2015 was $36.94.",Text,10,1
+4,Stock Performance,What was the closing price of ILMN on 2015-07-06?,$220.51,The closing price of ILMN on 2015-07-06 was $220.51.,Text,10,1
+5,Stock Performance,What was the closing price of AAL on 2016-01-21?,$39.79,The closing price of AAL on 2016-01-21 was $39.79.,Text,10,1
+6,Stock Performance,What was the closing price of AIV on 2016-04-29?,$40.06,The closing price of AIV on 2016-04-29 was $40.06.,Text,10,1
+7,Stock Performance,What was the closing price of AMP on 2015-10-14?,$107.57,"The closing price of AMP on October 14, 2015 was $107.57.",Text,10,1
+8,Stock Performance,What was the closing price of LRCX on 2013-02-20?,$41.96,"The closing price of LRCX on February 20, 2013 was $41.96.",Text,10,1
+9,Stock Performance,What was the closing price of DTE on 2015-10-14?,$81.76,"The closing price of DTE on October 14, 2015 was $81.76.",Text,10,1
+10,Stock Performance,What was the closing price of PLD on 2013-08-05?,$38.19,The closing price of PLD on 2013-08-05 was $38.19.,Text,10,1
+11,Stock Performance,What was the closing price of GPC on 2014-04-15?,$85.20,The closing price of GPC on 2014-04-15 was $85.20.,Text,10,1
+12,Stock Performance,What was the closing price of DISCA on 2013-03-07?,$77.16,The closing price of DISCA on 2013-03-07 was $77.16.,Text,10,1
+13,Stock Performance,What was the closing price of LNT on 2014-11-21?,$31.11,The closing price of LNT on 2014-11-21 was $31.105.,Text,10,1
+14,Stock Performance,What was the closing price of MAS on 2013-02-14?,$20.11,The closing price of MAS on 2013-02-14 was $20.11.,Text,10,1
+15,Stock Performance,What was the closing price of V on 2014-02-21?,$55.84,The closing price of V on 2014-02-21 was $55.84.,Text,10,1
+16,Stock Performance,What was the closing price of LRCX on 2013-06-04?,$47.98,"showing the line chart for the closing price of LRCX stock on 2013-06-04. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    
+    fig = px.line(df[df['Name'] == 'LRCX'].loc[df['date'] == '2013-06-04'], x='date', y='close', title='Closing Price of LRCX on 2013-06-04')
+    
+    st.plotly_chart(fig)
+```
+
+Closing Price of LRCX on 2013-06-04:
+
+The closing price of LRCX stock on June 4, 2013, was $49.23. This value is based on the dataset provided and reflects the stock's performance on that specific date.",Text,10,1
+17,Stock Performance,What was the closing price of HIG on 2017-12-05?,$54.64,Please provide the specific dataset or information related to HIG stock on 2017-12-05 for further analysis.,Text,10,1
+18,Stock Performance,What was the closing price of BLK on 2017-05-01?,$383.00,The closing price of BLK on 2017-05-01 was $383.00.,Text,10,1
+19,Stock Performance,What was the closing price of NFLX on 2014-05-20?,$53.10,The closing price of NFLX on 2014-05-20 was $53.0957.,Text,10,1
+20,Stock Performance,What was the closing price of LH on 2017-07-20?,$156.12,The closing price of LH on 2017-07-20 was $156.12.,Text,10,1
+21,Stock Performance,What was the closing price of SRE on 2015-12-09?,$93.75,"The closing price of SRE on December 9, 2015 was $93.75.",Text,10,1
+22,Stock Performance,What was the closing price of O on 2013-05-09?,$52.19,The closing price of O on 2013-05-09 was $52.19.,Text,10,1
+23,Stock Performance,What was the closing price of HPE on 2017-08-04?,$17.51,The closing price of HPE on 2017-08-04 was $17.51.,Text,10,1
+24,Comparative Performance,"Which stock performed better in 2014, XOM or MTB?",MTB had a better performance with an average price of $120.87,"Based on the analysis, XOM (Exxon Mobil) performed better in 2014 compared to MTB (M&T Bank). Here are some key insights:
+
+XOM had a more consistent and positive trend in its stock prices throughout the year.
+MTB may have experienced more volatility or lower overall performance during the same period.
+Factors such as market conditions, industry trends, and company-specific news could have influenced these outcomes.",Text,0,1
+25,Comparative Performance,"Which stock performed better in 2016, BMY or MDT?",MDT had a better performance with an average price of $80.54,"Based on the analysis, BMY stock performed better in 2016 compared to MDT. Here are some key insights:
+
+- BMY had a higher percentage increase in stock price compared to MDT in 2016.
+- Factors such as company earnings, market conditions, and industry trends may have influenced the performance difference.
+- Further analysis can be conducted to understand the specific reasons behind the performance variation between the two stocks.",Text,0,1
+26,Comparative Performance,"Which stock performed better in 2013, GPS or AON?",AON had a better performance with an average price of $68.77,"Based on the analysis, it was found that GPS (Gap Inc.) performed better in 2013 compared to AON (Aon plc). GPS had a higher percentage increase in stock price and total return on investment for the year. This could be attributed to various factors such as market trends, company performance, and industry dynamics. Here are some key insights:
+
+- GPS had a 25% increase in stock price from the beginning to the end of 2013, while AON had a 15% increase.
+- GPS also had a higher total return on investment of 30% compared to AON's 20%.
+- Factors such as strong sales performance, strategic initiatives, and market sentiment may have contributed to GPS's better performance in 2013.",Text,0,1
+27,Comparative Performance,"Which stock performed better in 2015, DOV or OKE?",DOV had a better performance with an average price of $67.55,"Based on the analysis of the stock data for DOV and OKE in 2015, it can be concluded that DOV performed better than OKE. DOV showed more consistent growth and stability in its stock price compared to OKE, which exhibited higher volatility and price fluctuations throughout the year. Here are some key insights:
+
+- DOV had a more steady performance with gradual growth in its stock price.
+- OKE experienced more price swings and volatility, indicating a less stable performance.
+
+Overall, DOV's performance in 2015 was more favorable compared to OKE.",Text,0,1
+28,Comparative Performance,"Which stock performed better in 2016, TXN or WDC?",TXN had a better performance with an average price of $63.10,"TXN stock performed better in 2016 compared to WDC. Here are some key insights:
+
+TXN Stock Performance in 2016:
+
+- TXN stock showed a significant increase in stock price throughout the year.
+- The stock price of TXN experienced steady growth with occasional fluctuations.
+- Overall, TXN stock outperformed WDC in terms of stock price appreciation in 2016.
+
+WDC Stock Performance in 2016:
+
+- WDC stock also showed growth in stock price but at a slower rate compared to TXN.
+- The stock price of WDC had some fluctuations but did not show as significant an increase as TXN.
+
+Comparison:
+
+- TXN had a higher percentage increase in stock price compared to WDC in 2016.
+- This indicates that TXN performed better in terms of stock price appreciation during the year.
+
+Overall, based on the stock price performance in 2016, TXN can be considered the better-performing stock between TXN and WDC.",Text,10,1
+29,Comparative Performance,"Which stock performed better in 2017, PXD or CDNS?",PXD had a better performance with an average price of $163.48,"PXD stock performed better than CDNS stock in 2017. Here is the detailed comparison:
+
+PXD (Pioneer Natural Resources):
+Total Closing Value: $206,195.33
+
+CDNS (Cadence Design Systems):
+Total Closing Value: $8,934.74
+
+Based on the total closing values, PXD outperformed CDNS in 2017.",Text,10,1
+30,Comparative Performance,"Which stock performed better in 2017, CRM or CVX?",CVX had a better performance with an average price of $111.45,"Based on the analysis of the stock price performance of CRM (Salesforce) and CVX (Chevron) in 2017, it can be concluded that CRM outperformed CVX during that year. CRM showed a consistent upward trend in its stock price throughout the year, with fewer fluctuations compared to CVX. This indicates that CRM had a better performance and potentially higher returns for investors in 2017. Factors such as strong financial performance, market demand for CRM's products/services, and positive investor sentiment may have contributed to CRM's better performance compared to CVX in 2017.",Text,0,1
+31,Comparative Performance,"Which stock performed better in 2018, CHTR or KEY?",CHTR had a better performance with an average price of $364.49,"CHTR stock performed better than KEY stock in 2018. Here is the detailed comparison:
+
+CHTR Stock Performance in 2018:
+- Total Closing Value: 261,983.2819
+
+KEY Stock Performance in 2018:
+- Total Closing Value: 549.5600
+
+Based on the total closing value, CHTR had a significantly better performance compared to KEY in 2018.",Text,10,1
+32,Comparative Performance,"Which stock performed better in 2015, WAT or NFLX?",WAT had a better performance with an average price of $126.07,"Based on the analysis, the stock for WAT performed better in 2015 compared to NFLX. This conclusion is drawn from the data analysis of the stock performance for both companies during that year.",Text,10,1
+33,Comparative Performance,"Which stock performed better in 2016, AXP or PFE?",AXP had a better performance with an average price of $63.79,"Based on the analysis of the stock data for AXP and PFE in 2016, it can be determined that AXP performed better than PFE during that year. AXP showed a higher percentage increase in stock price, higher trading volume, and more consistent positive trends compared to PFE. Overall, AXP had a stronger performance in 2016.",Text,0,1
+34,Comparative Performance,"Which stock performed better in 2014, COG or GT?",COG had a better performance with an average price of $34.38,"After analyzing the stock data for COG and GT in 2014, it is evident that COG performed better than GT during that year. COG showed a more consistent upward trend in its stock prices and had higher trading volumes compared to GT. This indicates that COG had better performance and market activity in 2014. Here are some key insights:
+
+- COG had a steady increase in stock prices throughout the year, with occasional dips but overall positive growth.
+- GT, on the other hand, had more fluctuations in its stock prices and lower trading volumes, indicating less market interest.
+- The closing prices for COG were consistently higher than GT, reflecting better performance in terms of investor confidence and market value.
+
+Overall, based on the data analysis, COG outperformed GT in 2014.",Text,0,1
+35,Comparative Performance,"Which stock performed better in 2015, ABBV or GD?",GD had a better performance with an average price of $140.96,The stock that performed better in 2015 between ABBV and GD was PCLN.,Text,0,1
+36,Comparative Performance,"Which stock performed better in 2017, DXC or ANSS?",ANSS had a better performance with an average price of $121.36,"Based on the analysis of the stock performance in 2017, DXC stock performed better than ANSS. DXC showed a higher percentage increase in closing price and had more consistent trading volume throughout the year, indicating a more stable market interest.",Text,10,1
+37,Comparative Performance,"Which stock performed better in 2018, EQR or XRX?",EQR had a better performance with an average price of $61.04,"EQR (Equity Residential) stock performed better than XRX (Xerox Corporation) stock in 2018. Here are some key insights:
+
+EQR Stock Performance:
+- EQR showed a consistent and positive performance throughout 2018.
+- The stock price steadily increased over the year, indicating a strong performance.
+
+XRX Stock Performance:
+- XRX experienced more fluctuations and a downward trend in certain periods in 2018.
+- The stock price did not show as steady growth as EQR.
+
+Overall, based on the performance in 2018, EQR is considered to have performed better than XRX.",Text,0,1
+38,Comparative Performance,"Which stock performed better in 2018, WMB or MPC?",MPC had a better performance with an average price of $69.62,"Based on the analysis, WMB stock performed better than MPC stock in 2018. Here are the total closing values for each stock:
+WMB: $46,063.77
+MPC: $1,810.22
+Therefore, WMB had a significantly higher total closing value compared to MPC in 2018.",Text,0,1
+39,Comparative Performance,"Which stock performed better in 2015, AAL or ESRX?",ESRX had a better performance with an average price of $86.02,"Based on the analysis of the stock data for AAL and ESRX in 2015, it can be determined that AAL performed better than ESRX during that year. Here are some key insights:
+
+- AAL stock showed a more consistent upward trend throughout the year compared to ESRX.
+- AAL had higher average closing prices and lower volatility in its price movements.
+- The trading volume for AAL was also higher than ESRX, indicating more market interest and activity in AAL stock.
+
+Overall, AAL's performance in 2015 was stronger than ESRX based on the data analysis.",Text,0,1
+40,Comparative Performance,"Which stock performed better in 2013, C or GPC?",GPC had a better performance with an average price of $78.84,"In 2013, GPC stock performed better than C stock. GPC had a total closing value of $112,621.76, while C had a total closing value of $67,316.15.",Text,10,1
+41,Comparative Performance,"Which stock performed better in 2017, GS or ILMN?",GS had a better performance with an average price of $233.59,"Based on the analysis of stock price movements, trends, and any significant events in 2017, it can be concluded that GS (Goldman Sachs) performed better than ILMN (Illumina) during that year. GS showed more consistent growth and stability in its stock price compared to ILMN, which experienced more fluctuations and volatility. Additionally, GS may have benefited from positive market conditions or specific company developments that contributed to its better performance in 2017.",Text,0,1
+42,Comparative Performance,"Which stock performed better in 2015, CERN or ETFC?",CERN had a better performance with an average price of $66.47,"Based on the analysis, CERN performed better in 2015 compared to ETFC in terms of stock price appreciation. It is essential to consider other factors like dividends, stock splits, and market conditions for a comprehensive evaluation of performance.",Text,0,1
+43,Comparative Performance,"Which stock performed better in 2014, STI or CDNS?",STI had a better performance with an average price of $38.77,"STI performed better in 2014 compared to CDNS. Here are the key insights:
+
+STI had a 25% increase in stock price in 2014, outperforming CDNS which only had a 15% increase.
+This indicates that STI had a stronger performance and growth in stock price during that year.
+
+If you need further analysis or details, feel free to ask.",Text,0,1
+44,Comparative Performance,"Which stock performed better in 2017, HAS or CBOE?",HAS had a better performance with an average price of $97.74,"Based on the analysis of the stock performance in 2017, HAS (Hasbro Inc.) outperformed CBOE (Cboe Global Markets Inc.) with higher closing prices overall. This suggests that investing in HAS would have yielded better returns compared to investing in CBOE during that year.",Text,10,1
+45,Comparative Performance,"Which stock performed better in 2017, EA or FOX?",EA had a better performance with an average price of $103.86,"Based on the analysis, EA (Electronic Arts) performed better than FOX (21st Century Fox) in 2017. EA showed more consistent growth and higher returns compared to FOX during the year. Factors such as new game releases, market trends, and company performance likely contributed to EA's better performance in 2017.",Text,0,1
+46,Comparative Performance,"Which stock performed better in 2017, AYI or CBOE?",AYI had a better performance with an average price of $185.03,"Based on the analysis, further detailed comparison is needed to determine which stock performed better in 2017 between AYI and CBOE. Factors like percentage change in stock prices, overall returns, dividends, and significant events or news related to the companies during that year need to be considered for a conclusive answer.",Text,10,1
+47,Event-Driven,How did SBAC's stock react after the CEO announcement on 2016-05-05?,SBAC's stock rose by 0.97% the next day.,"The analysis of SBAC's stock reaction after the CEO announcement on 2016-05-05 has been completed. The stock opened slightly higher, reached a peak during the trading day, and closed slightly lower. The trading volume was moderate, indicating some market activity around the announcement. Further analysis could involve comparing this reaction to historical data or market trends to assess the impact of the CEO announcement on SBAC's stock performance.",Text,10,1
+48,Event-Driven,How did BEN's stock react after the earnings report on 2017-05-16?,BEN's stock fell by 3.16% the next day.,"The analysis of BEN's stock reaction after the earnings report on 2017-05-16 indicates a mixed response. The stock opened higher than the previous close, reached a high close to the opening price, and closed slightly lower. The trading volume was moderate, suggesting average market activity. Further comparison with historical data or market trends could provide additional insights into the impact of the earnings report on BEN's stock performance.",Text,10,1
+49,Event-Driven,How did GGP's stock react after the earnings report on 2017-01-03?,GGP's stock rose by 2.40% the next day.,"GGP's stock reacted positively to the earnings report on 2017-01-03. The stock opened higher, reached a higher high, and closed at a higher price. The trading volume was also relatively high, indicating increased market activity and interest in the stock following the earnings report.",Text,10,1
+50,Event-Driven,How did ALB's stock react after the earnings report on 2014-07-23?,ALB's stock fell by 1.24% the next day.,"ALB's stock reacted to the earnings report on 2014-07-23 by showing a slight increase in the opening price, reaching a high during the day, followed by a decrease before closing. The trading volume was moderate, indicating some market activity around the earnings report date.",Text,0,1
+51,Event-Driven,How did ED's stock react after the CEO announcement on 2014-07-16?,ED's stock fell by 0.64% the next day.,"After the CEO announcement on 2014-07-16, ED's stock reacted positively. The stock opened at $56.50, reached a high of $56.70, a low of $56.17, and closed at $56.67. The trading volume for that day was 1,134,514 shares. This indicates that the market responded favorably to the CEO announcement.",Text,0,1
+52,Event-Driven,How did BXP's stock react after the product launch on 2015-10-12?,BXP's stock fell by 1.67% the next day.,"The analysis of BXP's stock reaction after the product launch on 2015-10-12 has been completed. The stock showed a positive trend with an increase in price throughout the trading session. The trading volume also indicated significant market activity on that day. Overall, the response to the product launch appears to be favorable based on the stock performance.",Text,0,1
+53,Event-Driven,How did ADM's stock react after the CEO announcement on 2014-09-03?,ADM's stock rose by 0.54% the next day.,"After analyzing ADM's stock reaction after the CEO announcement on 2014-09-03, we can see that the stock opened slightly higher than the previous day at $50.32. It reached a high of $50.41, indicating some initial positive reaction, but then dipped to a low of $49.51 before closing at $49.93. The volume of trading was 3,214,251 shares, which is relatively high and could suggest increased market activity due to the CEO announcement. Overall, the stock showed some volatility on that day, potentially influenced by the news regarding the CEO.",Text,0,1
+54,Event-Driven,How did GPN's stock react after the earnings report on 2016-02-16?,GPN's stock rose by 1.88% the next day.,"The analysis of GPN's stock reaction after the earnings report on 2016-02-16 shows a positive response. The stock opened higher than the previous day's close, experienced volatility, and closed higher. The trading volume was moderate, indicating average market activity. Overall, the stock reacted positively to the earnings report, with an increase in price and trading volume.",Text,10,1
+55,Event-Driven,How did MTB's stock react after the product launch on 2016-06-20?,MTB's stock rose by 0.40% the next day.,"The analysis of MTB's stock reaction after the product launch on 2016-06-20 has been completed. Here are some key insights:
+
+- The stock opened slightly higher than the previous day, indicating initial positive sentiment.
+- It reached a peak during trading hours, suggesting increased trading activity.
+- However, the stock closed lower than the opening price, indicating a potential sell-off towards the end of the day.
+- The trading volume was moderate, showing moderate interest in the stock on that day.
+
+Further analysis could involve comparing this reaction to historical data or market trends to gain a deeper understanding of the impact of the product launch on MTB's stock performance.",Text,0,1
+56,Event-Driven,How did DTE's stock react after the CEO announcement on 2014-11-26?,DTE's stock rose by 0.98% the next day.,The analysis of DTE's stock reaction after the CEO announcement on 2014-11-26 shows a slight increase in price with stable trading volume. There were no significant price movements observed on that day.,Text,0,1
+57,Event-Driven,How did WMT's stock react after the CEO announcement on 2016-03-14?,WMT's stock rose by 1.08% the next day.,"Walmart's stock reacted positively after the CEO announcement on 2016-03-14. The opening price was $67.15, reaching a high of $67.67, a low of $66.96, and closing at $67.36. The trading volume was 6,713,041 shares. Overall, the stock showed a positive reaction to the announcement.",Text,0,1
+58,Event-Driven,How did FMC's stock react after the CEO announcement on 2013-11-29?,FMC's stock fell by 0.07% the next day.,"The analysis of FMC's stock reaction after the CEO announcement on 2013-11-29 shows a slight decrease in stock price from the opening to the closing, with a moderate trading volume. Further analysis could involve looking at the stock's performance in the days following the announcement to assess any long-term impact.",Text,0,1
+59,Event-Driven,How did PDCO's stock react after the earnings report on 2017-10-09?,PDCO's stock fell by 1.97% the next day.,"The stock reaction of PDCO after the earnings report on 2017-10-09 shows a slight decrease in price from the opening to the closing, with a small fluctuation throughout the trading day. The trading volume was moderate, indicating some market activity but not significant enough to cause major price movements. Further analysis could be done to determine any specific factors influencing the stock's reaction on that day.",Text,0,1
+60,Event-Driven,How did GS's stock react after the product launch on 2015-04-20?,GS's stock fell by 0.64% the next day.,"The stock reaction of GS after the product launch on April 20, 2015, showed a slight increase in the opening price, reaching a high during the day, but ultimately closing lower than the opening price. The trading volume was moderate, indicating some market activity around the product launch date.",Text,0,1
+61,Event-Driven,How did XEC's stock react after the CEO announcement on 2015-06-17?,XEC's stock fell by 0.63% the next day.,The analysis of XEC's stock reaction after the CEO announcement on 2015-06-17 has been completed. The stock experienced a slight decrease in price with high trading volume on that day. Further investigation may be needed to understand the full impact of the CEO announcement on XEC's stock performance.,Text,10,1
+62,Event-Driven,How did V's stock react after the product launch on 2013-05-30?,V's stock fell by 1.60% the next day.,"The analysis of V's stock reaction after the product launch on 2013-05-30 indicates that there was no significant impact on the stock price. The opening and closing prices remained stable, suggesting that the market did not react strongly to the product launch event. Further investigation may be needed to uncover any hidden factors that could have influenced the stock's performance on that day.",Text,0,1
+63,Event-Driven,How did T's stock react after the CEO announcement on 2013-09-26?,T's stock fell by 0.73% the next day.,"The analysis of T's stock reaction after the CEO announcement on 2013-09-26 has been completed. The stock showed minimal movement in response to the announcement, with the price remaining relatively stable throughout the trading day. Here are some key insights:
+
+- Opening Price: $34.17
+- Highest Price: $34.4275
+- Closing Price: $34.23
+- Trading Volume: 16,494,197 shares
+
+Overall, the lack of significant price movement suggests that investors did not react strongly to the CEO announcement on that day.",Text,0,1
+64,Event-Driven,How did MCO's stock react after the earnings report on 2013-02-20?,MCO's stock rose by 0.21% the next day.,There is no specific information available for MCO's stock reaction after the earnings report on 2013-02-20 in the dataset. It is recommended to verify the data sources and completeness for accurate analysis.,Text,0,1
+65,Event-Driven,How did LYB's stock react after the CEO announcement on 2017-05-12?,LYB's stock rose by 1.84% the next day.,"The analysis of LYB's stock reaction after the CEO announcement on 2017-05-12 indicates a relatively stable response, with a slight increase in price and a small trading volume. There were no major fluctuations observed in the stock's behavior following the announcement.",Text,0,1
+66,Event-Driven,How did EXPE's stock react after the earnings report on 2016-07-19?,EXPE's stock rose by 0.91% the next day.,"The reaction of EXPE's stock after the earnings report on 2016-07-19 was positive. The stock price opened at $114.69, reached a high of $116.29, a low of $114.28, and closed at $116.13. The trading volume for that day was 1,425,938 shares. This indicates a favorable investor reaction to the earnings report.",Text,0,1
+67,Event-Driven,How did CINF's stock react after the earnings report on 2015-03-10?,CINF's stock rose by 0.69% the next day.,"CINF's stock reacted negatively after the earnings report on 2015-03-10. The stock opened at $52.21, reached a high of $52.42, and closed at $51.80. This indicates a decrease in value for the stock on that day.",Text,0,1
+68,Event-Driven,How did FDX's stock react after the earnings report on 2017-03-31?,FDX's stock rose by 0.11% the next day.,"The analysis of FDX's stock reaction after the earnings report on 2017-03-31 shows a positive response from investors. The stock price increased from the opening price of $193.95 to a high of $196.23 and closed at $195.15. The trading volume also saw an increase, reaching 2,175,490 shares. Overall, the earnings report had a favorable impact on FDX's stock performance.",Text,0,1
+69,Event-Driven,How did CTXS's stock react after the product launch on 2016-10-31?,CTXS's stock rose by 0.22% the next day.,"The analysis of CTXS's stock reaction after the product launch on 2016-10-31 shows a relatively stable performance. The opening price was $84.91, reaching a high of $85.1916, and closing at $84.8. The trading volume of 1,701,064 shares indicates moderate market activity on that day. Further comparison with historical data or market trends could provide additional insights into the impact of the product launch on CTXS's stock performance.",Text,10,1
+70,Event-Driven,How did SNA's stock react after the product launch on 2015-11-23?,SNA's stock rose by 0.97% the next day.,"The stock reaction of SNA after the product launch on 2015-11-23 shows a slight increase in the opening price, reaching a high during the day, but ultimately closing lower than the opening price. The trading volume of 398,231 indicates moderate market activity on that day. Further analysis could involve comparing this reaction to historical data or market trends to understand the impact of the product launch on SNA's stock performance.",Text,10,1
+71,Event-Driven,How did DISCA's stock react after the product launch on 2013-10-01?,DISCA's stock fell by 0.85% the next day.,The analysis of DISCA's stock reaction after the product launch on 2013-10-01 indicates a slight increase in price with high trading volume. Further comparison with historical data can provide insights into the long-term impact of the product launch on DISCA's stock.,Text,0,1
+72,Time-Series,"What was the average, highest, and lowest stock price of CDNS from 2014-09-02 to 2017-12-19?","Average: $25.47, Highest: $45.60, Lowest: $15.93","showing the line chart for the stock price trend of CDNS from 2014-09-02 to 2017-12-19. Here is the code used for visualization: 
+Here are some key insights of CDNS (Cadence Design Systems Inc.) stock:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    filtered_df = df[(df['Name'] == 'CDNS') & (df['date'] >= '2014-09-02') & (df['date'] <= '2017-12-19')]
+    
+    fig = px.line(filtered_df, x='date', y='close', title='Stock Price Trend of CDNS (2014-09-02 to 2017-12-19)')
+    
+    st.plotly_chart(fig)
+```
+
+Average Stock Price: $X.XX
+Highest Stock Price: $X.XX
+Lowest Stock Price: $X.XX
+
+These values represent the average, highest, and lowest stock prices of CDNS from 2014-09-02 to 2017-12-19.",Text,0,1
+73,Time-Series,"What was the average, highest, and lowest stock price of GE from 2013-11-06 to 2018-01-17?","Average: $27.18, Highest: $32.93, Lowest: $17.35","showing the line chart for the stock price trend of GE from 2013-11-06 to 2018-01-17. Here is the code used for visualization: 
+Here are some key insights of GE (General Electric) stock:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df = df[(df['Name'] == 'GE') & (df['date'] >= '2013-11-06') & (df['date'] <= '2018-01-17')]
+
+    fig = px.line(df, x='date', y='close', title='Stock Price Trend of GE (2013-11-06 to 2018-01-17)')
+    st.plotly_chart(fig)
+```
+
+Average Stock Price:
+
+The average stock price of GE from 2013-11-06 to 2018-01-17 is $XX.XX.
+Highest Stock Price:
+
+The highest stock price of GE during this period is $XX.XX.
+Lowest Stock Price:
+
+The lowest stock price of GE during this period is $XX.XX.
+
+These insights provide a summary of the stock price performance of GE over the specified time frame.",Text,10,1
+74,Time-Series,"What was the average, highest, and lowest stock price of HUM from 2014-11-19 to 2015-01-30?","Average: $144.33, Highest: $153.65, Lowest: $136.20","showing the line chart for the stock price trend of HUM from 2014-11-19 to 2015-01-30. Here is the code used for visualization: 
+Here are some key insights of HUM stock:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    
+    fig = px.line(df[(df['Name'] == 'HUM') & (df['date'] >= '2014-11-19') & (df['date'] <= '2015-01-30')], 
+                  x='date', y='close', title='Stock Price Trend of HUM (2014-11-19 to 2015-01-30)')
+    
+    st.plotly_chart(fig)
+```
+
+Average Stock Price: $XX.XX
+Highest Stock Price: $XX.XX
+Lowest Stock Price: $XX.XX
+
+The stock price of HUM from 2014-11-19 to 2015-01-30 shows a fluctuating trend with some notable peaks and troughs. The average, highest, and lowest prices provide a comprehensive view of the stock's performance during this period.",Text,10,1
+75,Time-Series,"What was the average, highest, and lowest stock price of RTN from 2016-04-29 to 2018-02-02?","Average: $158.18, Highest: $211.22, Lowest: $126.12","showing the line chart for the stock price trend of RTN from 2016-04-29 to 2018-02-02. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df = df[(df['Name'] == 'RTN') & (df['date'] >= '2016-04-29') & (df['date'] <= '2018-02-02')]
+    
+    fig = px.line(df, x='date', y='close', title='Stock Price Trend of RTN (2016-04-29 to 2018-02-02)')
+    st.plotly_chart(fig)
+```
+
+Average Stock Price: $XXX
+Highest Stock Price: $XXX
+Lowest Stock Price: $XXX",Text,10,1
+76,Time-Series,"What was the average, highest, and lowest stock price of DVA from 2015-02-10 to 2017-06-23?","Average: $71.72, Highest: $84.23, Lowest: $55.16","showing the line chart for the stock price trend of DVA from 2015-02-10 to 2017-06-23. Here is the code used for visualization: 
+Here are some key insights of DVA (DaVita Inc.) stock:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    filtered_df = df[(df['Name'] == 'DVA') & (df['date'] >= '2015-02-10') & (df['date'] <= '2017-06-23')]
+    
+    fig = px.line(filtered_df, x='date', y='close', title='Stock Price Trend of DVA (2015-02-10 to 2017-06-23)')
+    st.plotly_chart(fig)
+```
+
+Average Stock Price:
+
+The average stock price of DVA from 2015-02-10 to 2017-06-23 is $XX.XX.
+Highest Stock Price:
+
+The highest stock price of DVA during this period is $XX.XX.
+Lowest Stock Price:
+
+The lowest stock price of DVA during this period is $XX.XX.
+
+These insights provide a snapshot of the stock price trend and key metrics for DVA stock during the specified timeframe.",Text,0,1
+77,Time-Series,"What was the average, highest, and lowest stock price of EW from 2016-05-27 to 2016-06-06?","Average: $100.58, Highest: $102.10, Lowest: $98.50","showing the line chart for the stock price trend of EW from 2016-05-27 to 2016-06-06. Here is the code used for visualization: 
+Here are some key insights of EW stock:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    fig = px.line(df[(df['Name'] == 'EW') & (df['date'] >= '2016-05-27') & (df['date'] <= '2016-06-06')], x='date', y='close', title='Stock Price Trend of EW (2016-05-27 to 2016-06-06)')
+    st.plotly_chart(fig)
+```
+
+Stock Price Trend:
+
+The stock price of EW fluctuated during the specified period, with some noticeable peaks and troughs.
+The average, highest, and lowest stock prices for EW from 2016-05-27 to 2016-06-06 are as follows:
+
+Average Stock Price: $XX
+Highest Stock Price: $XX
+Lowest Stock Price: $XX
+
+These values provide a snapshot of the stock's performance during the specified timeframe.",Text,10,1
+78,Time-Series,"What was the average, highest, and lowest stock price of ESRX from 2013-02-28 to 2016-11-04?","Average: $74.38, Highest: $94.08, Lowest: $55.26","The average stock price of ESRX from 2013-02-28 to 2016-11-04 was $XX, the highest stock price was $XX, and the lowest stock price was $XX. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+
+# Code to calculate average, highest, and lowest stock prices
+average_price = df[(df['Name'] == 'ESRX') & (df['date'] >= '2013-02-28') & (df['date'] <= '2016-11-04')]['close'].mean()
+highest_price = df[(df['Name'] == 'ESRX') & (df['date'] >= '2013-02-28') & (df['date'] <= '2016-11-04')]['close'].max()
+lowest_price = df[(df['Name'] == 'ESRX') & (df['date'] >= '2013-02-28') & (df['date'] <= '2016-11-04')]['close'].min()
+
+print(f'The average stock price of ESRX from 2013-02-28 to 2016-11-04 was ${average_price:.2f}')
+print(f'The highest stock price of ESRX from 2013-02-28 to 2016-11-04 was ${highest_price:.2f}')
+print(f'The lowest stock price of ESRX from 2013-02-28 to 2016-11-04 was ${lowest_price:.2f}')
+```",Text,10,1
+79,Time-Series,"What was the average, highest, and lowest stock price of JBHT from 2016-04-12 to 2017-03-15?","Average: $87.32, Highest: $101.04, Lowest: $76.92","showing the line chart for the stock price trend of JBHT from 2016-04-12 to 2017-03-15. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+
+
+```",Text,0,1
+80,Time-Series,"What was the average, highest, and lowest stock price of CTAS from 2015-07-08 to 2015-10-23?","Average: $86.83, Highest: $93.50, Lowest: $81.23","showing the line chart for the stock price trends of CTAS from 2015-07-08 to 2015-10-23. Here is the code used for visualization: 
+Here are some key insights of CTAS (Cintas Corporation) stock:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    filtered_df = df[(df['Name'] == 'CTAS') & (df['date'] >= '2015-07-08') & (df['date'] <= '2015-10-23')]
+    
+    fig = px.line(filtered_df, x='date', y='close', title='Stock Price Trends of CTAS (2015-07-08 to 2015-10-23)')
+    
+    st.plotly_chart(fig)
+```
+
+Price Analysis:
+
+Average Price: $X.XX
+Highest Price: $X.XX
+Lowest Price: $X.XX
+
+The average stock price of CTAS from 2015-07-08 to 2015-10-23 was $X.XX. The highest price during this period was $X.XX, and the lowest price was $X.XX.",Text,10,1
+81,Time-Series,"What was the average, highest, and lowest stock price of AXP from 2013-05-24 to 2014-01-06?","Average: $78.32, Highest: $90.73, Lowest: $71.91","The average stock price of AXP from 2013-05-24 to 2014-01-06 was $XX, the highest price was $XX, and the lowest price was $XX. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+
+# Code to plot the line chart
+
+```",Text,10,1
+82,Time-Series,"What was the average, highest, and lowest stock price of HES from 2015-11-11 to 2016-08-25?","Average: $52.70, Highest: $63.38, Lowest: $34.38","showing the line chart for the stock price trend of HES from 2015-11-11 to 2016-08-25. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    stock_data = df[(df['Name'] == 'HES') & (df['date'] >= '2015-11-11') & (df['date'] <= '2016-08-25')]
+    
+    fig = px.line(stock_data, x='date', y='close', title='Stock Price Trend of HES (2015-11-11 to 2016-08-25)')
+    fig.update_xaxes(title_text='Date')
+    fig.update_yaxes(title_text='Closing Price')
+    
+    st.plotly_chart(fig)
+
+# This method will display a line chart showing the stock price trend of HES from 2015-11-11 to 2016-08-25 when called with a pandas dataframe as an argument.
+```",Text,0,1
+83,Time-Series,"What was the average, highest, and lowest stock price of ABC from 2013-04-18 to 2015-11-13?","Average: $80.86, Highest: $115.48, Lowest: $52.55","showing the line chart for the stock price trend of ABC from 2013-04-18 to 2015-11-13. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    
+    fig = px.line(df[(df['Name'] == 'ABC') & (df['date'] >= '2013-04-18') & (df['date'] <= '2015-11-13')], x='date', y='close', title='Stock Price Trend of ABC (2013-04-18 to 2015-11-13)')
+    
+    st.plotly_chart(fig)
+```
+
+Average Stock Price: $XX.XX
+Highest Stock Price: $XX.XX
+Lowest Stock Price: $XX.XX",Text,10,1
+84,Time-Series,"What was the average, highest, and lowest stock price of UNH from 2016-09-08 to 2017-08-03?","Average: $163.62, Highest: $194.77, Lowest: $133.62","The average stock price of UNH from 2016-09-08 to 2017-08-03 was $XXX, the highest stock price was $XXX, and the lowest stock price was $XXX. Here are some key insights:
+
+- Average Price: The average price shows the overall trend of the stock during the specified period.
+- Highest Price: The highest price indicates the peak value reached by the stock.
+- Lowest Price: The lowest price reflects the bottom value of the stock during the period.
+
+These insights provide a comprehensive view of the stock performance for UNH from 2016-09-08 to 2017-08-03.",Text,10,1
+85,Time-Series,"What was the average, highest, and lowest stock price of MYL from 2017-01-31 to 2017-10-19?","Average: $37.52, Highest: $45.28, Lowest: $29.63","showing the line chart for the stock price trend of MYL from 2017-01-31 to 2017-10-19. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(data):
+    data['date'] = pd.to_datetime(data['date'])
+    filtered_data = data[(data['Name'] == 'MYL') & (data['date'] >= '2017-01-31') & (data['date'] <= '2017-10-19')]
+    
+    fig = px.line(filtered_data, x='date', y='close', title='Stock Price Trend of MYL (2017-01-31 to 2017-10-19)')
+    st.plotly_chart(fig)
+```
+
+Average Stock Price: $XX.XX
+Highest Stock Price: $XX.XX
+Lowest Stock Price: $XX.XX",Text,0,1
+86,Time-Series,"What was the average, highest, and lowest stock price of PX from 2016-05-11 to 2017-05-15?","Average: $117.90, Highest: $130.17, Lowest: $107.01","showing the line chart for the stock price trend of PX from 2016-05-11 to 2017-05-15. Here is the code used for visualization: 
+Here are some key insights of PX stock:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    filtered_df = df[(df['Name'] == 'PX') & (df['date'] >= '2016-05-11') & (df['date'] <= '2017-05-15')]
+
+    fig = px.line(filtered_df, x='date', y='close', title='Stock Price Trend of PX (2016-05-11 to 2017-05-15)')
+    st.plotly_chart(fig)
+```
+
+Price Trend Analysis:
+
+The stock price of PX shows a relatively stable trend with minor fluctuations over the specified time period.
+The average, highest, and lowest stock prices for PX from 2016-05-11 to 2017-05-15 are as follows:
+
+Average Price: $XX.XX
+Highest Price: $XX.XX
+Lowest Price: $XX.XX
+
+These values provide a snapshot of the price range and fluctuations experienced by PX stock during the specified timeframe.",Text,10,1
+87,Time-Series,"What was the average, highest, and lowest stock price of MAC from 2015-06-02 to 2017-02-23?","Average: $77.66, Highest: $89.76, Lowest: $66.41","The average, highest, and lowest stock prices of MAC from 2015-06-02 to 2017-02-23 are as follows:
+
+Average Price: $XX.XX
+Highest Price: $XX.XX
+Lowest Price: $XX.XX
+
+These insights provide a summary of the stock price performance for MAC during the specified period.",Text,10,1
+88,Time-Series,"What was the average, highest, and lowest stock price of CELG from 2015-10-22 to 2017-04-04?","Average: $110.07, Highest: $127.20, Lowest: $94.85","showing the line chart for the stock price trend of CELG from 2015-10-22 to 2017-04-04. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+
+
+```",Text,0,1
+89,Time-Series,"What was the average, highest, and lowest stock price of XEC from 2013-08-07 to 2016-02-11?","Average: $111.41, Highest: $148.77, Lowest: $75.60","showing the line chart for the stock price trend of XEC from 2013-08-07 to 2016-02-11. Here is the code used for visualization: 
+Here are some key insights of XEC stock:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    filtered_df = df[(df['Name'] == 'XEC') & (df['date'] >= '2013-08-07') & (df['date'] <= '2016-02-11')]
+    
+    fig = px.line(filtered_df, x='date', y='close', title='Stock Price Trend of XEC (2013-08-07 to 2016-02-11)')
+    st.plotly_chart(fig)
+```
+
+Average Stock Price: $XX.XX
+Highest Stock Price: $XX.XX
+Lowest Stock Price: $XX.XX
+
+Analysis:
+
+The stock price of XEC fluctuated during the specified period, with the highest price reaching $XX.XX and the lowest price dropping to $XX.XX. The average stock price over this timeframe was $XX.XX. These price movements may be influenced by various market factors and company-specific events.",Text,0,1
+90,Time-Series,"What was the average, highest, and lowest stock price of ULTA from 2013-03-28 to 2017-10-17?","Average: $169.37, Highest: $313.73, Lowest: $80.93","showing the line chart for the stock price trend of ULTA from 2013-03-28 to 2017-10-17. Here is the code used for visualization: 
+Here are some key insights of ULTA stock:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    
+    filtered_df = df[(df['Name'] == 'ULTA') & (df['date'] >= '2013-03-28') & (df['date'] <= '2017-10-17')]
+    
+    fig = px.line(filtered_df, x='date', y='close', title='Stock Price Trend of ULTA (2013-03-28 to 2017-10-17)')
+    
+    st.plotly_chart(fig)
+```
+
+Price Analysis:
+
+Average Price: $XXX
+Highest Price: $XXX
+Lowest Price: $XXX
+
+The stock price of ULTA from 2013-03-28 to 2017-10-17 shows a fluctuating trend with periods of highs and lows. The average, highest, and lowest prices during this period provide insights into the stock's performance and potential investment opportunities.",Text,10,1
+91,Time-Series,"What was the average, highest, and lowest stock price of EA from 2014-09-16 to 2015-12-07?","Average: $58.06, Highest: $76.77, Lowest: $32.62","The average, highest, and lowest stock prices of EA from 2014-09-16 to 2015-12-07 are as follows:
+
+- Average Stock Price: $58.06
+- Highest Stock Price: $76.77
+- Lowest Stock Price: $32.62
+
+These values indicate the price range and variability of EA stock during the specified time frame.",Text,10,1
+92,Time-Series,"What was the average, highest, and lowest stock price of AKAM from 2013-12-19 to 2015-03-03?","Average: $58.34, Highest: $71.62, Lowest: $46.01","showing the line chart for the stock price trend of AKAM from 2013-12-19 to 2015-03-03. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+
+
+```",Text,0,1
+93,Time-Series,"What was the average, highest, and lowest stock price of EMR from 2013-02-22 to 2016-05-20?","Average: $58.60, Highest: $70.26, Lowest: $42.29","showing the line chart for the stock price trend of EMR from 2013-02-22 to 2016-05-20. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    
+    fig = px.line(df[(df['Name'] == 'EMR') & (df['date'] >= '2013-02-22') & (df['date'] <= '2016-05-20')], x='date', y='close', title='Stock Price Trend of EMR')
+    
+    st.plotly_chart(fig)
+```
+
+Average Stock Price: $XX.XX
+Highest Stock Price: $XX.XX
+Lowest Stock Price: $XX.XX",Text,10,1
+94,Time-Series,"What was the average, highest, and lowest stock price of CTL from 2013-10-04 to 2017-03-03?","Average: $31.62, Highest: $41.81, Lowest: $22.24","showing the line chart for the stock price trend of CTL from 2013-10-04 to 2017-03-03. Here is the code used for visualization: 
+Here are some key insights of CTL (CenturyLink Inc.) stock:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df['year'] = df['date'].dt.year
+    df_ctl = df[(df['Name'] == 'CTL') & (df['date'] >= '2013-10-04') & (df['date'] <= '2017-03-03')]
+
+    fig = px.line(df_ctl, x='date', y='close', title='Stock Price Trend of CTL')
+
+    st.plotly_chart(fig)
+```
+
+Average Stock Price:
+
+The average stock price of CTL from 2013-10-04 to 2017-03-03 is $XX.XX.
+Highest Stock Price:
+
+The highest stock price of CTL during this period is $XX.XX.
+Lowest Stock Price:
+
+The lowest stock price of CTL during this period is $XX.XX.
+
+These insights provide a comprehensive view of the stock price trend and key metrics for CTL stock during the specified timeframe.",Text,0,1
+95,Time-Series,"What was the average, highest, and lowest stock price of MPC from 2013-07-31 to 2015-06-19?","Average: $43.56, Highest: $53.52, Lowest: $31.05","The average stock price of MPC from 2013-07-31 to 2015-06-19 was $XX, the highest stock price was $XX, and the lowest stock price was $XX. Here is the code used for visualization: 
+Here are some key insights of MPC stock:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    stock_data = df[(df['Name'] == 'MPC') & (df['date'] >= '2013-07-31') & (df['date'] <= '2015-06-19')]
+    
+    fig = px.line(stock_data, x='date', y='close', title='Stock Price Trend of MPC (2013-07-31 to 2015-06-19)')
+    
+    st.plotly_chart(fig)
+```
+
+Stock Price Trend:
+
+The stock price of MPC shows a fluctuating trend over the specified period.
+There are noticeable peaks and troughs in the price, indicating volatility in the market.
+Average, Highest, and Lowest Prices:
+
+The average stock price during this period was $XX, with the highest price reaching $XX and the lowest price dropping to $XX.
+These price points can help in understanding the overall performance and volatility of MPC stock during the specified timeframe.",Text,10,1
+96,Time-Series,"What was the average, highest, and lowest stock price of KMI from 2016-09-30 to 2018-02-02?","Average: $19.98, Highest: $23.13, Lowest: $16.76","showing the line chart for the stock price trend of KMI from 2016-09-30 to 2018-02-02. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    
+    fig = px.line(df[(df['Name'] == 'KMI') & (df['date'] >= '2016-09-30') & (df['date'] <= '2018-02-02')], 
+                  x='date', y='close', title='Stock Price Trend of KMI')
+    
+    st.plotly_chart(fig)
+```
+
+Average Stock Price: $XX.XX
+Highest Stock Price: $XX.XX
+Lowest Stock Price: $XX.XX",Text,10,1
+97,Visualization,Show the closing price trend for Apple over the years 2013 to 2017.,"Showing the closing price trend for Apple over the years 2013 to 2017. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    filtered_df = df[(df['Name'] == 'AAPL') & (df['date'].dt.year >= 2013) & (df['date'].dt.year <= 2017)]
+
+    fig = px.line(filtered_df, x='date', y='close', title='Closing Price Trend for Apple (2013-2017)')
+    st.plotly_chart(fig)
+```
+
+Insights:
+
+The line chart shows the closing price trend for Apple stock from 2013 to 2017.
+There is a general upward trend in the closing price over the years, with some fluctuations.
+The price peaked in 2015 and experienced a slight dip in 2016 before rising again in 2017.
+Overall, the trend indicates positive growth in the closing price of Apple stock during the specified period.","showing the closing price trend for Apple over the years 2013 to 2017. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    # Filter data for Apple (assuming 'Name' column contains stock names)
+    apple_data = df[(df['Name'] == 'AAPL') & (df['date'].str.startswith('2013') | df['date'].str.startswith('2014') |
+                                               df['date'].str.startswith('2015') | df['date'].str.startswith('2016') |
+                                               df['date'].str.startswith('2017'))]
+    
+    # Create line chart for closing price trend
+    fig = px.line(apple_data, x='date', y='close', title='Closing Price Trend for Apple (2013-2017)')
+    
+    # Display the plot in streamlit UI
+    st.plotly_chart(fig)
+
+# Example usage:
+# plot_chart_for_stock_data(your_dataframe)
+```
+
+Closing Price Trend for Apple (2013-2017):
+
+The closing price trend for Apple stock from 2013 to 2017 shows fluctuations and trends over the years. There are periods of growth, decline, and stability in the stock's closing price, indicating the market's response to various events and factors affecting Apple's performance during this time frame.",Code,9,1
+98,Visualization,Compare and show the daily trading volume of Oracle and Amazon in 2017.,"The bar chart comparing the daily trading volume of Oracle and Amazon in 2017 has been successfully generated. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+
+# Filter the data for Oracle and Amazon in 2017
+# Create a bar chart showing the daily trading volume of Oracle and Amazon in 2017
+# Display the plot in streamlit UI
+```","showing the comparison bar chart of the daily trading volume of Oracle and Amazon in 2017. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+
+# Filter the data for Oracle and Amazon in 2017
+filtered_data = df[(df['Name'] == 'ORCL') | (df['Name'] == 'AMZN')]
+filtered_data['date'] = pd.to_datetime(filtered_data['date'])
+filtered_data['year'] = filtered_data['date'].dt.year
+
+filtered_data = filtered_data[filtered_data['year'] == 2017]
+
+# Create a bar chart to compare the daily trading volume of Oracle and Amazon in 2017
+fig = px.bar(filtered_data, x='date', y='volume', color='Name', barmode='group',
+             labels={'date': 'Date', 'volume': 'Volume', 'Name': 'Stock'})
+
+# Display the plot in Streamlit UI using st.plotly_chart
+st.plotly_chart(fig)
+```",Code,5,1
+99,Visualization,Plot the highest stock price of Microsoft in each year.,"Showing the bar chart for the highest stock price of Microsoft in each year. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+
+# Function to plot the highest stock price of Microsoft in each year
+
+def plot_chart_for_stock_data(df):
+    df['year'] = pd.to_datetime(df['date']).dt.year
+    microsoft_data = df[df['Name'] == 'MSFT']
+    max_prices = microsoft_data.groupby('year')['high'].max().reset_index()
+
+    fig = px.bar(max_prices, x='year', y='high', labels={'high': 'Highest Stock Price'}, 
+                 title='Highest Stock Price of Microsoft Each Year')
+    st.plotly_chart(fig)
+```
+
+Insights:
+
+- The highest stock price of Microsoft has shown a steady increase over the years, with some fluctuations.
+- The year with the highest stock price was [year] with a value of [price].
+- The visualization clearly shows the trend of the highest stock prices for Microsoft each year.","showing the line chart for the highest stock price of Microsoft in each year. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_highest_stock_price(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df['year'] = df['date'].dt.year
+    df_highest_price = df.groupby('year').agg({'high': 'max'}).reset_index()
+
+    fig = px.line(df_highest_price, x='year', y='high', title='Highest Stock Price of Microsoft Each Year', labels={'year': 'Year', 'high': 'Highest Price'})
+
+    st.plotly_chart(fig)
+```
+
+Insights:
+
+The line chart shows the highest stock price of Microsoft each year.
+There is a clear upward trend in the highest stock price over the years, indicating positive growth and performance of Microsoft in the stock market.",Code,9,1
+100,Visualization,Show the stock price movement of Google for the august month of year 2014.,"Showing the stock price movement of Google for the August month of year 2014. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.graph_objects as go
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df = df.set_index('date')
+    
+    df_google = df[(df['Name'] == 'GOOGL') & (df.index.year == 2014) & (df.index.month == 8)]
+    
+    fig = go.Figure(data=[go.Candlestick(x=df_google.index,
+                                         open=df_google['open'],
+                                         high=df_google['high'],
+                                         low=df_google['low'],
+                                         close=df_google['close'])])
+
+    fig.update_layout(title='Stock Price Movement of Google in August 2014',
+                      xaxis_title='Date',
+                      yaxis_title='Price',
+                      xaxis_rangeslider_visible=False)
+
+    st.plotly_chart(fig)
+```
+
+The Candlestick Chart shows the open, high, low, and close prices of Google stock for the month of August 2014, providing insights into the price movement during that period.","showing the line chart for the stock price movement of Google for the August month of the year 2014. Here is the code used for visualization: 
+Here are some key insights of Google stock for August 2014:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df['year'] = df['date'].dt.year
+    df['month'] = df['date'].dt.month
+
+    google_data = df[(df['Name'] == 'GOOGL') & (df['year'] == 2014) & (df['month'] == 8)]
+
+    fig = px.line(google_data, x='date', y='close', title='Stock Price Movement of Google in August 2014')
+    
+    st.plotly_chart(fig)
+```
+
+Price Movement:
+
+The stock price of Google in August 2014 shows a relatively stable trend with minor fluctuations.
+There are no significant spikes or drops in the stock price during this period.
+Consistent Performance:
+
+Overall, Google stock maintained a consistent price level throughout August 2014, indicating stability in the market for this particular stock.
+This analysis can help investors understand the historical performance of Google stock during this specific time frame.",Code,7,1
+101,Visualization,What is the average closing price of all stocks in 2016?,"showing the histogram for the average closing price of all stocks in 2016. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df['year'] = df['date'].dt.year
+    df_2016 = df[df['year'] == 2016]
+    
+    avg_close_prices = df_2016.groupby('Name')['close'].mean().reset_index()
+    
+    fig = px.histogram(avg_close_prices, x='close', title='Average Closing Prices of All Stocks in 2016')
+    
+    return fig
+```
+
+Insights:
+
+The histogram shows the distribution of average closing prices for all stocks in 2016.
+It provides a visual representation of the average closing prices across different stocks, highlighting any outliers or trends in the data.","The average closing price of all stocks in 2016 is $XX.XX. Here is the code snippet used to calculate the average closing price:
+
+```python
+import pandas as pd
+
+def calculate_average_closing_price(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df['year'] = df['date'].dt.year
+    df_2016 = df[df['year'] == 2016]
+    average_closing_price = df_2016['close'].mean()
+    return average_closing_price
+```",Code,3,1
+102,Visualization,Display the stock performance of Facebook for the first quarter of 2017.,"Displaying the stock performance of Facebook for the first quarter of 2017 using a Line Chart. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df['quarter'] = df['date'].dt.quarter
+    df['year'] = df['date'].dt.year
+
+    facebook_data = df[(df['Name'] == 'FB') & (df['year'] == 2017) & (df['quarter'] == 1)]
+
+    fig = px.line(facebook_data, x='date', y='close', title='Stock Performance of Facebook in Q1 2017')
+    st.plotly_chart(fig)
+```
+
+The line chart shows the closing price trend of Facebook stock in the first quarter of 2017. It provides a visual representation of how the stock performed during that period.","The stock performance of Facebook for the first quarter of 2017 has been successfully displayed. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df_fb = df[(df['Name'] == 'FB') & (df['date'] >= '2017-01-01') & (df['date'] <= '2017-03-31')]
+    
+    fig = px.line(df_fb, x='date', y='close', title='Stock Performance of Facebook (Q1 2017)')
+    fig.update_xaxes(title_text='Date')
+    fig.update_yaxes(title_text='Closing Price')
+    
+    st.plotly_chart(fig)
+```
+
+The visualization shows the closing price trend of Facebook stock for the first quarter of 2017.",Code,9,1
+103,Visualization,"Compare and show the opening prices of all stocks on January 1, 2014.","Showing the bar chart for the opening prices of all stocks on January 1, 2014. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(data):
+    data['date'] = pd.to_datetime(data['date'])
+    data['year'] = data['date'].dt.year
+    data['month'] = data['date'].dt.month
+    data['day'] = data['date'].dt.day
+    
+    jan_1_2014_data = data[(data['month'] == 1) & (data['day'] == 1) & (data['year'] == 2014)]
+    
+    fig = px.bar(jan_1_2014_data, x='Name', y='open', title='Opening Prices of Stocks on January 1, 2014')
+    
+    st.plotly_chart(fig)
+```
+
+This visualization compares the opening prices of all stocks on January 1, 2014. Each bar represents the opening price of a different stock on that specific date.","showing the bar chart for the opening prices of all stocks on January 1, 2014. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df = df[df['date'].dt.year == 2014]
+    
+    fig = px.bar(df, x='Name', y='open', title='Opening Prices of All Stocks on January 1, 2014')
+    
+    st.plotly_chart(fig)
+```
+
+The visualization shows a comparison of the opening prices of all stocks on January 1, 2014. Each bar represents the opening price of a different stock on that specific date.",Code,7,1
+104,Visualization,Show the distribution of stock prices for Netflix in 2017.,"Showing the distribution of stock prices for Netflix in 2017 using a Box Plot. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    netflix_2017 = df[(df['Name'] == 'NFLX') & (df['date'].dt.year == 2017)]
+    
+    fig = px.box(netflix_2017, x='Name', y='close', title='Distribution of Netflix Stock Prices in 2017')
+    
+    st.plotly_chart(fig)
+```
+
+The box plot shows the distribution of Netflix stock prices in 2017, highlighting any outliers and the overall spread of prices throughout the year.","showing the distribution of stock prices for Netflix in 2017. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    # Filter data for Netflix in 2017
+    netflix_2017 = df[(df['Name'] == 'NFLX') & (df['date'].str.contains('2017'))]
+
+    # Create a distribution plot for Netflix stock prices in 2017
+    fig = px.histogram(netflix_2017, x='close', title='Distribution of Netflix Stock Prices in 2017')
+    
+    # Display the plot in Streamlit UI
+    st.plotly_chart(fig)
+```
+
+The distribution plot shows the range and frequency of Netflix stock prices in 2017. This can help in understanding the price movements and volatility of the stock during that year.",Code,7,1
+105,Visualization,Plot the relationship between the stock volume and closing price for Amazon in 2014.,"The scatter plot showing the relationship between the stock volume and closing price for Amazon in 2014 has been generated. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    amazon_data_2014 = df[(df['Name'] == 'AMZN') & (df['date'].dt.year == 2014)]
+    
+    fig = px.scatter(amazon_data_2014, x='volume', y='close', title='Relationship between Stock Volume and Closing Price for Amazon in 2014')
+    
+    st.plotly_chart(fig)
+```
+
+The scatter plot visually represents the relationship between the stock volume and closing price for Amazon in 2014, allowing for easy interpretation of any potential correlations or patterns in the data.","showing the scatter plot for the relationship between the stock volume and closing price for Amazon in 2014. Here is the code used for visualization: 
+Here are some key insights for Amazon stock in 2014:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(dataframe):
+    # Filter data for Amazon in 2014
+    amazon_2014 = dataframe[(dataframe['Name'] == 'AMZN') & (dataframe['date'].str.startswith('2014'))]
+
+    # Create scatter plot
+    fig = px.scatter(amazon_2014, x='volume', y='close', title='Stock Volume vs Closing Price for Amazon in 2014',
+                     labels={'volume': 'Stock Volume', 'close': 'Closing Price'})
+
+    # Display the plot in Streamlit UI
+    st.plotly_chart(fig)
+
+# This method will be invoked by another entity with the required dataframe as argument
+```
+
+Relationship between Stock Volume and Closing Price:
+
+The scatter plot shows a positive correlation between stock volume and closing price for Amazon in 2014.
+Higher stock volumes tend to be associated with higher closing prices, indicating strong market interest and potential price movements.
+Outliers:
+
+There are a few outliers where high stock volumes do not correspond to significantly higher closing prices.
+These points may represent unique market conditions or specific events affecting Amazon's stock price during 2014.
+Overall Trend:
+
+The overall trend suggests that as stock volume increases, the closing price tends to rise as well, reflecting a positive relationship between these two variables.",Code,10,1
+106,Visualization,Show the price range (high vs low) for Oracle in the year 2017.,"showing the bar chart for the price range (high vs low) for Oracle in the year 2017. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    # Filter data for Oracle in the year 2017
+    oracle_2017 = df[(df['Name'] == 'ORCL') & (df['date'].str.startswith('2017'))]
+
+    # Create a bar chart showing the price range (high vs low) for Oracle in the year 2017
+    fig = px.bar(oracle_2017, x='date', y=['high', 'low'], title='Price Range (High vs Low) for Oracle in 2017')
+    
+    # Display the plot in Streamlit UI
+    st.plotly_chart(fig)
+```
+
+This visualization shows the price range (high vs low) for Oracle stock in the year 2017. It helps in understanding the volatility and price movements of the stock during that period.","showing the price range (high vs low) for Oracle in the year 2017. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    # Filter data for Oracle in the year 2017
+    oracle_2017 = df[(df['Name'] == 'ORCL') & (df['date'].str.startswith('2017'))]
+
+    # Create a bar chart showing the price range (high vs low) for Oracle in the year 2017
+    fig = px.bar(oracle_2017, x='date', y=['high', 'low'], title='Price Range (High vs Low) for Oracle in 2017')
+    
+    # Display the plot in streamlit UI
+    st.plotly_chart(fig)
+```
+
+Insights:
+
+The visualization shows the daily price range (high vs low) for Oracle stock in the year 2017. This can help in understanding the volatility and price movements of the stock during that period.",Code,4,1
+107,Visualization,What was the highest daily volume for each stock in the year 2016?,"showing the bar chart for the highest daily volume for each stock in the year 2016. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df['year'] = df['date'].dt.year
+    
+    df_2016 = df[df['year'] == 2016]
+    max_volume_per_stock = df_2016.groupby('Name')['volume'].max().reset_index()
+    
+    fig = px.bar(max_volume_per_stock, x='Name', y='volume', title='Highest Daily Volume for Each Stock in 2016')
+    
+    return fig
+```
+
+Insights:
+
+The bar chart displays the highest daily volume for each stock in the year 2016. It provides a clear comparison of the volume levels across different stocks during that year.","showing the bar chart for the highest daily volume for each stock in the year 2016. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+
+# Function to plot the chart
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df['year'] = df['date'].dt.year
+    df_2016 = df[df['year'] == 2016]
+    max_volume_df = df_2016.loc[df_2016.groupby('Name')['volume'].idxmax()]
+    
+    fig = px.bar(max_volume_df, x='Name', y='volume', title='Highest Daily Volume for Each Stock in 2016',
+                 labels={'volume': 'Volume', 'Name': 'Stock Name'})
+    
+    return fig
+
+# Call the function to plot the chart
+plot_chart_for_stock_data(df)
+```",Code,5,1
+108,Visualization,Visualize the total trading volume for all companies over the past five years.,"showing the area chart for the total trading volume for all companies over the past five years. Here is the code used for visualization:
+
+```python
+import plotly.express as px
+import pandas as pd
+
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df = df.set_index('date')
+    df = df.resample('M').sum()
+
+    fig = px.area(df, x=df.index, y='volume', title='Total Trading Volume for All Companies Over the Past Five Years')
+    fig.update_xaxes(title_text='Date')
+    fig.update_yaxes(title_text='Total Volume')
+
+    st.plotly_chart(fig)
+```
+
+Overall Trading Volume Trend:
+
+The area chart shows the total trading volume for all companies over the past five years. There are fluctuations in volume, indicating varying market activity throughout the years. Peaks and troughs in volume may correspond to significant market events or company-specific news.","showing the bar chart for the total trading volume for all companies over the past five years. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df['year'] = df['date'].dt.year
+    df = df[df['year'] >= df['year'].max() - 5]  # Filter data for the past five years
+    
+    fig = px.bar(df.groupby('year')['volume'].sum().reset_index(), x='year', y='volume', 
+                 labels={'year': 'Year', 'volume': 'Total Trading Volume'}, 
+                 title='Total Trading Volume for All Companies Over the Past Five Years')
+    
+    st.plotly_chart(fig)
+```
+
+This visualization shows the total trading volume for all companies over the past five years, providing insights into overall market activity and trends.",Code,9,1
+109,Visualization,Plot the moving average of Apple’s closing price over 50 days.,"The moving average of Apple's closing price over 50 days has been successfully plotted. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+
+# Filtering data for Apple (assuming 'Name' column contains the company names)
+apple_data = df[df['Name'] == 'AAPL']
+
+# Calculating 50-day moving average of Apple's closing price
+apple_data['MA_50'] = apple_data['close'].rolling(window=50).mean()
+
+# Creating the plot
+fig = px.line(apple_data, x='date', y=['close', 'MA_50'], title='Apple Stock Price with 50-Day Moving Average')
+
+# Displaying the plot in streamlit UI
+st.plotly_chart(fig)
+```","To plot the moving average of Apple's closing price over 50 days, you can use the following code snippet:
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Assuming df is the DataFrame containing Apple's stock data
+
+# Calculate the 50-day moving average
+df['50_day_ma'] = df['Close'].rolling(window=50).mean()
+
+# Plot the moving average
+plt.figure(figsize=(12, 6))
+plt.plot(df['Date'], df['Close'], label='Apple Closing Price')
+plt.plot(df['Date'], df['50_day_ma'], label='50-Day Moving Average')
+plt.xlabel('Date')
+plt.ylabel('Price')
+plt.title('Apple Closing Price and 50-Day Moving Average')
+plt.legend()
+plt.show()
+```
+
+This code snippet will calculate the 50-day moving average of Apple's closing price and plot it along with the actual closing price on a line chart.",Code,5,1
+110,Visualization,Compare and show the opening prices for all tech companies on the same day in 2015.,"Showing the grouped bar chart for the opening prices of all tech companies on the same day in 2015. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+
+# Filter data for the year 2015
+# Group by date and Name to get opening prices for all tech companies on the same day in 2015
+# Generate grouped bar chart
+
+fig = px.bar(grouped_data, x='date', y='open', color='Name', title='Opening Prices for Tech Companies in 2015',
+                 labels={'date': 'Date', 'open': 'Opening Price', 'Name': 'Company'})
+
+st.plotly_chart(fig)
+```","showing the bar chart for the opening prices of all tech companies on the same day in 2015. Here is the code used for visualization: 
+Here are some key insights:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    tech_companies = df[df['date'].str.contains('2015') & df['Name'].str.contains('AAPL|MSFT|GOOGL|AMZN')]
+    
+    fig = px.bar(tech_companies, x='Name', y='open', color='Name', title='Opening Prices for Tech Companies in 2015')
+    
+    st.plotly_chart(fig)
+```
+
+Key Insights:
+
+- The chart displays the opening prices for tech companies (AAPL, MSFT, GOOGL, AMZN) on the same day in 2015.
+- Each company's opening price is represented by a bar in the chart, allowing for easy comparison.
+- This visualization helps in understanding the relative performance of these tech companies on that specific day in 2015.",Code,9,1
+111,Visualization,Show the percentage change in closing price for Amazon over 2015-2017.,"Showing the percentage change in closing price for Amazon over 2015-2017. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+
+# Filter data for Amazon (assuming 'Name' column contains the stock names)
+amazon_data = df[(df['Name'] == 'AMZN') & (df['date'].str.startswith('2015') | df['date'].str.startswith('2016') | df['date'].str.startswith('2017'))]
+
+# Calculate percentage change in closing price
+amazon_data['close_pct_change'] = amazon_data['close'].pct_change() * 100
+
+# Create a line chart for percentage change in closing price
+fig = px.line(amazon_data, x='date', y='close_pct_change', title='Percentage Change in Closing Price for Amazon (2015-2017)')
+
+# Print the plot in streamlit UI using plotly_chart API
+st.plotly_chart(fig)
+```
+
+The line chart shows the percentage change in closing price for Amazon over the years 2015-2017. This visualization helps in understanding the price trends and fluctuations for the stock during this period.","showing the percentage change in closing price for Amazon over 2015-2017. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    amazon_data = df[(df['Name'] == 'AMZN') & (df['date'].dt.year.between(2015, 2017)]
+    amazon_data['pct_change'] = amazon_data['close'].pct_change() * 100
+    
+    fig = px.line(amazon_data, x='date', y='pct_change', title='Percentage Change in Closing Price for Amazon (2015-2017)')
+    fig.update_xaxes(title_text='Date')
+    fig.update_yaxes(title_text='Percentage Change (%)')
+    
+    st.plotly_chart(fig)
+```
+
+Insights:
+
+The visualization shows the percentage change in closing price for Amazon stock over the years 2015-2017.
+There are noticeable fluctuations in the percentage change, indicating the volatility in the stock price during this period.
+This analysis can help in understanding the price movements and trends for Amazon stock during the specified timeframe.",Code,7,1
+112,Visualization,Compare and show the stock price trends of the top 5 tech companies over the years 2013 to 2017.,"showing the multi-line chart comparing the stock price trends of the top 5 tech companies (AAPL, MSFT, GOOGL, AMZN, FB) over the years 2013 to 2017. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    # Filter data for the years 2013 to 2017 and top 5 tech companies
+    top_tech_companies = df[df['Name'].isin(['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'FB'])]
+    filtered_data = top_tech_companies[top_tech_companies['date'].str[:4].isin(['2013', '2014', '2015', '2016', '2017'])]
+
+    # Plot the multi-line chart
+    fig = px.line(filtered_data, x='date', y='close', color='Name', title='Stock Price Trends of Top 5 Tech Companies (2013-2017)')
+    
+    # Show the plot in Streamlit UI
+    st.plotly_chart(fig)
+
+# Example of how to call the function with a pandas dataframe
+# plot_chart_for_stock_data(your_dataframe)
+```
+
+The multi-line chart clearly shows the stock price trends of the top 5 tech companies over the specified years, allowing for easy comparison and analysis of their performance.","showing the line chart for the stock price trends of the top 5 tech companies (AAPL, MSFT, GOOGL, AMZN, FB) from the years 2013 to 2017. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    tech_companies = ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'FB']
+    df_tech = df[df['Name'].isin(tech_companies)]
+    df_tech['year'] = pd.to_datetime(df_tech['date']).dt.year
+    df_tech = df_tech[df_tech['year'].between(2013, 2017)]
+
+    fig = px.line(df_tech, x='date', y='close', color='Name', title='Stock Price Trends of Top 5 Tech Companies (2013-2017)')
+    st.plotly_chart(fig)
+```
+
+This visualization shows the stock price trends of the top 5 tech companies (AAPL, MSFT, GOOGL, AMZN, FB) from the years 2013 to 2017. Each line represents a different company, allowing for easy comparison of their stock price movements over the specified time period.",Code,9,1
+113,Visualization,"Show the correlation between daily trading volume and stock price for Oracle, Microsoft, and Apple in 2015.","The multi-scatter plot showing the correlation between daily trading volume and stock price for Oracle, Microsoft, and Apple in 2015 has been generated. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+
+# Filter data for Oracle, Microsoft, and Apple in 2015
+filtered_df = df[df['Name'].isin(['ORCL', 'MSFT', 'AAPL']) & (df['date'].str.contains('2015'))]
+
+# Create a multi-scatter plot to show correlation between daily trading volume and stock price
+fig = px.scatter(filtered_df, x='volume', y='close', color='Name', title='Correlation between Daily Trading Volume and Stock Price (2015)',
+                 labels={'volume': 'Daily Trading Volume', 'close': 'Stock Price', 'Name': 'Company'})
+
+# Show the plot in Streamlit UI
+st.plotly_chart(fig)
+```","showing the correlation between daily trading volume and stock price for Oracle, Microsoft, and Apple in 2015. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    # Filter data for Oracle, Microsoft, and Apple in 2015
+    filtered_data = df[df['Name'].isin(['ORCL', 'MSFT', 'AAPL']) & (df['date'].str.startswith('2015'))]
+
+    # Create a scatter plot to show the correlation between daily trading volume and stock price
+    fig = px.scatter(filtered_data, x='volume', y='close', color='Name', title='Correlation between Daily Trading Volume and Stock Price in 2015')
+    
+    # Display the plot in Streamlit UI
+    st.plotly_chart(fig)
+
+# This method will be called by another entity with the required dataframe as argument
+```",Code,9,1
+114,Visualization,"Create a heatmap showing the stock performance (open, close, high, low) of Amazon over the 12 months in year 2014.","showing the heatmap for the stock performance (open, close, high, low) of Amazon over the 12 months in year 2014. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    # Filter the data for Amazon stock in the year 2014
+    df_amazon_2014 = df[(df['Name'] == 'AMZN') & (df['date'].str.startswith('2014'))]
+
+    fig = px.imshow(df_amazon_2014[['open', 'close', 'high', 'low']].T,
+                    labels=dict(x='Date', y='Stock Data', color='Value'),
+                    x=df_amazon_2014['date'],
+                    title='Amazon Stock Performance in 2014',
+                    color_continuous_scale='Viridis')
+
+    st.plotly_chart(fig)
+
+# This method will display a heatmap showing the stock performance of Amazon over the 12 months in year 2014
+# when called with the appropriate pandas dataframe containing the stock data.
+```","Heatmap showing the stock performance (open, close, high, low) of Amazon over the 12 months in year 2014 has been successfully created. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    # Filter data for Amazon stock in the year 2014
+    df_amzn_2014 = df[(df['Name'] == 'AMZN') & (df['date'].str.startswith('2014'))]
+
+    # Create a heatmap chart
+    fig = px.imshow(df_amzn_2014[['open', 'high', 'low', 'close']].T,
+                    labels=dict(x='Date', y='Price', color='Value'),
+                    x=df_amzn_2014['date'],
+                    color_continuous_scale='Viridis')
+
+    # Set chart title and axis labels
+    fig.update_layout(title='Stock Performance of Amazon in 2014',
+                      xaxis_title='Date',
+                      yaxis_title='Price')
+
+    # Display the chart in Streamlit UI
+    st.plotly_chart(fig)
+
+# This method will display a heatmap showing the stock performance of Amazon over the 12 months in year 2014
+```",Code,9,1
+115,Visualization,Plot the moving average convergence divergence (MACD) for Apple's stock over the past three years.,"showing the moving average convergence divergence (MACD) for Apple's stock over the past three years. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df = df[df['Name'] == 'AAPL']  # Filter data for Apple's stock
+    df = df.sort_values('date')
+
+    fig = go.Figure()
+
+    fig.add_trace(go.Scatter(x=df['date'], y=df['close'], mode='lines', name='Close Price'))
+
+    # Calculate MACD
+    df['12_EMA'] = df['close'].ewm(span=12, adjust=False).mean()
+    df['26_EMA'] = df['close'].ewm(span=26, adjust=False).mean()
+    df['MACD'] = df['12_EMA'] - df['26_EMA']
+    df['Signal_Line'] = df['MACD'].ewm(span=9, adjust=False).mean()
+
+    fig.add_trace(go.Scatter(x=df['date'], y=df['MACD'], mode='lines', name='MACD'))
+    fig.add_trace(go.Scatter(x=df['date'], y=df['Signal_Line'], mode='lines', name='Signal Line'))
+
+    fig.update_layout(title='Moving Average Convergence Divergence (MACD) for Apple Stock',
+                      xaxis_title='Date', yaxis_title='Price')
+
+    st.plotly_chart(fig)
+```
+
+The MACD chart shows the convergence and divergence of the 12-day and 26-day exponential moving averages for Apple's stock over the past three years. The MACD line and the signal line are plotted to indicate potential buy or sell signals based on their crossovers. This visualization helps in understanding the trend and momentum of Apple's stock price movement.","The MACD plot for Apple's stock over the past three years has been successfully generated. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.graph_objects as go
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df = df[df['Name'] == 'AAPL']  # Filtering data for Apple stock
+
+    fig = go.Figure()
+
+    # Calculate MACD
+    short_period = 12
+    long_period = 26
+    signal_period = 9
+
+    df['ema_short'] = df['close'].ewm(span=short_period, adjust=False).mean()
+    df['ema_long'] = df['close'].ewm(span=long_period, adjust=False).mean()
+    df['macd'] = df['ema_short'] - df['ema_long']
+    df['signal_line'] = df['macd'].ewm(span=signal_period, adjust=False).mean()
+
+    fig.add_trace(go.Scatter(x=df['date'], y=df['macd'], mode='lines', name='MACD'))
+    fig.add_trace(go.Scatter(x=df['date'], y=df['signal_line'], mode='lines', name='Signal Line'))
+
+    fig.update_layout(title='Moving Average Convergence Divergence (MACD) for Apple Stock',
+                      xaxis_title='Date', yaxis_title='MACD',
+                      legend=dict(yanchor=""top"", y=0.99, xanchor=""left"", x=0.01))
+
+    st.plotly_chart(fig)
+```
+
+The MACD plot provides insights into the convergence and divergence of moving averages for Apple's stock over the past three years, helping to identify potential trends and trading signals.",Code,9,1
+116,Visualization,"Compare and show the quarterly average closing prices of Oracle, Google, and Microsoft in 2014 and 2016.","showing the grouped bar chart comparing the quarterly average closing prices of Oracle, Google, and Microsoft in 2014 and 2016. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+
+# Function to plot grouped bar chart for stock data
+
+def plot_chart_for_stock_data(df):
+    # Convert date column to datetime type
+    df['date'] = pd.to_datetime(df['date'])
+    
+    # Extract year and quarter from date
+    df['year'] = df['date'].dt.year
+    df['quarter'] = df['date'].dt.quarter
+    
+    # Filter data for Oracle, Google, and Microsoft in 2014 and 2016
+    filtered_data = df[df['Name'].isin(['ORCL', 'GOOGL', 'MSFT']) & df['year'].isin([2014, 2016])]
+    
+    # Calculate quarterly average closing prices
+    avg_prices = filtered_data.groupby(['Name', 'year', 'quarter'])['close'].mean().reset_index()
+    
+    # Generate grouped bar chart
+    fig = px.bar(avg_prices, x='quarter', y='close', color='Name', barmode='group',
+                 labels={'close': 'Average Closing Price', 'quarter': 'Quarter'})
+    
+    # Print the plot in streamlit UI using plotly_chart API
+    st.plotly_chart(fig)
+```
+
+The grouped bar chart clearly shows the comparison of quarterly average closing prices for Oracle, Google, and Microsoft in 2014 and 2016. Each company's performance can be easily compared across different quarters and years.","showing the comparison of quarterly average closing prices of Oracle, Google, and Microsoft in 2014 and 2016. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+
+# Filter the dataframe for the required stocks and years
+selected_stocks = ['ORCL', 'GOOGL', 'MSFT']
+selected_years = ['2014', '2016']
+filtered_df = df[df['Name'].isin(selected_stocks) & df['date'].str[:4].isin(selected_years)]
+
+# Extract quarter from the date
+filtered_df['quarter'] = pd.PeriodIndex(filtered_df['date'], freq='Q').strftime('%q')
+
+# Calculate quarterly average closing prices
+avg_closing_prices = filtered_df.groupby(['Name', 'quarter'])['close'].mean().reset_index()
+
+# Plot the chart
+fig = px.line(avg_closing_prices, x='quarter', y='close', color='Name', title='Quarterly Average Closing Prices of Selected Stocks')
+
+# Display the plot in streamlit UI
+st.plotly_chart(fig)
+```",Code,7,1
+117,Visualization,Show the volatility (high-low range) of Facebook’s stock price for each week over the years 2015 to 2017.,"Showing the volatility (high-low range) of Facebook’s stock price for each week over the years 2015 to 2017. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+
+# Function to plot the Box Plot
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df['year'] = df['date'].dt.year
+    df['week'] = df['date'].dt.strftime('%U')
+
+    df_fb = df[(df['Name'] == 'FB') & (df['year'].between(2015, 2017))]
+    df_fb_weekly = df_fb.groupby(['year', 'week']).agg({'high': 'max', 'low': 'min'}).reset_index()
+    df_fb_weekly['volatility'] = df_fb_weekly['high'] - df_fb_weekly['low']
+
+    fig = px.box(df_fb_weekly, x='year', y='volatility', title='Volatility of Facebook Stock Price (2015-2017) - Weekly Aggregation',
+                 labels={'volatility': 'High-Low Range', 'year': 'Year'})
+
+    return fig
+```","showing the volatility (high-low range) of Facebook’s stock price for each week over the years 2015 to 2017. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    
+    df_fb = df[(df['Name'] == 'FB') & (df['date'].dt.year.between(2015, 2017))]
+    df_fb['week'] = df_fb['date'].dt.strftime('%U-%Y')
+    
+    df_fb_weekly = df_fb.groupby('week').agg({'high': 'max', 'low': 'min'}).reset_index()
+    df_fb_weekly['volatility'] = df_fb_weekly['high'] - df_fb_weekly['low']
+    
+    fig = px.line(df_fb_weekly, x='week', y='volatility', title='Volatility of Facebook Stock Price (2015-2017) by Week')
+    
+    return fig
+```
+
+Insights:
+
+The chart shows the volatility of Facebook's stock price for each week over the years 2015 to 2017. The volatility is calculated as the difference between the highest and lowest stock prices for each week. This visualization can help in understanding the fluctuation in stock prices on a weekly basis during this period.",Code,9,1
+118,Visualization,Visualize the cumulative returns of the S&P 500 index companies over the years 2013 to 2017.,"Visualizing the cumulative returns of the S&P 500 index companies over the years 2013 to 2017 using an Area Chart with Cumulative Sum. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df = df[(df['date'].dt.year >= 2013) & (df['date'].dt.year <= 2017)]
+    
+    df_cumulative_returns = df.groupby('date')['close'].sum().pct_change().add(1).cumprod()
+    
+    fig = px.area(x=df_cumulative_returns.index, y=df_cumulative_returns.values, 
+                  title='Cumulative Returns of S&P 500 Index Companies (2013-2017)',
+                  labels={'x': 'Date', 'y': 'Cumulative Returns'})
+    
+    st.plotly_chart(fig)
+
+# Example usage:
+# plot_chart_for_stock_data(your_dataframe)
+```","Showing the visualization of the cumulative returns of the S&P 500 index companies over the years 2013 to 2017. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df = df[(df['date'].dt.year >= 2013) & (df['date'].dt.year <= 2017)]
+    
+    fig = px.line(df, x='date', y='close', color='Name', title='Cumulative Returns of S&P 500 Index Companies (2013-2017)')
+    
+    st.plotly_chart(fig)
+```
+
+Insights:
+
+The visualization shows the cumulative returns of various S&P 500 index companies over the specified years.
+Each line represents the cumulative returns of a different company, allowing for comparison and analysis of their performance over time.
+This visualization can help in identifying trends, outliers, and overall market behavior during the selected period.",Code,10,1
+119,Visualization,"Display a candlestick chart of Oracle’s stock price, along with a 50-day and 200-day moving average overlay for 2016.","Displaying the candlestick chart of Oracle’s stock price, along with a 50-day and 200-day moving average overlay for 2016. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.graph_objects as go
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    oracle_data = df[(df['Name'] == 'ORCL') & (df['date'].dt.year == 2016)]
+    
+    fig = go.Figure(data=[go.Candlestick(x=oracle_data['date'],
+                                         open=oracle_data['open'],
+                                         high=oracle_data['high'],
+                                         low=oracle_data['low'],
+                                         close=oracle_data['close'])])
+    
+    fig.add_trace(go.Scatter(x=oracle_data['date'], y=oracle_data['close'].rolling(window=50).mean(), 
+                             mode='lines', name='50-Day Moving Average'))
+    
+    fig.add_trace(go.Scatter(x=oracle_data['date'], y=oracle_data['close'].rolling(window=200).mean(), 
+                             mode='lines', name='200-Day Moving Average'))
+    
+    fig.update_layout(title='Oracle Stock Price 2016 with Moving Averages',
+                      xaxis_title='Date',
+                      yaxis_title='Price')
+    
+    st.plotly_chart(fig)
+
+# This method will display a candlestick chart of Oracle’s stock price in 2016
+# with a 50-day and 200-day moving average overlay when called with the appropriate dataframe.
+```","Displaying a candlestick chart of Oracle’s stock price, along with a 50-day and 200-day moving average overlay for 2016. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.graph_objects as go
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df = df[df['Name'] == 'ORCL']
+    df = df[df['date'].dt.year == 2016]
+
+    fig = go.Figure(data=[go.Candlestick(x=df['date'],
+                                         open=df['open'],
+                                         high=df['high'],
+                                         low=df['low'],
+                                         close=df['close'])])
+
+    fig.add_trace(go.Scatter(x=df['date'], y=df['close'].rolling(window=50).mean(), mode='lines', name='50-Day Moving Average'))
+    fig.add_trace(go.Scatter(x=df['date'], y=df['close'].rolling(window=200).mean(), mode='lines', name='200-Day Moving Average'))
+
+    fig.update_layout(title='Oracle Stock Price Candlestick Chart with Moving Averages for 2016',
+                      xaxis_title='Date',
+                      yaxis_title='Stock Price',
+                      xaxis_rangeslider_visible=False)
+
+    st.plotly_chart(fig)
+```
+
+This visualization provides a clear view of Oracle's stock price movements in 2016, along with the 50-day and 200-day moving averages overlayed for additional analysis.",Code,10,1
+120,Visualization,"Compare and show the percentage growth of the stock prices of Amazon, Netflix, and Google over the years 2015 to 2017.","showing the line chart for the percentage growth of the stock prices of Amazon, Netflix, and Google over the years 2015 to 2017. Here is the code used for visualization: 
+Here are some key insights:
+
+```python
+import pandas as pd
+import plotly.express as px
+
+# Filter data for Amazon, Netflix, and Google for years 2015 to 2017
+filtered_df = df[df['Name'].isin(['AMZN', 'NFLX', 'GOOGL']) & df['date'].between('2015-01-01', '2017-12-31')]
+
+# Calculate percentage growth of stock prices
+filtered_df['percentage_growth'] = filtered_df.groupby('Name')['close'].pct_change() * 100
+
+# Create a line chart
+fig = px.line(filtered_df, x='date', y='percentage_growth', color='Name', title='Percentage Growth of Stock Prices (2015-2017)')
+
+# Print the plot in Streamlit UI using st.plotly_chart(fig)
+# st.plotly_chart(fig)  # This line is commented out as the method is not being called here
+```
+
+The line chart shows the percentage growth of the stock prices of Amazon, Netflix, and Google over the years 2015 to 2017. Each line represents one of the three stocks, and the y-axis represents the percentage growth in stock prices. The chart helps visualize the relative performance of these stocks over the specified time period.","Showing the percentage growth of the stock prices of Amazon, Netflix, and Google over the years 2015 to 2017. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+
+# Filter the data for Amazon, Netflix, and Google for the years 2015 to 2017
+filtered_df = df[df['Name'].isin(['AMZN', 'NFLX', 'GOOGL']) & df['date'].between('2015-01-01', '2017-12-31')]
+
+# Calculate the percentage growth of stock prices over the years
+filtered_df['percentage_growth'] = ((filtered_df['close'] - filtered_df['open']) / filtered_df['open']) * 100
+
+# Plot the percentage growth using plotly
+fig = px.line(filtered_df, x='date', y='percentage_growth', color='Name', title='Percentage Growth of Stock Prices (2015-2017)')
+
+# Display the plot in streamlit UI
+st.plotly_chart(fig)
+```",Code,6,1
+121,Visualization,Show a bubble chart that compares the market capitalization (using trading volume as a proxy) of all S&P 500 companies at the end of 2017.,"showing the bubble chart that compares the market capitalization (using trading volume as a proxy) of all S&P 500 companies at the end of 2017. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+
+# Filter data for the end of 2017
+    df_end_2017 = df[df['date'].str.startswith('2017-12-31')]
+
+    # Create bubble chart using plotly
+    fig = px.scatter(df_end_2017, x='Name', y='volume', size='volume', color='Name',
+                     hover_name='Name', log_y=True, title='Market Capitalization of S&P 500 Companies at the End of 2017')
+    
+    # Display the plot in Streamlit UI
+    st.plotly_chart(fig)
+```","showing the bubble chart that compares the market capitalization of all S&P 500 companies at the end of 2017. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+
+
+def plot_chart_for_stock_data(df):
+    # Filter data for the end of 2017
+    end_of_2017_data = df[df['date'].str.startswith('2017-12-31')]
+
+    # Create bubble chart using Plotly Express
+    fig = px.scatter(end_of_2017_data, x='Name', y='volume', size='volume', color='Name',
+                     hover_name='Name', log_y=True, title='Market Capitalization of S&P 500 Companies at End of 2017')
+    
+    # Display the plot in Streamlit UI
+    st.plotly_chart(fig)
+```
+
+Insights:
+
+The bubble chart provides a visual comparison of the market capitalization of all S&P 500 companies at the end of 2017.
+Each bubble represents a company, with the size of the bubble indicating the trading volume (proxy for market capitalization).
+The color of the bubble represents the company name for easy identification.
+The chart is displayed on a logarithmic scale for better visualization of the differences in market capitalization among companies.",Code,8,1
+122,Visualization,Generate a stacked area chart showing the total trading volume of the top 5 energy companies from 2013 to 2017.,"showing the stacked area chart for the total trading volume of the top 5 energy companies from 2013 to 2017. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    energy_companies = ['XOM', 'CVX', 'COP', 'KMI', 'SLB']
+    df['date'] = pd.to_datetime(df['date'])
+    df = df[df['date'].dt.year.between(2013, 2017) & df['Name'].isin(energy_companies)]
+    
+    fig = px.area(df, x='date', y='volume', color='Name', title='Total Trading Volume of Top 5 Energy Companies (2013-2017)',
+                  labels={'date': 'Date', 'volume': 'Volume'}, category_orders={'Name': energy_companies})
+    
+    st.plotly_chart(fig)
+```
+
+The stacked area chart displays the total trading volume of the top 5 energy companies (XOM, CVX, COP, KMI, SLB) from 2013 to 2017. Each company is represented by a different color in the chart, showing their respective trading volumes over the specified time period.","showing the stacked area chart for the total trading volume of the top 5 energy companies from 2013 to 2017. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    # Filter data for the top 5 energy companies
+    top_energy_companies = df[df['Name'].isin(['XOM', 'CVX', 'COP', 'PSX', 'OXY'])]
+    
+    # Filter data for the years 2013 to 2017
+    filtered_data = top_energy_companies[top_energy_companies['date'].str[:4].astype(int).between(2013, 2017)]
+    
+    # Group data by date and sum the trading volume
+    grouped_data = filtered_data.groupby('date')['volume'].sum().reset_index()
+    
+    # Plot the stacked area chart
+    fig = px.area(grouped_data, x='date', y='volume', color='date', title='Total Trading Volume of Top 5 Energy Companies (2013-2017)',
+                  labels={'date': 'Date', 'volume': 'Total Volume'})
+    
+    st.plotly_chart(fig)
+
+# Example usage:
+# df = pd.read_csv('stock_data.csv')
+# plot_chart_for_stock_data(df)
+```
+
+Insights:
+
+The stacked area chart shows the total trading volume of the top 5 energy companies (XOM, CVX, COP, PSX, OXY) from 2013 to 2017.
+
+Key Observations:
+
+- Overall, the total trading volume fluctuates over the years, with some companies showing higher volumes in certain periods.
+- There are noticeable spikes in trading volume for specific companies, indicating potential market events or company-specific news.
+- The chart provides a visual representation of the combined trading volume trends for the top 5 energy companies, allowing for comparison and analysis of their market activity during the specified time frame.",Code,10,1
+123,Visualization,Plot the Bollinger Bands for Microsoft's stock over the last six months of year 2017.,"Bollinger Bands chart for Microsoft's stock over the last six months of year 2017 has been plotted. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.graph_objects as go
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df = df[(df['Name'] == 'MSFT') & (df['date'] >= '2017-07-01') & (df['date'] <= '2017-12-31')]
+
+    fig = go.Figure()
+
+    fig.add_trace(go.Scatter(x=df['date'], y=df['close'], mode='lines', name='Close Price'))
+
+    rolling_window = 20
+    df['rolling_mean'] = df['close'].rolling(window=rolling_window).mean()
+    df['rolling_std'] = df['close'].rolling(window=rolling_window).std()
+
+    df['upper_band'] = df['rolling_mean'] + 2 * df['rolling_std']
+    df['lower_band'] = df['rolling_mean'] - 2 * df['rolling_std']
+
+    fig.add_trace(go.Scatter(x=df['date'], y=df['upper_band'], mode='lines', line=dict(color='red'), name='Upper Bollinger Band'))
+    fig.add_trace(go.Scatter(x=df['date'], y=df['lower_band'], mode='lines', line=dict(color='green'), name='Lower Bollinger Band'))
+
+    fig.update_layout(title='Bollinger Bands for Microsoft Stock (2017 Last 6 Months)',
+                      xaxis_title='Date',
+                      yaxis_title='Price',
+                      showlegend=True)
+
+    st.plotly_chart(fig)
+
+# Example of how to call the function with a dataframe
+# plot_chart_for_stock_data(your_dataframe)
+```
+
+The Bollinger Bands chart has been successfully plotted for Microsoft's stock over the last six months of year 2017.","The Bollinger Bands for Microsoft's stock over the last six months of year 2017 have been successfully plotted. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    
+    start_date = '2017-07-01'
+    end_date = '2017-12-31'
+    
+    df = df[(df['date'] >= start_date) & (df['date'] <= end_date) & (df['Name'] == 'MSFT')]
+    
+    fig = go.Figure()
+    
+    fig.add_trace(go.Scatter(x=df['date'], y=df['close'], mode='lines', name='Close Price'))
+    
+    df['MA20'] = df['close'].rolling(window=20).mean()
+    df['stddev'] = df['close'].rolling(window=20).std()
+    df['upper_band'] = df['MA20'] + 2 * df['stddev']
+    df['lower_band'] = df['MA20'] - 2 * df['stddev']
+    
+    fig.add_trace(go.Scatter(x=df['date'], y=df['upper_band'], mode='lines', line=dict(color='red'), name='Upper Bollinger Band'))
+    fig.add_trace(go.Scatter(x=df['date'], y=df['lower_band'], mode='lines', line=dict(color='green'), name='Lower Bollinger Band'))
+    
+    fig.update_layout(title='Bollinger Bands for Microsoft Stock (Jul-Dec 2017)',
+                      xaxis_title='Date',
+                      yaxis_title='Price',
+                      showlegend=True)
+    
+    st.plotly_chart(fig)
+```
+
+The Bollinger Bands help in visualizing the volatility and potential price reversal points for Microsoft's stock during the specified time period.",Code,9,1
+124,Visualization,"Visualize the performance (open, high, low, close) of Oracle’s stock during the last month of year 2017, with different colors indicating price increase or decrease.","Visualizing the performance of Oracle's stock during the last month of year 2017 with an OHLC chart. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.graph_objects as go
+
+# Assuming df contains the preprocessed data
+fig = go.Figure(data=[
+    go.Ohlc(x=df['date'], open=df['open'], high=df['high'], low=df['low'], close=df['close'],
+            increasing_line_color='green', decreasing_line_color='red')
+])
+
+fig.update_layout(title='Oracle Stock Performance in the Last Month of 2017', xaxis_title='Date', yaxis_title='Price')
+
+fig.show()
+```
+
+The OHLC chart visually represents the open, high, low, and close prices of Oracle's stock during the specified period. Green color indicates price increase, while red color indicates price decrease.","Visualization of Oracle's stock performance during the last month of year 2017 has been completed. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.graph_objects as go
+
+# Filter data for Oracle stock in the last month of 2017
+oracle_data_last_month_2017 = oracle_data[(oracle_data['Date'] >= '2017-12-01') & (oracle_data['Date'] <= '2017-12-31')]
+
+# Create a candlestick chart with colors indicating price increase or decrease
+fig = go.Figure(data=[go.Candlestick(x=oracle_data_last_month_2017['Date'],
+                open=oracle_data_last_month_2017['Open'],
+                high=oracle_data_last_month_2017['High'],
+                low=oracle_data_last_month_2017['Low'],
+                close=oracle_data_last_month_2017['Close'],
+                increasing_line_color='green', decreasing_line_color='red')])
+
+fig.update_layout(title='Oracle Stock Performance in the Last Month of 2017', xaxis_title='Date', yaxis_title='Price')
+
+fig.show()
+```
+
+This visualization provides a clear view of Oracle's stock performance in December 2017, with green indicating price increase and red indicating price decrease.",Code,7,1
+125,Visualization,"Show a 3D surface plot of the stock prices of Apple over time, with volume influencing the height of the surface.","Showing a 3D surface plot of the stock prices of Apple over time, with volume influencing the height of the surface. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df = df[df['Name'] == 'AAPL']  # Filter data for Apple stock
+    
+    fig = px.scatter_3d(df, x='date', y='close', z='volume', color='close', size='volume',
+                        labels={'date': 'Date', 'close': 'Closing Price', 'volume': 'Volume'},
+                        title='3D Surface Plot of Apple Stock Prices Over Time')
+    
+    st.plotly_chart(fig)
+```
+
+This 3D surface plot visualizes the stock prices of Apple over time, with the height of the surface influenced by the trading volume. It provides a unique perspective on the relationship between stock prices and trading volume for Apple stock.","showing the 3D surface plot of the stock prices of Apple over time, with volume influencing the height of the surface. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    fig = px.scatter_3d(df, x='date', y='volume', z='close', color='Name', size='volume',
+                        title='3D Surface Plot of Stock Prices Over Time (Apple)',
+                        labels={'date': 'Date', 'volume': 'Volume', 'close': 'Closing Price'},
+                        hover_data={'date': True, 'volume': True, 'close': True, 'Name': True},
+                        width=1000, height=700)
+    
+    st.plotly_chart(fig)
+```
+
+This 3D surface plot provides a visual representation of how the stock prices of Apple have evolved over time, with the height of the surface influenced by the trading volume. It allows for a comprehensive view of the relationship between volume and price movements.",Code,10,1
+126,Visualization,Compare and show the daily price range (high-low) and trading volume for Oracle and Amazon using subplots for 2017.,"Subplots with daily price range (high-low) and trading volume for Oracle and Amazon in 2017 have been successfully plotted. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df['year'] = df['date'].dt.year
+    
+    df_selected = df[(df['Name'].isin(['ORCL', 'AMZN'])) & (df['year'] == 2017)]
+    
+    fig = px.line(df_selected, x='date', y='high', color='Name', title='Daily High Price Comparison for Oracle and Amazon in 2017')
+    fig.add_scatter(x=df_selected['date'], y=df_selected['low'], mode='lines', name='Low', line=dict(dash='dash'))
+    
+    fig2 = px.line(df_selected, x='date', y='volume', color='Name', title='Trading Volume Comparison for Oracle and Amazon in 2017')
+    
+    st.plotly_chart(fig)
+    st.plotly_chart(fig2)
+
+# Example usage:
+# plot_chart_for_stock_data(your_dataframe)
+```
+
+The visualization provides a clear comparison of the daily high and low prices as well as the trading volume for Oracle and Amazon in 2017. Each subplot highlights the differences and trends between the two stocks.","showing the subplots comparing the daily price range (high-low) and trading volume for Oracle and Amazon for the year 2017. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    # Filter data for Oracle and Amazon for the year 2017
+    df_filtered = df[(df['Name'].isin(['ORCL', 'AMZN'])) & (df['date'].str.startswith('2017'))]
+
+    # Create subplots comparing daily price range (high-low) and trading volume
+    fig = px.line(df_filtered, x='date', y='high', color='Name', title='Daily High Prices for Oracle and Amazon in 2017')
+    fig.add_scatter(x=df_filtered['date'], y=df_filtered['low'], mode='lines', name='Low', line=dict(dash='dash'))
+    
+    fig2 = px.line(df_filtered, x='date', y='volume', color='Name', title='Trading Volume for Oracle and Amazon in 2017')
+    
+    # Display the plots in Streamlit UI
+    st.plotly_chart(fig)
+    st.plotly_chart(fig2)
+
+# This method should be called by another entity with the required dataframe as argument
+```",Code,9,1
+127,Visualization,Generate a Plotly line chart for the closing price over time for all stocks.,"showing the line chart for the closing price over time for all stocks. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    fig = px.line(df, x='date', y='close', color='Name', title='Closing Price Over Time for All Stocks')
+    st.plotly_chart(fig)
+```
+
+This line chart displays the closing price trends over time for multiple stocks, allowing for easy comparison and analysis of stock performance.","showing the line chart for the closing price over time for all stocks. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    fig = px.line(df, x='date', y='close', color='Name', title='Closing Price Over Time for All Stocks')
+    st.plotly_chart(fig)
+```
+
+The line chart displays the closing price trends over time for all stocks included in the dataset. Each stock is represented by a different color, allowing for easy comparison of price movements.",Code,7,1
+128,Visualization,"Create a Plotly candlestick chart for stock prices using the ‘open’, ‘high’, ‘low’, and ‘close’ values for all stocks.","The candlestick chart for stock prices has been successfully created using the 'open', 'high', 'low', and 'close' values for all stocks. Here is the code used for visualization:
+
+```python
+import plotly.graph_objects as go
+import pandas as pd
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    fig = go.Figure(data=[go.Candlestick(x=df['date'],
+                                         open=df['open'],
+                                         high=df['high'],
+                                         low=df['low'],
+                                         close=df['close'])])
+
+    fig.update_layout(title='Stock Prices Candlestick Chart',
+                      xaxis_title='Date',
+                      yaxis_title='Price')
+
+    st.plotly_chart(fig)
+```
+
+The candlestick chart provides a visual representation of the stock prices, showing the open, high, low, and close values over time for all stocks.","showing the Plotly candlestick chart for stock prices using the ‘open’, ‘high’, ‘low’, and ‘close’ values for all stocks. Here is the code used for visualization:
+
+```python
+import plotly.graph_objects as go
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    fig = go.Figure(data=[go.Candlestick(x=df['date'],
+                                         open=df['open'],
+                                         high=df['high'],
+                                         low=df['low'],
+                                         close=df['close'])])
+
+    fig.update_layout(title='Stock Prices Candlestick Chart',
+                      xaxis_title='Date',
+                      yaxis_title='Price')
+
+    st.plotly_chart(fig)
+```
+
+This candlestick chart provides a visual representation of the stock prices, showing the open, high, low, and close values for all stocks over the specified time period.",Code,9,1
+129,Visualization,Show a Plotly MACD and signal line chart for all stocks using the closing prices.,"Showing the Plotly MACD and signal line chart for all stocks using the closing prices. Here is the code used for visualization:
+
+```python
+import plotly.express as px
+import plotly.graph_objects as go
+import pandas as pd
+import numpy as np
+
+def plot_chart_for_stock_data(df):
+    df['EMA_12'] = df.groupby('Name')['close'].transform(lambda x: x.ewm(span=12, adjust=False).mean())
+    df['EMA_26'] = df.groupby('Name')['close'].transform(lambda x: x.ewm(span=26, adjust=False).mean())
+    
+    df['MACD'] = df['EMA_12'] - df['EMA_26']
+    df['Signal_Line'] = df.groupby('Name')['MACD'].transform(lambda x: x.ewm(span=9, adjust=False).mean())
+    
+    fig = go.Figure()
+    
+    for stock_name, group in df.groupby('Name'):
+        fig.add_trace(go.Scatter(x=group['date'], y=group['MACD'], mode='lines', name=f'{stock_name} MACD'))
+        fig.add_trace(go.Scatter(x=group['date'], y=group['Signal_Line'], mode='lines', name=f'{stock_name} Signal Line'))
+    
+    fig.update_layout(title='MACD and Signal Line for All Stocks', xaxis_title='Date', yaxis_title='Value')
+    
+    st.plotly_chart(fig)
+```
+
+This chart will provide insights into the MACD and signal line for each stock based on their closing prices.","Showing the MACD and signal line chart for all stocks using the closing prices. Here is the code used for visualization:
+
+```python
+import plotly.express as px
+import plotly.graph_objects as go
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    fig = go.Figure()
+
+    for stock_name in df['Name'].unique():
+        stock_df = df[df['Name'] == stock_name]
+
+        exp12 = stock_df['close'].ewm(span=12, adjust=False).mean()
+        exp26 = stock_df['close'].ewm(span=26, adjust=False).mean()
+
+        macd = exp12 - exp26
+        signal = macd.ewm(span=9, adjust=False).mean()
+
+        fig.add_trace(go.Scatter(x=stock_df['date'], y=macd, mode='lines', name=f'{stock_name} MACD'))
+        fig.add_trace(go.Scatter(x=stock_df['date'], y=signal, mode='lines', name=f'{stock_name} Signal'))
+
+    fig.update_layout(title='MACD and Signal Line Chart for All Stocks',
+                      xaxis_title='Date',
+                      yaxis_title='Price',
+                      legend_title='Stocks')
+
+    st.plotly_chart(fig)
+```
+
+This chart displays the MACD and signal line for all stocks based on their closing prices. Each stock's MACD and signal line are plotted over time, providing insights into their price movements and trends.",Code,10,1
+130,Visualization,Show a Plotly pie chart of the total volume traded for the top 10 stocks over the years 2013 to 2017.,"showing the pie chart of the total volume traded for the top 10 stocks over the years 2013 to 2017. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+
+def plot_chart_for_stock_data(df):
+    df['year'] = pd.to_datetime(df['date']).dt.year
+    top_stocks = df[df['year'].between(2013, 2017)].groupby('Name')['volume'].sum().nlargest(10)
+    
+    fig = px.pie(values=top_stocks.values, names=top_stocks.index, title='Total Volume Traded for Top 10 Stocks (2013-2017)')
+    
+    return fig
+```
+
+This pie chart visualizes the total volume traded for the top 10 stocks over the specified years, providing a clear overview of the most traded stocks during that period.","Showing the Plotly pie chart of the total volume traded for the top 10 stocks over the years 2013 to 2017. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+
+# Filter data for the years 2013 to 2017
+filtered_df = df[(df['year'] >= 2013) & (df['year'] <= 2017)]
+
+# Group by stock and calculate total volume traded
+top_stocks = filtered_df.groupby('Name')['volume'].sum().nlargest(10)
+
+# Create a pie chart
+fig = px.pie(values=top_stocks.values, names=top_stocks.index, title='Total Volume Traded for Top 10 Stocks (2013-2017)')
+
+# Display the chart in Streamlit UI
+st.plotly_chart(fig)
+```",Code,5,1
+131,Visualization,Plot a Plotly heatmap showing the correlation between the closing prices of all 500 stocks in the dataset.,"showing the heatmap displaying the correlation between the closing prices of all 500 stocks in the dataset. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    corr = df.pivot_table(index='Name', columns='date', values='close').corr()
+    
+    fig = px.imshow(corr, x=corr.index, y=corr.columns, color_continuous_scale='Viridis')
+    fig.update_layout(title='Correlation Heatmap of Closing Prices for 500 Stocks')
+    
+    st.plotly_chart(fig)
+```
+
+This heatmap provides a visual representation of how the closing prices of different stocks are correlated with each other. Darker colors indicate stronger correlations, while lighter colors indicate weaker correlations.","showing the Plotly heatmap displaying the correlation between the closing prices of all 500 stocks in the dataset. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    corr_matrix = df.pivot_table(index='Name', columns='date', values='close').corr()
+    
+    fig = px.imshow(corr_matrix, x=corr_matrix.index, y=corr_matrix.columns, color_continuous_scale='Viridis')
+    fig.update_layout(title='Correlation Heatmap of Closing Prices for 500 Stocks')
+    
+    st.plotly_chart(fig)
+```
+
+The heatmap provides a visual representation of the correlation between the closing prices of all 500 stocks in the dataset. This can help identify any patterns or relationships between the stock prices.",Code,7,1
+132,Visualization,Generate a Plotly box plot showing the distribution of closing prices for all stocks over the years 2013 to 2017.,"showing the box plot for the distribution of closing prices for all stocks over the years 2013 to 2017. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df['year'] = df['date'].dt.year
+    filtered_df = df[(df['year'] >= 2013) & (df['year'] <= 2017)]
+    
+    fig = px.box(filtered_df, x='year', y='close', title='Distribution of Closing Prices for Stocks (2013-2017)')
+    
+    return fig
+```
+
+This box plot visualizes the distribution of closing prices for all stocks over the specified years, providing insights into the variability and trends in stock prices during that period.","showing the box plot for the distribution of closing prices for all stocks over the years 2013 to 2017. Here is the code used for visualization: 
+```python
+import pandas as pd
+import plotly.express as px
+
+def plot_chart_for_stock_data(df):
+    df['year'] = pd.to_datetime(df['date']).dt.year
+    filtered_df = df[(df['year'] >= 2013) & (df['year'] <= 2017)]
+    
+    fig = px.box(filtered_df, x='year', y='close', title='Distribution of Closing Prices for Stocks (2013-2017)')
+    
+    return fig
+```
+",Code,8,1
+133,Visualization,Generate a Plotly bar chart showing the total trading volume over the years 2013 to 2017 for each stock.,"showing the bar chart for the total trading volume over the years 2013 to 2017 for each stock. Here is the code used for visualization: 
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_chart_for_stock_data(df):
+    df['year'] = pd.to_datetime(df['date']).dt.year
+    filtered_df = df[(df['year'] >= 2013) & (df['year'] <= 2017)]
+    
+    fig = px.bar(filtered_df, x='year', y='volume', color='Name', title='Total Trading Volume (2013-2017) by Stock')
+    
+    st.plotly_chart(fig)
+```
+
+This bar chart visualizes the total trading volume for each stock over the specified five-year period, providing insights into the trading activity across different stocks.","showing the Plotly bar chart displaying the total trading volume over the years 2013 to 2017 for each stock. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+
+def plot_chart_for_stock_data(df):
+    df['date'] = pd.to_datetime(df['date'])
+    df['year'] = df['date'].dt.year
+    filtered_df = df[(df['year'] >= 2013) & (df['year'] <= 2017)]
+    
+    fig = px.bar(filtered_df, x='year', y='volume', color='Name', 
+                 title='Total Trading Volume Over the Years 2013 to 2017 for Each Stock',
+                 labels={'year': 'Year', 'volume': 'Total Volume', 'Name': 'Stock'})
+    
+    return fig
+```
+
+The bar chart shows the total trading volume for each stock over the specified years, allowing for easy comparison and analysis of trading activity.",Code,10,1
+134,Visualization,Plot a Plotly histogram showing the distribution of closing prices for all stocks.,"showing the histogram for the distribution of closing prices for all stocks. Here is the code used for visualization: 
+
+```python
+import plotly.express as px
+import pandas as pd
+
+
+
+def plot_chart_for_stock_data(df):
+    fig = px.histogram(df, x='close', title='Distribution of Closing Prices for All Stocks')
+    st.plotly_chart(fig)
+```","showing the histogram for the distribution of closing prices for all stocks. Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.express as px
+import streamlit as st
+
+def plot_histogram_for_closing_prices(df):
+    fig = px.histogram(df, x='Close', title='Distribution of Closing Prices for All Stocks')
+    st.plotly_chart(fig)
+```
+
+Insights:
+
+The histogram shows the distribution of closing prices for all stocks in the dataset.
+There is a wide range of closing prices, indicating varying levels of valuation across different stocks.
+Some stocks have higher closing prices, while others have lower closing prices, reflecting the diversity in the stock market.
+Overall, the histogram provides a visual representation of the distribution of closing prices, allowing for easy comparison and analysis.",Code,9,1
+135,Visualization,Create a Plotly scatter plot comparing the closing price and trading volume for all stocks.,"The scatter plot comparing the closing price and trading volume for all stocks has been successfully created. Here is the code used for visualization:
+
+```python
+import plotly.express as px
+import pandas as pd
+
+def plot_chart_for_stock_data(data):
+    fig = px.scatter(data, x='close', y='volume', color='Name', title='Closing Price vs Trading Volume for All Stocks')
+    st.plotly_chart(fig)
+```
+
+This visualization helps in understanding the relationship between the closing price and trading volume for all 500 stocks.","The scatter plot comparing the closing price and trading volume for all stocks has been successfully created. Here is the code used for visualization:
+
+```python
+import plotly.express as px
+import pandas as pd
+
+# Function to plot scatter plot for stock data
+
+def plot_chart_for_stock_data(df):
+    fig = px.scatter(df, x='close', y='volume', color='Name', title='Closing Price vs Trading Volume for All Stocks')
+    st.plotly_chart(fig)
+```",Code,8,1
+136,Visualization,Generate a Plotly chart showing the Bollinger Bands for all stocks using their closing prices.,"showing the Plotly chart with Bollinger Bands for all stocks using their closing prices.
+                                       Here is the code used for visualization:
+
+```python
+import pandas as pd
+import plotly.graph_objects as go
+import streamlit as st
+
+# Function to plot Bollinger Bands for all stocks
+
+def plot_chart_for_stock_data(df):
+    # Calculate Bollinger Bands for each stock
+    df['20 Day MA'] = df['close'].rolling(window=20).mean()
+    df['20 Day STD'] = df['close'].rolling(window=20).std()
+    df['Upper Band'] = df['20 Day MA'] + (df['20 Day STD'] * 2)
+    df['Lower Band'] = df['20 Day MA'] - (df['20 Day STD'] * 2)
+    
+    fig = go.Figure()
+    
+    # Plot Bollinger Bands for each stock
+    for stock_name in df['Name'].unique():
+        stock_df = df[df['Name'] == stock_name]
+        fig.add_trace(go.Scatter(x=stock_df['date'], y=stock_df['close'], mode='lines', name=stock_name))
+        fig.add_trace(go.Scatter(x=stock_df['date'], y=stock_df['Upper Band'], mode='lines', line=dict(color='red'), name='Upper Band'))
+        fig.add_trace(go.Scatter(x=stock_df['date'], y=stock_df['Lower Band'], mode='lines', line=dict(color='green'), name='Lower Band'))
+    
+    fig.update_layout(title='Bollinger Bands for All Stocks', xaxis_title='Date', yaxis_title='Price')
+    
+    st.plotly_chart(fig)
+
+# This method will generate a Plotly chart showing the Bollinger Bands for all stocks using their closing prices.
+# It will display the volatility over time for each stock.
+```","showing the Bollinger Bands for all stocks using their closing prices. Here is the code used for visualization:
+
+```python
+import plotly.express as px
+import plotly.graph_objects as go
+
+def plot_chart_for_stock_data(df):
+    df['20 Day MA'] = df['close'].rolling(window=20).mean()
+    df['20 Day STD'] = df['close'].rolling(window=20).std()
+    df['Upper Band'] = df['20 Day MA'] + (df['20 Day STD'] * 2)
+    df['Lower Band'] = df['20 Day MA'] - (df['20 Day STD'] * 2)
+
+    fig = go.Figure()
+    for stock_name in df['Name'].unique():
+        stock_df = df[df['Name'] == stock_name]
+        fig.add_trace(go.Scatter(x=stock_df['date'], y=stock_df['close'], mode='lines', name=stock_name))
+        fig.add_trace(go.Scatter(x=stock_df['date'], y=stock_df['Upper Band'], mode='lines', line=dict(dash='dash'), name=f'{stock_name} Upper Band'))
+        fig.add_trace(go.Scatter(x=stock_df['date'], y=stock_df['Lower Band'], mode='lines', line=dict(dash='dash'), name=f'{stock_name} Lower Band'))
+
+    fig.update_layout(title='Bollinger Bands for All Stocks', xaxis_title='Date', yaxis_title='Price')
+    st.plotly_chart(fig)
+```
+
+This visualization shows the Bollinger Bands for all stocks based on their closing prices. Each stock's closing price is plotted along with the upper and lower Bollinger Bands, indicating potential price volatility and trading signals.",Code,10,1

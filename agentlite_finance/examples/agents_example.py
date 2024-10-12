@@ -39,7 +39,11 @@ class AgentsExample:
         those examples should cover all those api calls
         """
         # An example of visualisation Agent task
-        task = "Generate a bar chart showing the total trading volume over the last five years for AAL stock."
+        task = """Generate a bar chart showing the total trading volume over the last five years for AAL stock.
+                  Show a bar chart of the total trading volume over the last five years for AAL stock.
+                  Display a bar chart of the total trading volume over the last five years for AAL stock.
+                  Plot a bar chart of the total trading volume over the last five years for AAL stock.
+                """
 
         act_params = {"query": task}
         act_1 = AgentAct(name=CodeGenerationAction().action_name, params=act_params)
@@ -76,7 +80,7 @@ class AgentsExample:
         those examples should cover all those api calls
         """
         # An example of visualisation Agent task
-        task = "share insights for AAL stock."
+        task = "share insights for AAL stock. analyse AAL stock. summarize AAL stock"
 
         # 1. GenericInsights action
         act_1 = AgentAct(name=GenericInsightsAction().action_name, params={"query": task})

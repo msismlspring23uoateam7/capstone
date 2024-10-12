@@ -16,6 +16,10 @@ from agentlite.llm.LLMConfig import LLMConfig
 from agentlite_finance.examples.agents_example import AgentsExample
 from agentlite_finance.examples.manager_example import ManagerExample
 from agentlite_finance.memory.shared_memory import SharedMemory
+from agentlite_finance.agents.data_agent import DataAgent
+from agentlite_finance.agents.generic_agent import GenericAgent
+from agentlite_finance.agents.visualization_agent import VisualizationAgent
+from agentlite_finance.manager.finance_data_manager import FinanceDataManagerAgent
 from agentlite_finance.memory.memory_keys import FILE
 logging.basicConfig(level=logging.DEBUG)
 
@@ -44,7 +48,7 @@ def main():
         file_handler_action = FileHandlerAction(shared_mem)
         preprocessing_action = PreprocessingAction(shared_mem)
 
-        from agentlite_finance.agents.data_agent import DataAgent
+        
         data_agent = DataAgent(
             llm=llm,
             actions=[file_handler_action, preprocessing_action],
@@ -54,7 +58,7 @@ def main():
         
         codegeneration_action = CodeGenerationAction(shared_mem)
         plotting_action = PlottingAction(shared_mem)
-        from agentlite_finance.agents.visualization_agent import VisualizationAgent
+        
         visualization_agent = VisualizationAgent(
             llm=llm,
             actions=[codegeneration_action, plotting_action],
@@ -63,7 +67,6 @@ def main():
             )
         
         generic_insights_action = GenericInsightsAction(shared_mem)
-        from agentlite_finance.agents.generic_agent import GenericAgent
         generic_agent = GenericAgent(
             llm=llm,
             actions=[generic_insights_action],
@@ -79,7 +82,6 @@ def main():
         generic_agent.add_example(task=example_task3, action_chain=act_chain3)
 
         # Manager agent
-        from agentlite_finance.manager.finance_data_manager import FinanceDataManagerAgent
         finance_data_manager = FinanceDataManagerAgent(
             llm=llm,
             team=[

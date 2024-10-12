@@ -17,7 +17,11 @@ class ManagerExample:
         those examples should cover all those api calls
         """
         # An example of Financial Data Manager Agent task
-        task = "Generate a bar chart showing the total trading volume over the last five years for AAL stock."
+        task = """Generate a bar chart showing the total trading volume over the last five years for AAL stock.
+                  Show a bar chart of the total trading volume over the last five years for AAL stock.
+                  Display a bar chart of the total trading volume over the last five years for AAL stock.
+                  Plot a bar chart of the total trading volume over the last five years for AAL stock.
+                """
 
         act_1 = AgentAct(
             name=DataAgent().name,
@@ -57,7 +61,7 @@ class ManagerExample:
         those examples should cover all those api calls
         """
         # An example of Financial Data Manager Agent task
-        task = "summarize the AAL stock."
+        task = "share insights for AAL stock. summarize the AAL stock. analyse AAL stock"
 
         act_1 = AgentAct(
             name=DataAgent().name,
