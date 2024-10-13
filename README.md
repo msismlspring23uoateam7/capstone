@@ -46,4 +46,9 @@ Requirements
 
 
 
-** Installation**
+** Installation and Execution**
+
+	•	pip install -e agentlite
+	•	pip install -r requirements.txt
+	•	export OPENAI_API_KEY=<INSERT YOUR OpenAI API KEY HERE>
+	•	streamlit run agentlite_finance/streamlit_app.py
