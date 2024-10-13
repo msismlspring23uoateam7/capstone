@@ -8,7 +8,7 @@ from agentlite.actions import BaseAction
 from agentlite_finance.memory.memory_keys import DATA_FRAME, DATA_SUMMARY
 from agentlite_finance.memory.memory_keys import CODE
 
-client = OpenAI(api_key="sk-Vo7jCT5lrwMyJ1YeqpzmYvDaS9sYF4Xt_BPLSaiOywT3BlbkFJVP2JXFoP36HSMWqWluMD88AkB7t0KHJ8j-FM0BUngA")
+client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 
 class CodeGenerationAction(BaseAction):
 

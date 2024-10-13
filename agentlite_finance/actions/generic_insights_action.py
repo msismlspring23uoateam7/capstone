@@ -1,3 +1,4 @@
+import os
 from llama_index.core.query_pipeline import (
     QueryPipeline as QP,
     Link,
@@ -69,7 +70,7 @@ class GenericInsightsAction(BaseAction):
         response_synthesis_prompt = PromptTemplate(synthesis_template)
         llm = OpenAI(
                 model="gpt-3.5-turbo",
-                api_key="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"
+                api_key=os.getenv('OPENAI_API_KEY')
             )
         qp = QP(
             modules={
