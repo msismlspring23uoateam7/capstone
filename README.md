@@ -1,6 +1,6 @@
 AgentLite POC - Capstone Project
 
-This repository contains the proof of concept (POC) implementation for AgentLite, a fraud detection system that leverages advanced machine learning techniques and large language models (LLMs) for detecting anomalies in credit card transactions. This project demonstrates how AI agents can interact, process data, generate insights, and provide visualizations through a streamlined workflow.
+This repository contains the proof of concept (POC) implementation for Finance AgentLite, a stock analysis system that leverages advanced machine learning techniques and large language models (LLMs) for visualisations and insights. This project demonstrates how AI agents can interact, process data, generate insights, and provide visualizations through a streamlined workflow.
 
 Table of Contents
 
@@ -19,7 +19,7 @@ Table of Contents
 
 Project Overview
 
-The AgentLite POC project aims to build an intelligent framework that can automatically detect fraudulent transactions in credit card datasets. The system performs data preprocessing, provides insights from LLMs, and generates interactive visualizations based on user inputs.
+The AgentLite POC project aims to build an intelligent framework that can share insights of the stock datasets using prompts. The system performs data preprocessing, provides insights from LLMs, and generates interactive visualizations based on user inputs.
 
 The key components are:
 
@@ -30,7 +30,7 @@ The key components are:
 
 Features
 
-	•	Automatic data preprocessing for fraud detection
+	•	Automatic data preprocessing for stock data
 	•	Generation of insights using LLMs (OpenAI API)
 	•	Interactive data visualizations
 	•	Support for custom visualizations based on user input
